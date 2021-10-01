@@ -1,11 +1,13 @@
 [avans]
 artemis@midgard.bioinformatics-atgm.nl
 bioinf_team@galaxy.bioinformatics-atgm.nl
+spider_galaxy@galaxy.bioinformatics-atgm.nl
 thor@asgard.bioinformatics-atgm.nl
 godzilla@7kingdoms.bioinformatics-atgm.nl
 
 [galaxyservers]
 galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
+galaxy.bioinformatics-atgm.nl ansible_user=spider_galaxy
 
 [monitoring]
 galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
