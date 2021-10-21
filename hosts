@@ -17,3 +17,6 @@ cocalc.bioinformatics-atgm.nl ansible_user=ubuntu ansible_ssh_private_key_file=~
 asgard.bioinformatics-atgm.nl ansible_user=thor
 midgard.bioinformatics-atgm.nl ansible_user=artemis
 7kingdoms.bioinformatics-atgm.nl ansible_user=godzilla
+
+[localhost]
+localhost ansible_connection=local
