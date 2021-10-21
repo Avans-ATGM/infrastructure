@@ -1,5 +1,5 @@
 ---
-- hosts: galaxyservers
+- hosts: avanstestgalaxy
   become: true
   become_user: root
   vars_files:
@@ -11,20 +11,6 @@
     - name: Install Dependencies
       package:
         name: ['acl', 'bzip2', 'git', 'make', 'python3-psycopg2', 'tar', 'virtualenv', 'cgroup-tools', 'libldap2-dev', 'libsasl2-dev']
-    - name: Create the mount directory
-      file:
-        path: /mount
-        state: directory
-        mode: 0755
-    - name: Mount sda, sdb
-      ansible.posix.mount:
-        path: "/mount/{{ item }}"
-        src: "/dev/{{ item }}"
-        fstype: ext4
-        state: mounted
-      with_items:
-        - sda
-        - sdb
   handlers:
     - name: Restart Galaxy
       systemd:
@@ -33,24 +19,18 @@
   roles:
     - avans
     - jnv.unattended-upgrades
-    - ansible-htcondor
-    - geerlingguy.nfs
     - galaxyproject.postgresql
     - role: natefoo.postgresql_objects
       become: true
       become_user: postgres
     - geerlingguy.pip
-    - gantsign.golang
-    #- cyverse-ansible.singularity
     - galaxyproject.galaxy
     - role: uchida.miniconda
       become: true
       become_user: "{{ galaxy_user.name }}"
     - usegalaxy_eu.galaxy_systemd
     - usegalaxy_eu.gxadmin
-    - hxr.monitor-cluster
     - galaxyproject.nginx
     - galaxyproject.cvmfs
     - influxdata.chrony
     - dj-wasabi.telegraf
-    - usegalaxy_eu.tiaas2

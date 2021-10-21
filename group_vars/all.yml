@@ -39,6 +39,7 @@ unattended_origins_patterns:
   - 'o=Ubuntu,a=${distro_codename}'
   - 'o=Ubuntu,a=${distro_codename}-updates'
   - 'o=Ubuntu,a=${distro_codename}-proposed-updates'
+unattended_only_on_ac_power: true
 
 # HTCondor
 condor_host: "galaxy.bioinformatics-atgm.nl"
