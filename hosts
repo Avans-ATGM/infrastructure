@@ -6,6 +6,8 @@ godzilla@7kingdoms.bioinformatics-atgm.nl
 
 [galaxyservers]
 galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
+
+[avanstestgalaxy]
 145.48.6.40 ansible_user=atgm-user
 
 [monitoring]
