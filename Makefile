@@ -14,8 +14,8 @@ agoge:
 	ansible-playbook agoge.yml --diff
 
 cocalc:
-	bash bin/clean-deps.sh
-	ansible-galaxy install -p roles -r requirements.yml
+	#bash bin/clean-deps.sh
+	#ansible-galaxy install -p roles -r requirements.yml
 	ansible-playbook cocalc.yml --diff
 
 monitor:

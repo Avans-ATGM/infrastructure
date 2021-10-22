@@ -32,7 +32,6 @@
         state: restarted
   roles:
     - avans
-    - jnv.unattended-upgrades
     - ansible-htcondor
     - geerlingguy.nfs
     - galaxyproject.postgresql

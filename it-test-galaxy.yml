@@ -19,7 +19,6 @@
         state: restarted
   roles:
     - avans
-    - jnv.unattended-upgrades
     - galaxyproject.postgresql
     - role: natefoo.postgresql_objects
       become: true
