@@ -8,7 +8,7 @@ godzilla@7kingdoms.bioinformatics-atgm.nl
 galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 
 [avanstestgalaxy]
-145.48.6.40 ansible_user=atgm-user
+145.48.6.40 ansible_user=atgm-user ansible_ssh_private_key_file=~/.ssh/keys/id_rsa_jenkins@galaxy.bioinformatics-atgm.nl
 
 [monitoring]
 galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
