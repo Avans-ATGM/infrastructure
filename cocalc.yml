@@ -25,6 +25,8 @@
         image: sagemathinc/cocalc
         state: started
         volumes:
-        - /home/ubuntu/cocalc:/projects
+        - "{{ data_dir }}":/projects
+        environment:
+            COCALC_NO_IDLE_TIMEOUT: "yes"
         ports:
         - 8443:443
