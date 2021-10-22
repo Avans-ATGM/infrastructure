@@ -1,3 +1,3 @@
 nginx_ssl_servers:
   - cocalc
-data_dir: /home/ubuntu/cocalc
+cocalc_data_dir: /home/ubuntu/cocalc

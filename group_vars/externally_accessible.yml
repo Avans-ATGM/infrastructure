@@ -15,8 +15,6 @@ certbot_domains:
  - "{{ inventory_hostname }}"
 certbot_agree_tos: --agree-tos
 
-nginx_servers:
-  - redirect-ssl
 
 nginx_ssl_role: usegalaxy_eu.certbot
 nginx_conf_ssl_certificate: /etc/ssl/certs/fullchain.pem

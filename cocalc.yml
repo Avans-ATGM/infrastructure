@@ -25,8 +25,8 @@
         image: sagemathinc/cocalc
         state: started
         volumes:
-        - "{{ data_dir }}":/projects
-        environment:
+        - "{{ cocalc_data_dir }}:/projects"
+        env:
             COCALC_NO_IDLE_TIMEOUT: "yes"
         ports:
         - 8443:443
