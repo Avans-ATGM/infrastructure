@@ -19,16 +19,6 @@
     - influxdata.chrony
     - dj-wasabi.telegraf
   post_tasks:
-    - name: Update repos
-      apt:
-        update_cache: yes
-        cache_valid_time: 900
-
-    - name: Upgrade packages
-      apt:
-        upgrade: yes
-        autoremove: yes
-
     - name: Cocalc
       docker_container:
         name: cocalc

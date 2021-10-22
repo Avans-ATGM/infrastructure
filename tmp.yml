@@ -1,0 +1,7 @@
+---
+- name: Servers
+  hosts: localhost
+  become: true
+  become_user: root
+  roles:
+    - galaxyproject.cvmfs

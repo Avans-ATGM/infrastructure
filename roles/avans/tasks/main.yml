@@ -48,3 +48,21 @@
   with_items:
     - atop
     - atd
+
+- name: Create the mount directory
+  file:
+    path: /mount
+    state: directory
+    mode: 0755
+  when: "'galaxy.bioinformatics-atgm.nl' in inventory_hostname"
+
+- name: Mount sda, sdb
+  ansible.posix.mount:
+    path: "/mount/{{ item }}"
+    src: "/dev/{{ item }}"
+    fstype: ext4
+    state: mounted
+  with_items:
+    - sda
+    - sdb
+  when: "'galaxy.bioinformatics-atgm.nl' in inventory_hostname"

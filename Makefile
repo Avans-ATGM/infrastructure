@@ -1,6 +1,6 @@
 gx:
-	bash bin/clean-deps.sh
-	ansible-galaxy install -p roles -r requirements.yml
+	#bash bin/clean-deps.sh
+	#ansible-galaxy install -p roles -r requirements.yml
 	ansible-playbook galaxy.yml --diff --extra-vars "__galaxy_dir_perms='0755' os_env_umask='022'"
 
 it-test-galaxy:
