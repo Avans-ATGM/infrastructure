@@ -306,6 +306,7 @@ monitor_condor_split_util: true
 tiaas_dir: /srv/tiaas
 tiaas_user: tiaas
 tiaas_group: tiaas
+tiaas_version: main
 tiaas_admin_user: admin
 tiaas_admin_pass: "{{ secret_tiaas_admin_pw }}"
 
