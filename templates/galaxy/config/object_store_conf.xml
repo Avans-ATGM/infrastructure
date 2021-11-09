@@ -7,14 +7,14 @@
             <extra_dir type="job_work" path="/data/jobs"/>
         </backend>
         <backend id="files2" type="disk" weight="1" store_by="uuid">
-			<files_dir path="/mount/sda/galaxy/"/>
-            <extra_dir type="temp" path="/mount/sda/galaxy/tmp"/>
-            <extra_dir type="job_work" path="/mount/sda/galaxy/jobs"/>
+			<files_dir path="//mount/sda/galaxy/"/>
+            <extra_dir type="temp" path="//mount/sda/galaxy/tmp"/>
+            <extra_dir type="job_work" path="//mount/sda/galaxy/jobs"/>
         </backend>
         <backend id="files3" type="disk" weight="1" store_by="uuid">
-			<files_dir path="/mount/sdb/galaxy/"/>
-            <extra_dir type="temp" path="/mount/sdb/galaxy/tmp"/>
-            <extra_dir type="job_work" path="/mount/sdb/galaxy/jobs"/>
+			<files_dir path="//mount/sdb/galaxy/"/>
+            <extra_dir type="temp" path="//mount/sdb/galaxy/tmp"/>
+            <extra_dir type="job_work" path="//mount/sdb/galaxy/jobs"/>
         </backend>
     </backends>
 </object_store>
