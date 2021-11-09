@@ -11,6 +11,15 @@
     - name: Install Dependencies
       package:
         name: ['acl', 'bzip2', 'git', 'make', 'python3-psycopg2', 'tar', 'virtualenv', 'cgroup-tools', 'libldap2-dev', 'libsasl2-dev']
+    - name: Create the second storage directory
+      file:
+        owner: galaxy
+        group: galaxy
+        path: /mount
+        state: directory
+        mode: '0755'
+  
+  
   handlers:
     - name: Restart Galaxy
       systemd:
