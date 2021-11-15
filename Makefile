@@ -23,7 +23,7 @@ monitor:
 	ansible-galaxy install -p roles -r requirements.yml
 	ansible-playbook monitoring.yml --diff
 	
-spidergalaxy
+spidergalaxy:
 	#bash bin/clean-deps.sh
 	ansible-galaxy install -p roles -r requirements.yml
 	ansible-playbook spidergalaxy.yml --diff --extra-vars "__galaxy_dir_perms='0755' os_env_umask='022'"
