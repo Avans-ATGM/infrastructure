@@ -48,7 +48,6 @@
     - usegalaxy_eu.galaxy_systemd
     - usegalaxy_eu.gxadmin
     - hxr.monitor-cluster
-    - galaxyproject.nginx
     - galaxyproject.cvmfs
     - influxdata.chrony
     - dj-wasabi.telegraf
