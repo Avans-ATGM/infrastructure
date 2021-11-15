@@ -20,6 +20,10 @@ galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 145.48.6.41 ansible_user=atgm-user
 145.48.6.40 ansible_user=atgm-user
 
+[spider_galaxy]
+galaxy.bioinformatics-atgm.nl ansible_user=spider_galaxy http_port=303
+
+
 
 [monitoring]
 galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
