@@ -8,7 +8,6 @@ pip_package: python3-pip                               # geerlingguy.pip
 postgresql_objects_users:
   - name: galaxy
   - name: telegraf
-  - name: tiaas
 postgresql_objects_databases:
   - name: galaxy
     owner: galaxy
@@ -17,21 +16,7 @@ postgresql_objects_privileges:
     roles: telegraf
     privs: SELECT
     objs: ALL_IN_SCHEMA
-  - database: galaxy
-    roles: tiaas
-    objs: galaxy_user,galaxy_session,job,history,workflow,workflow_invocation
-    type: table
-    privs: SELECT
-  - database: galaxy
-    roles: tiaas
-    objs: user_group_association,galaxy_group,role,group_role_association
-    type: table
-    privs: SELECT,INSERT
-  - database: galaxy
-    roles: tiaas
-    objs: role_id_seq,galaxy_group_id_seq,group_role_association_id_seq,user_group_association_id_seq
-    type: sequence
-    privs: USAGE,SELECT
+
 
 # PostgreSQL Backups
 postgresql_backup_dir: /data/backups
@@ -96,7 +81,7 @@ galaxy_config:
     allow_user_impersonation: true
     object_store_config_file: "{{ galaxy_config_dir }}/object_store_conf.xml"
   uwsgi:
-    socket: 127.0.0.1:8000
+    socket: 127.0.0.1:81
     buffer-size: 16384
     processes: 1
     threads: 4
@@ -144,7 +129,7 @@ galaxy_config_files:
 
 # systemd
 galaxy_systemd_mode: mule
-galaxy_zergpool_listen_addr: 127.0.0.1:8000
+galaxy_zergpool_listen_addr: 127.0.0.1:8008
 galaxy_restart_handler_name: "Restart Galaxy"
 
 # NGINX
@@ -157,7 +142,7 @@ nginx_conf_http:
   client_max_body_size: 1g
 
 # Jenkins
-jenkins_http_port: 4000
+jenkins_http_port: 4001
 jenkins_admin_username: admin
 # Please change at least the password to something more suitable
 jenkins_admin_password: "{{ jenkins_password }}"
@@ -176,11 +161,6 @@ os_env_umask: "022"
 os_auth_pw_max_age: 99999
 os_auth_retries: 10
 
-# HTCondor
-condor_roles:
-    - execute
-    - central-manager
-    - submit
 
 # Monitoring
 custom_telegraf_env: "/usr/bin/env GDPR_MODE=1 PGUSER=galaxy GALAXY_ROOT=/srv/galaxy/server GALAXY_CONFIG_FILE=/srv/galaxy/config/galaxy.yml GXADMIN_PYTHON=/srv/galaxy/venv/bin/python"
@@ -301,13 +281,6 @@ telegraf_plugins_extra:
 monitor_condor: true
 monitor_condor_split_util: true
 
-# TIaaS
-tiaas_dir: /srv/tiaas
-tiaas_user: tiaas
-tiaas_group: tiaas
-tiaas_version: master
-tiaas_admin_user: admin
-tiaas_admin_pass: "{{ secret_tiaas_admin_pw }}"
 
 # NFS
 nfs_exports:
