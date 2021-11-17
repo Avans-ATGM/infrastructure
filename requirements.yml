@@ -62,5 +62,5 @@
   version: 2.0.0
 - src: usegalaxy_eu.tiaas2
   version: 0.0.9
-- src: galaxyproject.self_signed_certs
+- src: galaxyproject.self-signed-certs
   version: 0.0.1
