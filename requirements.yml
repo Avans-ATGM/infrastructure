@@ -10,8 +10,9 @@
   version: 2.0.0
 - src: uchida.miniconda
   version: 0.3.0
-- src: usegalaxy_eu.galaxy_systemd
-  version: 0.1.4
+- src: https://github.com/Avans-ATGM/ansible-galaxy-systemd
+  version: 766d38fe69c71e19378840ff72d314ca4728840a
+  name: systemd-github
 - src: usegalaxy_eu.certbot
   version: 0.1.5
 - src: cyverse-ansible.singularity
