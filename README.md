@@ -22,13 +22,12 @@ make
 
 ## Infrastructure
 
-Here is the current **plan**, none of it is in place yet.
-
-Service   | Infrastructure Provider | Notes
----       | ---                     | ---
-7kingdoms | BML                     | Cocalc test
-OldGalaxy | BML                     | Galaxy head node
-Midgard   | BML                     | Conda/agoge
-Asgard    | BML                     | Conda
-NewGalaxy | BML                     | Compute resources to connect to ATGM Galaxy
-NAS       | BML                     | Connect to ATGM Galaxy, FTP for extern
+Service     | Infrastructure Provider | Notes
+---         | ---                     | ---
+7kingdoms   | BML                     | Deprecated
+OldGalaxy   | BML                     | Galaxy head node
+Midgard     | BML                     | Deprecated
+Asgard      | BML                     | Deprecated
+145.48.6.40 | DIF                     | Galaxy Test Server, we deploy here simultaneously (or use it really for testing if we like.)
+145.48.6.41 | DIF                     | Galaxy Production Server
+145.48.6.42 | DIF                     | Cocalc
