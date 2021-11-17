@@ -18,8 +18,10 @@
         path: //mount
         state: directory
         mode: '0755'
-  
-  
+    - debug:
+        msg: "Galaxy version is {{ galaxy_commit_id }}"
+
+
   handlers:
     - name: Restart Galaxy
       systemd:
