@@ -131,3 +131,4 @@ galaxy_config_files:
 galaxy_systemd_mode: mule
 galaxy_zergpool_listen_addr: 127.0.0.1:8008
 galaxy_restart_handler_name: "Restart Galaxy"
+galaxy_systemd_unit_name: "spider"
