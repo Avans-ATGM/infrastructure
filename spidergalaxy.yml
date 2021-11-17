@@ -32,21 +32,22 @@
         state: restarted
   roles:
     - avans
-    - jnv.unattended-upgrades
-    - geerlingguy.nfs
+    #- jnv.unattended-upgrades
+    #- geerlingguy.nfs
     - galaxyproject.postgresql
     - role: natefoo.postgresql_objects
       become: true
       become_user: postgres
-    - geerlingguy.pip
-    - gantsign.golang
+    #- geerlingguy.pip
+    #- gantsign.golang
     - galaxyproject.galaxy
-    - role: uchida.miniconda
-      become: true
-      become_user: "{{ galaxy_user.name }}"
-    - usegalaxy_eu.galaxy_systemd
-    - usegalaxy_eu.gxadmin
-    - hxr.monitor-cluster
-    - galaxyproject.cvmfs
-    - influxdata.chrony
-    - dj-wasabi.telegraf
+    #- role: uchida.miniconda
+    #  become: true
+    #  become_user: "{{ galaxy_user.name }}"
+    #- usegalaxy_eu.galaxy_systemd
+    #
+    #- usegalaxy_eu.gxadmin
+    #- hxr.monitor-cluster
+    #- galaxyproject.cvmfs
+    #- influxdata.chrony
+    #- dj-wasabi.telegraf
