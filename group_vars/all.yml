@@ -60,3 +60,22 @@ condor_extra: |
     STARTD.PROPORTIONAL_SWAP_ASSIGNMENT = True
     COLLECTOR_NAME = "ATGM Cluster"
     CGROUP_MEMORY_LIMIT_POLICY = soft
+
+
+# NGINX
+nginx_selinux_allow_local_connections: true
+nginx_enable_default_server: false
+nginx_conf_http:
+  client_max_body_size: 1g
+
+nginx_ssl_role: self-signed-cert
+nginx_conf_ssl_certificate: /etc/ssl/certs/ansible.com.crt
+nginx_conf_ssl_certificate_key: /etc/ssl/private/ansible.com.pem
+
+openssl_domains: "{{ hostname | default(inventory_hostname) }}"
+openssl_email_address: "es.rasche@avans.nl"
+openssl_country_name: "NL"
+openssl_locality_name: "Tilburg"
+openssl_organization_name: "Avans hogeschool"
+openssl_organizational_unit_name: "ATGM"
+openssl_state_or_province_name: "Noord-Brabant"

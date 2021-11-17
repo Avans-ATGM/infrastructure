@@ -14,15 +14,7 @@ telegraf_agent_output:
     - json_timestamp_units = "1s"
 
 # NGINX
-nginx_selinux_allow_local_connections: true
 nginx_servers:
   - redirect-ssl
-nginx_servers:
+nginx_ssl_servers:
   - cocalc
-nginx_enable_default_server: false
-nginx_conf_http:
-  client_max_body_size: 1g
-
-nginx_ssl_role: self-signed-cert
-nginx_conf_ssl_certificate: /etc/ssl/certs/ansible.com.crt
-nginx_conf_ssl_certificate_key: /etc/ssl/private/ansible.com.pem
