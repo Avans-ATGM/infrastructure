@@ -54,7 +54,7 @@ miniconda_manage_dependencies: false
 
 galaxy_config:
   galaxy:
-    brand: "🧬ATGM🔬"
+    brand: "🧬ATGM🔬{{ brand_extra | default() }}"
     admin_users: es.rasche@avans.nl,bk.sanders@avans.nl,m.zhou1@avans.nl,dl.vrins@avans.nl
     database_connection: "postgresql:///galaxy?host=/var/run/postgresql"
     file_path: /data
