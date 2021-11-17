@@ -6,28 +6,28 @@ pip_package: python3-pip                               # geerlingguy.pip
 
 # PostgreSQL
 postgresql_objects_users:
-  - name: galaxy
+  - name: galaxy-spider
   - name: telegraf
 postgresql_objects_databases:
-  - name: galaxy
-    owner: galaxy
+  - name: galaxy-spider
+    owner: galaxy-spider
 postgresql_objects_privileges:
-  - database: galaxy
+  - database: galaxy-spider
     roles: telegraf
     privs: SELECT
     objs: ALL_IN_SCHEMA
 
 
 # PostgreSQL Backups
-postgresql_backup_dir: /data/backups
-postgresql_backup_local_dir: "{{ '~postgres' | expanduser }}/backups"
+postgresql_backup_dir: /data/spider-backups
+postgresql_backup_local_dir: "{{ '~postgres' | expanduser }}/spider-backups"
 
 # Galaxy
 galaxy_create_user: true
 galaxy_separate_privileges: true
 galaxy_manage_paths: true
 galaxy_layout: root-dir
-galaxy_root: /srv/galaxy
+galaxy_root: /srv/spider-galaxy
 galaxy_user: {name: galaxy, shell: /bin/bash}
 galaxy_commit_id: release_21.09
 galaxy_config_style: yaml
@@ -58,7 +58,7 @@ galaxy_config:
     # todo: GAT
     trs_servers_config_file: "{{ galaxy_config_dir }}/trs_servers_conf.yml"
     aws_estimate: true
-    job_working_directory: /data/jobs
+    job_working_directory: /data/spider-jobs
     allow_path_paste: true
     database_engine_option_server_side_cursors: true
     slow_query_log_threshold: 5
