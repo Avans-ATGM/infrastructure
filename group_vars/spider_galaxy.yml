@@ -81,7 +81,7 @@ galaxy_config:
     allow_user_impersonation: true
     object_store_config_file: "{{ galaxy_config_dir }}/object_store_conf.xml"
   uwsgi:
-    socket: 127.0.0.1:81
+    socket: 127.0.0.1:4002
     buffer-size: 16384
     processes: 1
     threads: 4
@@ -93,7 +93,9 @@ galaxy_config:
     master: true
     virtualenv: "{{ galaxy_venv_dir }}"
     pythonpath: "{{ galaxy_server_dir }}/lib"
-    module: galaxy.webapps.galaxy.buildapp:uwsgi_app()
+    #module: galaxy.webapps.galaxy.buildapp:uwsgi_app()
+    mount: /spider=galaxy.webapps.galaxy.buildapp:uwsgi_app()
+    manage-script-name: true
     thunder-lock: true
     die-on-term: true
     hook-master-start:
