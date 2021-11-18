@@ -21,7 +21,7 @@ galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 145.48.6.40 ansible_user=atgm-user
 
 [spider_galaxy]
-galaxy.bioinformatics-atgm.nl ansible_user=spider_galaxy
+spider_galaxy@galaxy.bioinformatics-atgm.nl
 
 [monitoring]
 galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
