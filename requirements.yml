@@ -61,7 +61,6 @@
 - src: geerlingguy.nfs
   version: 2.0.0
 - src: usegalaxy_eu.tiaas2
-  version: 74137d5894ebdfbebc2a4b6aa68ec44e36a89df4
-  #version: 0.0.9
+  version: main
 - src: galaxyproject.self_signed_certs
   version: 0.0.1
