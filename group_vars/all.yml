@@ -69,8 +69,11 @@ nginx_conf_http:
   client_max_body_size: 1g
 
 nginx_ssl_role: galaxyproject.self_signed_certs
-nginx_conf_ssl_certificate: /etc/ssl/certs/ansible.com.crt
-nginx_conf_ssl_certificate_key: /etc/ssl/private/ansible.com.pem
+#nginx_conf_ssl_certificate: /etc/ssl/certs/ansible.com.crt
+#nginx_conf_ssl_certificate_key: /etc/ssl/private/ansible.com.pem
+nginx_conf_ssl_certificate: /etc/ssl/certs/ssl-cert-snakeoil.pem
+nginx_conf_ssl_certificate_key: /etc/ssl/private/ssl-cert-snakeoil.key
+
 
 openssl_domains: "{{ hostname | default(inventory_hostname) }}"
 openssl_email_address: "es.rasche@avans.nl"
