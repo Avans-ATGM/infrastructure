@@ -27,7 +27,6 @@ spider_galaxy@galaxy.bioinformatics-atgm.nl
 galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 
 [cocalc]
-cocalc.bioinformatics-atgm.nl ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/keys/id_rsa_surfsara ansible_python_interpreter=/usr/bin/python3
 145.48.6.42 ansible_user=atgm-user
 
 [agoge]
