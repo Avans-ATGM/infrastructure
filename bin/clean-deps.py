@@ -4,7 +4,7 @@ import subprocess
 
 
 with open('requirements.yml', 'r') as handle:
-    desired = yaml.load(handle)
+    desired = yaml.safe_load(handle)
 
 desired = {x.get('name', x['src']): x['version'] for x in desired}
 if any([isinstance(v, int) or isinstance(v, float) for v in desired.values()]):
