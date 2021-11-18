@@ -36,12 +36,3 @@ midgard.bioinformatics-atgm.nl ansible_user=artemis
 
 [localhost]
 localhost ansible_connection=local
-
-#####################
-### Attributes    ###
-#####################
-
-[externally_accessible]
-cocalc.bioinformatics-atgm.nl
-[self_signed_cert]
-145.48.6.42
