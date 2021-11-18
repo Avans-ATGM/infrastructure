@@ -151,6 +151,8 @@ galaxy_restart_handler_name: "Restart Galaxy"
 # NGINX
 nginx_selinux_allow_local_connections: true
 nginx_servers:
+  - redirect-ssl
+nginx_ssl_servers:
   - galaxy
 
 nginx_enable_default_server: false
