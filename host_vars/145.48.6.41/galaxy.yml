@@ -1,0 +1,5 @@
+brand_extra: "New"
+openssl_domains:
+- "galaxy.atgm.avans.nl"
+- "*.interactivetoolentrypoint.interactivetool.galaxy.atgm.avans.nl"
+- "{{ hostname }}"

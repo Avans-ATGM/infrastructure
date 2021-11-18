@@ -1,1 +1,5 @@
 brand_extra: "DIF Test Server"
+openssl_domains:
+- "test-galaxy.atgm.avans.nl"
+- "*.interactivetoolentrypoint.interactivetool.test-galaxy.atgm.avans.nl"
+- "{{ hostname }}"
