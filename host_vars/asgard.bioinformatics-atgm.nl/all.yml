@@ -1,0 +1,1 @@
+cli_users: "{{ range(0, 8) | list }}"
