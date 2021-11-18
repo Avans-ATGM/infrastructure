@@ -60,7 +60,10 @@
   version: v1.10.0
 - src: geerlingguy.nfs
   version: 2.0.0
-- src: usegalaxy_eu.tiaas2
-  version: main
+#- src: usegalaxy_eu.tiaas2
+#  version: 0.0.9
+- src: https://github.com/usegalaxy-eu/ansible-tiaas2/
+  version: 74137d5894ebdfbebc2a4b6aa68ec44e36a89df4
+  name: usegalaxy_eu.tiaas2
 - src: galaxyproject.self_signed_certs
   version: 0.0.1
