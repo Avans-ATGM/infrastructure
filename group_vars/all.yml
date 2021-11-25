@@ -88,6 +88,6 @@ atgm_groups:
 
 atgm_users:
 - name: hexylena
-  groups: sudo
+  groups: sudo,atgm-user
 - name: Bazante
-  groups: sudo
+  groups: sudo,atgm-user
