@@ -29,5 +29,6 @@
         - "{{ cocalc_data_dir }}:/projects"
         env:
             COCALC_NO_IDLE_TIMEOUT: "yes"
+            R_LIBS_USER: "~/R"
         ports:
         - 8443:443

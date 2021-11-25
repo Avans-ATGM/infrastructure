@@ -10,7 +10,7 @@
     home: "/home/{{ item.name }}"
     shell: "{{ item.shell | default('/bin/bash') }}"
     groups: "{{ item.groups | default(omit) }}"
-    password: "{{ avans_default_password | password_hash('sha512') }}"
+    #password: "{{ avans_default_password | password_hash('sha512') }}"
     append: yes
   loop: "{{ atgm_users }}"
 
