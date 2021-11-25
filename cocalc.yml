@@ -13,6 +13,7 @@
       package:
         name: ['git', 'cgroup-tools']
   roles:
+    - avans
     - galaxyproject.nginx
     - geerlingguy.pip
     - geerlingguy.docker
