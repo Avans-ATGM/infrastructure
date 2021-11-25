@@ -9,11 +9,11 @@
       hostname:
         name: "{{ inventory_hostname }}"
   roles:
-    #- avans
+    - avans
     - hxr.autofs
     - ansible-htcondor
-    #- galaxyproject.cvmfs
-    #- influxdata.chrony
+    - galaxyproject.cvmfs
+    - influxdata.chrony
     - dj-wasabi.telegraf
   #post_tasks:
     #- user:
