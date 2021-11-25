@@ -85,6 +85,7 @@ nginx_conf_ssl_certificate_key: "/etc/ssl/private/{{ openssl_domains[0] }}.pem"
 # Groups & Users
 atgm_groups:
 - name: students
+- name: atgm-user
 
 atgm_users:
 - name: hexylena
