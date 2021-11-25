@@ -2,7 +2,7 @@
   ansible.builtin.group:
     name: "{{ item.name }}"
     state: "{{ item.state | default('present') }}"
-  loop: atgm_groups
+  loop: "{{ atgm_groups }}"
 
 - name: Create our users
   user:
@@ -12,7 +12,7 @@
     groups: "{{ item.groups | default(omit) }}"
     password: "{{ avans_default_password | password_hash('sha512') }}"
     append: yes
-  loop: atgm_users
+  loop: "{{ atgm_users }}"
 
 - name: Update the apt cache
   apt:
