@@ -18,3 +18,5 @@ nginx_servers:
   - redirect-ssl
 nginx_ssl_servers:
   - cocalc
+
+openssl_self_sign: false
