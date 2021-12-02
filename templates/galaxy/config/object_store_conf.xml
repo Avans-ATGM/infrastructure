@@ -2,7 +2,7 @@
 <object_store type="distributed" id="primary" order="0">
     <backends>
         <backend id="files1" type="disk" weight="1" store_by="uuid">
-            <files_dir path="/data/"/>
+            <files_dir path="/data/files"/>
             <extra_dir type="temp" path="/data/tmp"/>
             <extra_dir type="job_work" path="/data/jobs"/>
         </backend>
