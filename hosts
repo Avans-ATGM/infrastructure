@@ -16,9 +16,10 @@ cocalc.atgm.avans.nl ansible_user=atgm-user hostname=atgm-hslod02.avans.nl
 ### Machine Roles ###
 #####################
 [galaxyservers]
-galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 galaxy.atgm.avans.nl ansible_user=atgm-user
 test-galaxy.atgm.avans.nl ansible_user=atgm-user
+# SUNSET
+#galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 
 [spider_galaxy]
 spider_galaxy@galaxy.bioinformatics-atgm.nl
