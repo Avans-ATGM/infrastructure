@@ -340,11 +340,13 @@ docker_users:
   - "{{ galaxy_user.name }}"
   - hexylena
 
-gie_proxy_dir: /srv/galaxy/gie-proxy/proxy
-gie_proxy_git_version: master
+
+gie_proxy_dir: /srv/gie-proxy/proxy
 gie_proxy_setup_nodejs: nodeenv
-gie_proxy_virtualenv_command: "{{ pip_virtualenv_command }}"
-gie_proxy_nodejs_version: "14.16.1"
-gie_proxy_virtualenv: /srv/galaxy/gie-proxy/venv
+gie_proxy_nodejs_version: "16.13.1"
+gie_proxy_virtualenv: /srv/gie-proxy/venv
 gie_proxy_setup_service: systemd
-gie_proxy_sessions_path: "{{ galaxy_mutable_data_dir }}/interactivetools_map.sqlite"
+gie_proxy_port: 4002
+gie_proxy_verbose: true
+gie_proxy_sessions_path: "/srv/galaxy/var/data/interactivetools_map.sqlite"
+#gie_proxy_sessions_path: "{{ galaxy_mutable_data_dir }}/interactivetools_map.sqlite"

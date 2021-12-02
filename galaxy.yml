@@ -48,4 +48,6 @@
     - dj-wasabi.telegraf
     - usegalaxy_eu.tiaas2
     - geerlingguy.docker
-    - usegalaxy_eu.gie_proxy
+    - role: usegalaxy_eu.gie_proxy
+      environment:
+        SUDO_USER: root
