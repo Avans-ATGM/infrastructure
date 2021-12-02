@@ -32,3 +32,9 @@
             R_LIBS_USER: "~/R"
         ports:
         - 8443:443
+
+# Delta with base:
+# Packages: pandoc-citeproc
+# Scripts: * * * * * /data/cocalc/fix-r-path.sh
+# Symlink /usr/bin/jupyter → /usr/local/bin/jupyter
+# TODO: pip install sqlalchemy for everyone since that seems to require a kernel restart.
