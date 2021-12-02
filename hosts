@@ -34,3 +34,6 @@ midgard.bioinformatics-atgm.nl ansible_user=artemis
 
 [localhost]
 localhost ansible_connection=local
+
+[automation]
+galaxy.atgm.avans.nl ansible_user=atgm-user

@@ -1,7 +1,9 @@
 ---
-- hosts: galaxy.atgm.avans.nl
+- hosts: automation
   become: true
   become_user: root
+  vars_files:
+    - group_vars/all/secret.yml
   pre_tasks:
     - name: Install Dependencies
       package:
