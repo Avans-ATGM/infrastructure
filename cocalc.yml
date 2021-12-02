@@ -7,6 +7,9 @@
     pip_install_packages:
       - name: docker-py
   pre_tasks:
+    - name: Fix Hostname
+      hostname:
+        name: "{{ inventory_hostname }}"
     - name: Install Dependencies
       package:
         name: ['git', 'cgroup-tools']

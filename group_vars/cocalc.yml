@@ -5,18 +5,19 @@ certbot_virtualenv_package_name: python3-virtualenv    # usegalaxy_eu.certbot
 pip_package: python3-pip                               # geerlingguy.pip
 
 
-telegraf_agent_hostname: cocalc
-telegraf_agent_output:
-  - type: file
-    config:
-    - files = ["stdout", "/tmp/metrics.out"]
-    - data_format = "json"
-    - json_timestamp_units = "1s"
-
 # NGINX
 nginx_servers:
   - redirect-ssl
 nginx_ssl_servers:
   - cocalc
 
+telegraf_plugins_extra:
+  docker:
+    plugin: "docker"
+
 openssl_self_sign: false
+
+docker_install_compose: false
+docker_users:
+  - hexylena
+  - telegraf

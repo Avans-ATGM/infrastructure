@@ -205,12 +205,23 @@ condor_roles:
 # Monitoring
 custom_telegraf_env: "/usr/bin/env GDPR_MODE=1 PGUSER=galaxy GALAXY_ROOT=/srv/galaxy/server GALAXY_CONFIG_FILE=/srv/galaxy/config/galaxy.yml GXADMIN_PYTHON=/srv/galaxy/venv/bin/python"
 telegraf_plugins_extra:
+  postgres:
+    plugin: "postgresql"
+    config:
+      - address = "{{ galaxy_config.galaxy.database_connection }}"
+      - databases = ["galaxy"]
+
   listen_galaxy_routes:
     plugin: "statsd"
     config:
       - service_address = ":8125"
+      - percentiles = [90]
       - metric_separator = "."
       - allowed_pending_messages = 10000
+      - percentile_limit = 100
+
+  docker:
+    plugin: "docker"
 
   monitor_galaxy_queue:
     plugin: "exec"
@@ -220,12 +231,6 @@ telegraf_plugins_extra:
       - data_format = "influx"
       - interval = "15s"
 
-  postgres:
-    plugin: "postgresql"
-    config:
-      - address = "{{ galaxy_config.galaxy.database_connection }}"
-      - databases = ["galaxy", "galaxy-test", "apollo", "chado"]
-
   monitor_condor_queue:
     plugin: "exec"
     config:
@@ -234,13 +239,21 @@ telegraf_plugins_extra:
       - data_format = "influx"
       - interval = "1m"
 
-  #monitor_nfsstat:
-    #plugin: "exec"
-    #config:
-      #- commands = ["/usr/bin/nfsstat-influx"]
-      #- timeout = "10s"
-      #- data_format = "influx"
-      #- interval = "15s"
+  monitor_condor_util:
+    plugin: "exec"
+    config:
+      - commands = ["sudo /usr/bin/monitor-condor-utilisation"]
+      - timeout = "10s"
+      - data_format = "influx"
+      - interval = "1m"
+
+  monitor_nfsstat:
+    plugin: "exec"
+    config:
+      - commands = ["/usr/bin/nfsstat-influx"]
+      - timeout = "10s"
+      - data_format = "influx"
+      - interval = "15s"
 
   # Some custom galaxy monitoring stuff
   galaxy_uploaded:
@@ -292,13 +305,6 @@ telegraf_plugins_extra:
       - timeout = "15s"
       - data_format = "influx"
       - interval = "1m"
-  cocalc:
-    plugin: "exec"
-    config:
-      - commands = ["/usr/bin/curl -k https://bioinformatics-atgm.nl/stats"]
-      - timeout = "15s"
-      - data_format = "json"
-      - interval = "1m"
 
   postgres_extra:
     plugin: "exec"
@@ -339,6 +345,7 @@ docker_install_compose: false
 docker_users:
   - "{{ galaxy_user.name }}"
   - hexylena
+  - telegraf
 
 
 gie_proxy_dir: /srv/gie-proxy/proxy

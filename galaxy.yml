@@ -5,7 +5,7 @@
   pre_tasks:
     - name: Fix Hostname
       hostname:
-        name: "{{ hostname | default(inventory_hostname) }}"
+        name: "{{ inventory_hostname }}"
     - name: Install Dependencies
       package:
         name: ['acl', 'bzip2', 'git', 'make', 'python3-psycopg2', 'tar', 'virtualenv', 'cgroup-tools', 'libldap2-dev', 'libsasl2-dev']
