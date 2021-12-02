@@ -1,5 +1,5 @@
 # Grafana
-grafana_url: "http://{{ inventory_hostname }}/grafana/"
+grafana_url: "https://{{ inventory_hostname }}/grafana/"
 grafana_users:
     default_theme: "light"
 
