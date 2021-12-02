@@ -49,3 +49,5 @@
     - influxdata.chrony
     - dj-wasabi.telegraf
     - usegalaxy_eu.tiaas2
+    - geerlingguy.docker
+    - usegalaxy_eu.gie_proxy
