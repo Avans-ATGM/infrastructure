@@ -54,6 +54,11 @@ server {
 		add_header X-Content-Type-Options nosniff;
 	}
 
+	{% if inventory_hostname == "galaxy.bioinformatics-atgm.nl" %}
+	location /jenkins {
+		return 302 https://galaxy.atgm.avans.nl/jenkins/;
+	}
+	{% else %}
 	location /jenkins {
 		proxy_set_header        Host $host:$server_port;
 		proxy_set_header        X-Real-IP $remote_addr;
@@ -64,6 +69,7 @@ server {
 		proxy_pass          http://127.0.0.1:4000;
 		proxy_read_timeout  90;
 	}
+	{% endif %}
 
 	location /grafana/ {
 		proxy_pass          http://127.0.0.1:3000/;
