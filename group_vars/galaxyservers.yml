@@ -349,4 +349,3 @@ gie_proxy_setup_service: systemd
 gie_proxy_port: 4002
 gie_proxy_verbose: true
 gie_proxy_sessions_path: "{{ galaxy_mutable_data_dir }}/interactivetools_map.sqlite"
-openssl_self_sign: false

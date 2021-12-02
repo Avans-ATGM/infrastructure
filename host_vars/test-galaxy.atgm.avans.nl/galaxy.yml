@@ -3,3 +3,4 @@ openssl_domains:
 - "test-galaxy.atgm.avans.nl"
 - "*.interactivetoolentrypoint.interactivetool.test-galaxy.atgm.avans.nl"
 - "{{ hostname }}"
+openssl_self_sign: false
