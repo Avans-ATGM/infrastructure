@@ -7,20 +7,7 @@
     - group_vars/secret.yml
   roles:
     - avans
-    - jnv.unattended-upgrades
+    #- jnv.unattended-upgrades # Handled by DIF
     - influxdata.chrony
     #- dj-wasabi.telegraf
     #- dev-sec.os-hardening
-  post_tasks:
-    # Setup User(s)
-    - user:
-        name: hexylena
-        comment: Helena Rasche
-        shell: /bin/bash
-        groups: sudo, adm, systemd-journal
-        append: yes
-    - name: Set authorized key taken from file
-      ansible.posix.authorized_key:
-        user: hexylena
-        state: present
-        key: "{{ lookup('file', 'hexylena.pub') }}"

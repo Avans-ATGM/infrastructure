@@ -8,9 +8,9 @@ thor@asgard.bioinformatics-atgm.nl
 godzilla@7kingdoms.bioinformatics-atgm.nl
 
 [dif-it]
-145.48.6.40 ansible_user=atgm-user hostname=atgm-tstvserver01.avans.nl
-145.48.6.41 ansible_user=atgm-user hostname=atgm-hslod01.avans.nl
-145.48.6.42 ansible_user=atgm-user hostname=atgm-hslod02.avans.nl
+test-galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-tstvserver01.avans.nl
+galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-hslod01.avans.nl
+cocalc.atgm.avans.nl ansible_user=atgm-user hostname=atgm-hslod02.avans.nl
 
 #####################
 ### Machine Roles ###
@@ -22,9 +22,6 @@ galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 
 [spider_galaxy]
 spider_galaxy@galaxy.bioinformatics-atgm.nl
-
-[monitoring]
-galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 
 [cocalc]
 145.48.6.42 ansible_user=atgm-user

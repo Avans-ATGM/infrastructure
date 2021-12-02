@@ -1,3 +1,8 @@
+all:
+	./bin/clean-deps.py
+	ansible-galaxy install -p roles -r requirements.yml
+	ansible-playbook infra.yml --diff
+
 gx:
 	./bin/clean-deps.py
 	ansible-galaxy install -p roles -r requirements.yml
@@ -18,17 +23,12 @@ cocalc:
 	ansible-galaxy install -p roles -r requirements.yml
 	ansible-playbook cocalc.yml --diff
 
-monitor:
+automation:
 	./bin/clean-deps.py
 	ansible-galaxy install -p roles -r requirements.yml
-	ansible-playbook monitoring.yml --diff
+	ansible-playbook automation.yml --diff
 
 spidergalaxy:
 	./bin/clean-deps.py
 	ansible-galaxy install -p roles -r requirements.yml
 	ansible-playbook spidergalaxy.yml --diff --extra-vars "__galaxy_dir_perms='0755' os_env_umask='022'"
-
-all:
-	./bin/clean-deps.py
-	ansible-galaxy install -p roles -r requirements.yml
-	ansible-playbook infra.yml --diff

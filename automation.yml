@@ -1,5 +1,5 @@
 ---
-- hosts: galaxyservers
+- hosts: galaxy.atgm.avans.nl
   become: true
   become_user: root
   vars_files:
@@ -18,3 +18,5 @@
   roles:
     - geerlingguy.java
     - geerlingguy.jenkins
+    - usegalaxy_eu.influxdb
+    - cloudalchemy.grafana

@@ -1,9 +1,0 @@
----
-- hosts: monitoring
-  become: true
-  become_user: root
-  vars_files:
-    - group_vars/secret.yml
-  roles:
-    - usegalaxy_eu.influxdb
-    - cloudalchemy.grafana
