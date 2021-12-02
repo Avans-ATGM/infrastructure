@@ -3,8 +3,6 @@
   hosts: all
   become: true
   become_user: root
-  vars_files:
-    - group_vars/secret.yml
   roles:
     - avans
     #- jnv.unattended-upgrades # Handled by DIF
