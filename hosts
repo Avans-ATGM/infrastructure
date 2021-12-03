@@ -2,10 +2,10 @@
 ### Owner Groups  ###
 #####################
 [avans]
-artemis@midgard.bioinformatics-atgm.nl
-bioinf_team@galaxy.bioinformatics-atgm.nl
-thor@asgard.bioinformatics-atgm.nl
-godzilla@7kingdoms.bioinformatics-atgm.nl
+midgard.bioinformatics-atgm.nl ansible_user=artemis
+galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
+asgard.bioinformatics-atgm.nl ansible_user=thor
+7kingdoms.bioinformatics-atgm.nl ansible_user=godzilla
 
 [dif-it]
 test-galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-tstvserver01.avans.nl
