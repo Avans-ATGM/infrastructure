@@ -93,3 +93,9 @@ atgm_users:
   groups: sudo,atgm-user
 - name: Bazante
   groups: sudo,atgm-user
+
+
+# Project Accounts
+project_accounts:
+    - name: project-blah
+      host: galaxy.bioinformatics-atgm.nl

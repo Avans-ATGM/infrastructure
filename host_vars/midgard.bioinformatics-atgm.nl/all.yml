@@ -1,1 +1,1 @@
-cli_users: "{{ range(8, 16) | list }}"
+project_directory: /mnt/StudentFiles
