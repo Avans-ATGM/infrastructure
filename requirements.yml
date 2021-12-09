@@ -1,13 +1,13 @@
 - src: galaxyproject.galaxy
-  version: 0.9.7
+  version: 0.9.17
 - src: galaxyproject.nginx
-  version: 0.6.4
+  version: 0.7.0
 - src: galaxyproject.postgresql
-  version: 1.0.3
+  version: 1.1.0
 - src: natefoo.postgresql_objects
   version: "1.1"
 - src: geerlingguy.pip
-  version: 2.0.0
+  version: 2.1.0
 - src: uchida.miniconda
   version: 0.3.0
 - src: https://github.com/Avans-ATGM/ansible-galaxy-systemd
@@ -21,20 +21,20 @@
   version: 2.6.3
 - src: galaxyproject.repos
   version: 0.0.2
-- src: galaxyproject.slurm
-  version: 0.1.3
+#- src: galaxyproject.slurm
+  #version: 1.0.0
 - src: usegalaxy_eu.rabbitmq
   version: 0.1.0
 - src: galaxyproject.cvmfs
-  version: 0.2.13
+  version: 0.2.14
 - src: galaxyproject.pulsar
-  version: 1.0.6
+  version: 1.0.9
 - src: geerlingguy.java
   version: 1.10.0
 - src: geerlingguy.jenkins
   version: 4.3.0
 - src: dj-wasabi.telegraf
-  version: 0.13.0
+  version: 0.13.1
 - src: influxdata.chrony
   version: master
 - src: dev-sec.os-hardening
@@ -47,7 +47,7 @@
   version: 4fca8d776e49edc88537d5a949cfa0f5a519caaf
   name: htcondor-github
 - src: usegalaxy_eu.influxdb
-  version: v6.0.3
+  version: v6.0.8
 - src: cloudalchemy.grafana
   version: 0.14.2
 - src: usegalaxy_eu.gxadmin
