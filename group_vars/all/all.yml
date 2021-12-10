@@ -96,6 +96,7 @@ atgm_users:
 
 
 # Project Accounts
-project_accounts:
-    - name: project-blah
+atgm_projects:
+    - name: project-01
+      year: "2022"
       host: galaxy.bioinformatics-atgm.nl
