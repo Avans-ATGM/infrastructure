@@ -4,4 +4,7 @@
   become_user: root
   roles:
     - avans
+    #- jnv.unattended-upgrades # Handled by DIF
+    - influxdata.chrony
     - dj-wasabi.telegraf
+    #- dev-sec.os-hardening # kinda dangerous

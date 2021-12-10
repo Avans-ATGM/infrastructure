@@ -50,7 +50,7 @@
   version: v6.0.8
 - src: cloudalchemy.grafana
   version: 0.14.2
-- src: usegalaxy_eu.gxadmin
+- src: galaxyproject.gxadmin
   version: 0.0.3
 - src: geerlingguy.docker
   version: 3.0.0

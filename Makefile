@@ -1,7 +1,7 @@
 all:
 	./bin/clean-deps.py
 	ansible-galaxy install -p roles -r requirements.yml
-	ansible-playbook infra.yml --diff
+	ansible-playbook all.yml --diff
 
 gx:
 	./bin/clean-deps.py
