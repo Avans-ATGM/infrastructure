@@ -32,6 +32,8 @@
     path: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/data_storage"
     state: directory
     mode: '0755'
+    owner: "{{ item.name }}"
+    
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
