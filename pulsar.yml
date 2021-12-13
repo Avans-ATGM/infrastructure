@@ -1,7 +1,7 @@
 ---
 - hosts: pulsarservers
   vars_files:
-    - group_vars/secret.yml
+    - group_vars/all/secret.yml
   pre_tasks:
     - name: Install some packages
       package:

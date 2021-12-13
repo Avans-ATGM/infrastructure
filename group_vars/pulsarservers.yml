@@ -1,5 +1,5 @@
 
-galaxy_server_hostname: "galaxy.bioinformatics-atgm.nl" # Important!!!
+galaxy_server_hostname: "galaxy.atgm.avans.nl" # Important!!!
 # Put your Galaxy server's fully qualified domain name (FQDN) (or the FQDN of the RabbitMQ server) above.
 
 pulsar_root: /mnt/pulsar
