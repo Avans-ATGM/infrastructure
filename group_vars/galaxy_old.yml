@@ -397,7 +397,8 @@ rabbitmq_config:
      - fail_if_no_peer_cert: 'false'
 
 rabbitmq_vhosts:
-  - /pulsar/galaxy_au
+  - /pulsar/galaxy_midgard
+  - /pulsar/galaxy_asgard
 
 rabbitmq_users:
   - user: pulsar_admin
