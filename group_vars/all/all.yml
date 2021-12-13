@@ -43,8 +43,8 @@ unattended_origins_patterns:
 unattended_only_on_ac_power: true
 
 # HTCondor
-condor_host: "galaxy.bioinformatics-atgm.nl"
-condor_allow_write: "galaxy.bioinformatics-atgm.nl,asgard.bioinformatics-atgm.nl,midgard.bioinformatics-atgm.nl"
+condor_host: "galaxy.atgm.avans.nl"
+condor_allow_write: "test-galaxy.atgm.avans.nl"
 condor_allow_negotiator: '$(ALLOW_WRITE)'
 condor_allow_administrator: "$(ALLOW_WRITE)"
 condor_network_interface: "{{ ansible_default_ipv4.interface }}"

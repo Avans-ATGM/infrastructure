@@ -1,0 +1,56 @@
+---
+- hosts: galaxy_old
+  become: true
+  become_user: root
+  pre_tasks:
+    - name: Fix Hostname
+      hostname:
+        name: "{{ inventory_hostname }}"
+    - name: Install Dependencies
+      package:
+        name: ['acl', 'bzip2', 'git', 'make', 'python3-psycopg2', 'tar', 'virtualenv', 'cgroup-tools', 'libldap2-dev', 'libsasl2-dev']
+    - name: Create the second storage directory
+      file:
+        owner: galaxy
+        group: galaxy
+        path: //mount
+        state: directory
+        mode: '0755'
+    - debug:
+        msg: "Galaxy version is {{ galaxy_commit_id }}"
+
+
+  handlers:
+    - name: Restart Galaxy
+      systemd:
+        name: galaxy
+        state: restarted
+  roles:
+    - avans
+    - ansible-htcondor
+    - geerlingguy.nfs
+    - galaxyproject.postgresql
+    - role: natefoo.postgresql_objects
+      become: true
+      become_user: postgres
+    - geerlingguy.pip
+    - gantsign.golang
+    - galaxyproject.galaxy
+    - role: uchida.miniconda
+      become: true
+      become_user: "{{ galaxy_user.name }}"
+    - usegalaxy_eu.rabbitmq
+    - usegalaxy_eu.galaxy_systemd
+    - usegalaxy_eu.gxadmin
+    - hxr.monitor-cluster
+    - galaxyproject.nginx
+    - galaxyproject.cvmfs
+    - influxdata.chrony
+    - dj-wasabi.telegraf
+    - usegalaxy_eu.tiaas2
+    - geerlingguy.docker
+    - 
+    - role: usegalaxy_eu.gie_proxy
+      environment:
+        SUDO_USER: root
+diff --git a/hosts b/hosts
