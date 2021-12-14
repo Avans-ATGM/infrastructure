@@ -32,3 +32,8 @@ spidergalaxy:
 	./bin/clean-deps.py
 	ansible-galaxy install -p roles -r requirements.yml
 	ansible-playbook spidergalaxy.yml --diff --extra-vars "__galaxy_dir_perms='0755' os_env_umask='022'"
+
+pulsar:
+	./bin/clean-deps.py
+	ansible-galaxy install -p roles -r requirements.yml
+	ansible-playbook pulsar.yml --diff --extra-vars "__galaxy_dir_perms='0755' os_env_umask='022'"
