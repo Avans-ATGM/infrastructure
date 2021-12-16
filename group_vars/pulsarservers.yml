@@ -2,7 +2,7 @@
 galaxy_server_hostname: "galaxy.atgm.avans.nl" # Important!!!
 # Put your Galaxy server's fully qualified domain name (FQDN) (or the FQDN of the RabbitMQ server) above.
 
-pulsar_root: /mnt/pulsar
+pulsar_root: "{{ project_directory }}/pulsar"
 
 pulsar_pip_install: true
 pulsar_pycurl_ssl_library: openssl
