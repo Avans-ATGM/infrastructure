@@ -370,7 +370,7 @@ rabbitmq_config:
   - ssl_options:
      - cacertfile: "/etc/ssl/certs/{{ openssl_domains[0] }}.crt"
      - certfile: "/etc/ssl/certs/{{ openssl_domains[0] }}.crt"
-     - keyfile: /etc/ssl/user/privkey-rabbitmq.pem
+     - keyfile: "/etc/ssl/private/{{ openssl_domains[0] }}.pem"
      - fail_if_no_peer_cert: 'false'
 
 rabbitmq_vhosts:
