@@ -1,0 +1,7 @@
+#ssh dlvrins1@archive.surfsara.nl -i id_rsa 'du -c //home/gringott/* |tail -n 1'
+
+bytes=$(ssh dlvrins1@archive.surfsara.nl -i ~/.ssh/id_rsa 'du -c //home/gringott/* |tail -n 1' | cut -f 1)
+percent=$(echo "$bytes/1024/1024/1024/100" | bc -l )
+timestamp=$(date +%s%N)
+
+echo "disk,device=archive,fstype=archive,host=archive.surfsara.nl,mode=ro,path=/home/gringott free=0i,inodes_free=0i,inodes_total=0i,inodes_used=0i,total=0i,used=${bytes}i,used_percent=0${percent} ${timestampt}"
