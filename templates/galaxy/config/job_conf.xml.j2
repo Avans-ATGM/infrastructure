@@ -21,114 +21,113 @@
 	</plugins>
 
 
-		{# HTcondor #}
-		<destinations default="condor_32">
-			<destination id="local_destination" runner="local_plugin"/>
-			<destination id="local_condor" runner="condor" />
-			<destination id="condor_8" runner="condor">
-				<param id="request_cpus">2</param>
-				<param id="request_memory">8GB</param>
-			</destination>
-			<destination id="condor_16" runner="condor">
-				<param id="request_cpus">4</param>
-				<param id="request_memory">16GB</param>
-			</destination>
-			<destination id="condor_16-fastqc" runner="condor">
-				<param id="request_cpus">2</param>
-				<param id="request_memory">16GB</param>
-				<env id="_JAVA_OPTIONS">-XX:MaxPermSize=2G -Xmx14G -Xms1G</env>
-			</destination>
-			<destination id="condor-shovill" runner="condor">
-				<param id="request_cpus">4</param>
-				<param id="request_memory">40GB</param>
-				<env id="SHOVILL_RAM">40</env>
-			</destination>
-			<destination id="condor_32" runner="condor">
-				<param id="request_cpus">8</param>
-				<param id="request_memory">32GB</param>
-			</destination>
-			<destination id="condor_32-20" runner="condor">
-				<param id="request_cpus">20</param>
-				<param id="request_memory">32GB</param>
-				<param id="requirements">Machine=="galaxy.bioinformatics-atgm.nl"</param>
-			</destination>
-			<destination id="condor_64" runner="condor">
-				<param id="request_cpus">8</param>
-				<param id="request_memory">64GB</param>
-			</destination>
+	{# HTcondor #}
+	<destinations default="condor_32">
+		<destination id="local_destination" runner="local_plugin"/>
+		<destination id="local_condor" runner="condor" />
+		<destination id="condor_8" runner="condor">
+			<param id="request_cpus">2</param>
+			<param id="request_memory">8GB</param>
+		</destination>
+		<destination id="condor_16" runner="condor">
+			<param id="request_cpus">4</param>
+			<param id="request_memory">16GB</param>
+		</destination>
+		<destination id="condor_16-fastqc" runner="condor">
+			<param id="request_cpus">2</param>
+			<param id="request_memory">16GB</param>
+			<env id="_JAVA_OPTIONS">-XX:MaxPermSize=2G -Xmx14G -Xms1G</env>
+		</destination>
+		<destination id="condor-shovill" runner="condor">
+			<param id="request_cpus">4</param>
+			<param id="request_memory">40GB</param>
+			<env id="SHOVILL_RAM">40</env>
+		</destination>
+		<destination id="condor_32" runner="condor">
+			<param id="request_cpus">8</param>
+			<param id="request_memory">32GB</param>
+		</destination>
+		<destination id="condor_32-20" runner="condor">
+			<param id="request_cpus">20</param>
+			<param id="request_memory">32GB</param>
+			<param id="requirements">Machine=="galaxy.bioinformatics-atgm.nl"</param>
+		</destination>
+		<destination id="condor_64" runner="condor">
+			<param id="request_cpus">8</param>
+			<param id="request_memory">64GB</param>
+		</destination>
 
-			<destination id="interactive_local" runner="pulsar_embedded">
-				<param id="docker_enabled">true</param>
-				<param id="docker_volumes">$defaults</param>
-				<param id="docker_sudo">false</param>
-				<param id="docker_net">bridge</param>
-				<param id="docker_auto_rm">true</param>
-				<param id="docker_set_user"></param>
-				<param id="require_container">true</param>
-				<param id="request_cpus">1</param>
-				<param id="request_memory">2GB</param>
-				<param id="requirements">Machine=="galaxy.atgm.avans.nl"</param>
-				<param id="container_monitor_result">callback</param>
-			</destination>
+		<destination id="interactive_local" runner="pulsar_embedded">
+			<param id="docker_enabled">true</param>
+			<param id="docker_volumes">$defaults</param>
+			<param id="docker_sudo">false</param>
+			<param id="docker_net">bridge</param>
+			<param id="docker_auto_rm">true</param>
+			<param id="docker_set_user"></param>
+			<param id="require_container">true</param>
+			<param id="request_cpus">1</param>
+			<param id="request_memory">2GB</param>
+			<param id="requirements">Machine=="galaxy.atgm.avans.nl"</param>
+			<param id="container_monitor_result">callback</param>
+		</destination>
 
-			{# Pulsar #}
-			{% for host_name in groups['pulsarservers'] %}
-			<destination id="pulsar" runner="pulsar_runner_{{ hostvars[host_name].machine_shortname }}" >
-				<param id="default_file_action">remote_transfer</param>
-				<param id="dependency_resolution">remote</param>
-				<param id="jobs_directory">/mnt/pulsar/files/staging</param>
-				<param id="persistence_directory">/mnt/pulsar/files/persisted_data</param>
-				<param id="remote_metadata">False</param>
-				<param id="rewrite_parameters">True</param>
-				<param id="transport">curl</param>
-				<param id="outputs_to_working_directory">False</param>
-			</destination>
-			{% endfor %}
+		{# Pulsar #}
+		{% for host_name in groups['pulsarservers'] %}
+		<destination id="pulsar" runner="pulsar_runner_{{ hostvars[host_name].machine_shortname }}" >
+			<param id="default_file_action">remote_transfer</param>
+			<param id="dependency_resolution">remote</param>
+			<param id="jobs_directory">/mnt/pulsar/files/staging</param>
+			<param id="persistence_directory">/mnt/pulsar/files/persisted_data</param>
+			<param id="remote_metadata">False</param>
+			<param id="rewrite_parameters">True</param>
+			<param id="transport">curl</param>
+			<param id="outputs_to_working_directory">False</param>
+		</destination>
+		{% endfor %}
 
-		</destinations>
-		
-		<resources>
-			<group id="testing">cores,time</group>
-		</resources>
-		<tools>
-			<tool id="fastqc" destination="local_destination"/>
-			<tool id="shovill" destination="condor-shovill"/>
-			<tool id="flye" destination="condor_32-20"/>
-			<tool id="canu" destination="condor_32-20"/>
-			<tool id="bowtie2" destination="condor_16"/>
-			<tool id="upload1" destination="local_destination"/>
+	</destinations>
 
-			<!-- All interactive tools need to go there -->
-			<tool id="interactive_tool_ethercalc" destination="interactive_local" />
-			<tool id="interactive_tool_askomics" destination="interactive_local" />
-			<tool id="interactive_tool_bam_iobio" destination="interactive_local" />
-			<tool id="interactive_tool_cellxgene" destination="interactive_local" />
-			<tool id="interactive_tool_climate_notebook" destination="interactive_local" />
-			<tool id="interactive_tool_ethercalc" destination="interactive_local" />
-			<tool id="interactive_tool_geoexplorer" destination="interactive_local" />
-			<tool id="interactive_tool_guacamole_desktop" destination="interactive_local" />
-			<tool id="interactive_tool_hicbrowser" destination="interactive_local" />
-			<tool id="interactive_tool_higlass" destination="interactive_local" />
-			<tool id="interactive_tool_jupyter_notebook" destination="interactive_local" />
-			<tool id="interactive_tool_ml_jupyter_notebook" destination="interactive_local" />
-			<tool id="interactive_tool_neo4j" destination="interactive_local" />
-			<tool id="interactive_tool_openrefine" destination="interactive_local" />
-			<tool id="interactive_tool_panoply" destination="interactive_local" />
-			<tool id="interactive_tool_paraview" destination="interactive_local" />
-			<tool id="interactive_tool_phinch" destination="interactive_local" />
-			<tool id="interactive_tool_pyiron" destination="interactive_local" />
-			<tool id="interactive_tool_radiant" destination="interactive_local" />
-			<tool id="interactive_tool_rstudio" destination="interactive_local" />
-			<tool id="interactive_tool_simtext_app" destination="interactive_local" />
-			<tool id="interactive_tool_vcf_iobio" destination="interactive_local" />
-			<tool id="interactive_tool_wallace" destination="interactive_local" />
-			<tool id="interactive_tool_wilson" destination="interactive_local" />
+	<resources>
+		<group id="testing">cores,time</group>
+	</resources>
+	<tools>
+		<tool id="fastqc" destination="local_destination"/>
+		<tool id="shovill" destination="condor-shovill"/>
+		<tool id="flye" destination="condor_32-20"/>
+		<tool id="canu" destination="condor_32-20"/>
+		<tool id="bowtie2" destination="condor_16"/>
+		<tool id="upload1" destination="local_destination"/>
 
-		</tools>
-		<limits>
-			<limit type="registered_user_concurrent_jobs">8</limit>
-			<limit type="walltime">24:00:00</limit>
-			<limit type="output_size">100GB</limit>
-		</limits>
- </job_conf>
+		<!-- All interactive tools need to go there -->
+		<tool id="interactive_tool_ethercalc" destination="interactive_local" />
+		<tool id="interactive_tool_askomics" destination="interactive_local" />
+		<tool id="interactive_tool_bam_iobio" destination="interactive_local" />
+		<tool id="interactive_tool_cellxgene" destination="interactive_local" />
+		<tool id="interactive_tool_climate_notebook" destination="interactive_local" />
+		<tool id="interactive_tool_ethercalc" destination="interactive_local" />
+		<tool id="interactive_tool_geoexplorer" destination="interactive_local" />
+		<tool id="interactive_tool_guacamole_desktop" destination="interactive_local" />
+		<tool id="interactive_tool_hicbrowser" destination="interactive_local" />
+		<tool id="interactive_tool_higlass" destination="interactive_local" />
+		<tool id="interactive_tool_jupyter_notebook" destination="interactive_local" />
+		<tool id="interactive_tool_ml_jupyter_notebook" destination="interactive_local" />
+		<tool id="interactive_tool_neo4j" destination="interactive_local" />
+		<tool id="interactive_tool_openrefine" destination="interactive_local" />
+		<tool id="interactive_tool_panoply" destination="interactive_local" />
+		<tool id="interactive_tool_paraview" destination="interactive_local" />
+		<tool id="interactive_tool_phinch" destination="interactive_local" />
+		<tool id="interactive_tool_pyiron" destination="interactive_local" />
+		<tool id="interactive_tool_radiant" destination="interactive_local" />
+		<tool id="interactive_tool_rstudio" destination="interactive_local" />
+		<tool id="interactive_tool_simtext_app" destination="interactive_local" />
+		<tool id="interactive_tool_vcf_iobio" destination="interactive_local" />
+		<tool id="interactive_tool_wallace" destination="interactive_local" />
+		<tool id="interactive_tool_wilson" destination="interactive_local" />
+
+	</tools>
+	<limits>
+		<limit type="registered_user_concurrent_jobs">8</limit>
+		<limit type="walltime">24:00:00</limit>
+		<limit type="output_size">100GB</limit>
+	</limits>
 </job_conf>
