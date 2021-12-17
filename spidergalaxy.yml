@@ -23,6 +23,7 @@
       with_items:
         - sda
         - sdb
+        - webdav
   handlers:
     - name: Restart Galaxy
       systemd:
