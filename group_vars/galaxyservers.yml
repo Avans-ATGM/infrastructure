@@ -356,3 +356,41 @@ gie_proxy_setup_service: systemd
 gie_proxy_port: 4002
 gie_proxy_verbose: true
 gie_proxy_sessions_path: "{{ galaxy_mutable_data_dir }}/interactivetools_map.sqlite"
+
+# RabbitMQ
+rabbitmq_version: 3.8.16-1
+rabbitmq_plugins: rabbitmq_management
+
+rabbitmq_config:
+- rabbit:
+  - tcp_listeners:
+    - "'127.0.0.1'": 5672
+  - ssl_listeners:
+    - "'0.0.0.0'": 5671
+  - ssl_options:
+     - cacertfile: "/etc/ssl/certs/{{ openssl_domains[0] }}.crt"
+     - certfile: "/etc/ssl/certs/{{ openssl_domains[0] }}.crt"
+     - keyfile: "/etc/ssl/private/{{ openssl_domains[0] }}.pem"
+     - fail_if_no_peer_cert: 'false'
+
+rabbitmq_vhosts:
+  - /pulsar/galaxy_asgard
+  - /pulsar/galaxy_midgard
+  - /pulsar/galaxy_galaxy
+
+
+rabbitmq_users:
+  - user: pulsar_admin
+    password: "{{ pulsar_password }}"
+    tags: administrator
+    vhost: /
+  - user: galaxy_asgard
+    password: "{{ pulsar_password }}"
+    vhost: /pulsar/galaxy_asgard
+  - user: galaxy_midgard
+    password: "{{ pulsar_password }}"
+    vhost: /pulsar/galaxy_midgard
+  - user: galaxy_galaxy
+    password: "{{ pulsar_password }}"
+    vhost: /pulsar/galaxy_galaxy
+
