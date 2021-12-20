@@ -386,7 +386,7 @@ rabbitmq_users:
     vhost: /pulsar/Asgard
   - user: Midgard
     password: "{{ pulsar_password }}"
-    vhost: /pulsar/galaxy_Midgard
+    vhost: /pulsar/Midgard
   - user: Isengard
     password: "{{ pulsar_password }}"
     vhost: /pulsar/Isengard
