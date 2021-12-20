@@ -371,8 +371,8 @@ rabbitmq_config:
      - fail_if_no_peer_cert: 'false'
 
 rabbitmq_vhosts:
-  - /pulsar/asgard
-  - /pulsar/midgard
+  - /pulsar/Asgard
+  - /pulsar/Midgard
   - /pulsar/Isengard
 
 
@@ -381,12 +381,12 @@ rabbitmq_users:
     password: "{{ pulsar_password }}"
     tags: administrator
     vhost: /
-  - user: asgard
+  - user: Asgard
     password: "{{ pulsar_password }}"
-    vhost: /pulsar/asgard
-  - user: midgard
+    vhost: /pulsar/Asgard
+  - user: Midgard
     password: "{{ pulsar_password }}"
-    vhost: /pulsar/galaxy_midgard
+    vhost: /pulsar/galaxy_Midgard
   - user: Isengard
     password: "{{ pulsar_password }}"
     vhost: /pulsar/Isengard
