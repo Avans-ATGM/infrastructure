@@ -12,6 +12,7 @@
           - libcurl4-openssl-dev
           - libssl-dev
           - virtualenv
+          - python3
         state: present
         update_cache: yes
       become: yes
