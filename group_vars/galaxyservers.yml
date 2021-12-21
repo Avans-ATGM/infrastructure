@@ -383,11 +383,14 @@ rabbitmq_users:
     vhost: /
   - user: Asgard
     password: "{{ pulsar_password }}"
+    tags: worker
     vhost: /pulsar/Asgard
   - user: Midgard
     password: "{{ pulsar_password }}"
+    tags: worker
     vhost: /pulsar/Midgard
   - user: Isengard
     password: "{{ pulsar_password }}"
+    tags: worker
     vhost: /pulsar/Isengard
 
