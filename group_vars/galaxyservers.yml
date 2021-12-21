@@ -372,7 +372,7 @@ rabbitmq_config:
 
 rabbitmq_vhosts:
   - /pulsar/Asgard
-  - /pulsar/Midgard
+  #- /pulsar/Midgard
   - /pulsar/Isengard
 
 
@@ -385,10 +385,10 @@ rabbitmq_users:
     password: "{{ pulsar_password }}"
     tags: worker
     vhost: /pulsar/Asgard
-  - user: Midgard
-    password: "{{ pulsar_password }}"
-    tags: worker
-    vhost: /pulsar/Midgard
+  #- user: Midgard
+  #  password: "{{ pulsar_password }}"
+  #  tags: worker
+  #  vhost: /pulsar/Midgard
   - user: Isengard
     password: "{{ pulsar_password }}"
     tags: worker
