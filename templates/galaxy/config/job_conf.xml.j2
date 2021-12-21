@@ -73,7 +73,7 @@
 
 		{# Pulsar #}
 		{% for host_name in groups['pulsarservers'] %}
-		<destination id="pulsar_dest_{{ hostvars[host_name].machine_shortname }}" runner="pulsar_runner_{{ hostvars[host_name].machine_shortname }}" >
+		<destination id="pulsar" runner="pulsar_runner_{{ hostvars[host_name].machine_shortname }}" >
 			<param id="default_file_action">remote_transfer</param>
 			<param id="dependency_resolution">remote</param>
 			<param id="jobs_directory">{{ hostvars[host_name].project_directory }}/pulsar/files/staging</param>
