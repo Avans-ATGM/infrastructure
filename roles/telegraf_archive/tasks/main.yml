@@ -10,7 +10,7 @@
 
 - name: copy main script file
   template:
-    src: archive_diskspace.conf.j2
+    src: Archive_diskspace_script.sh.j2
     dest: "/etc/telegraf/telegraf.d/Archive_diskspace_script.sh"
     owner: "telegraf"
     group: "telegraf"
