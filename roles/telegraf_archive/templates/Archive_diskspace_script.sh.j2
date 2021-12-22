@@ -1,4 +1,4 @@
-ansible-vault decrypt {{ archive_ansible_encrypted_ssh }} --vault-password-file {{ vault_password_file }}
+ansible-vault decrypt {{ item.archive_ansible_encrypted_ssh }} --vault-password-file {{ item.vault_password_file }}
 
 bytes=$(ssh {{ surfsara_archive_user }}@{{ surfsara_archive_web }} -i roles/telegraf_archive/files/{{ archive_ansible_encrypted_ssh }} 'du -c {{ surfsara_archive_home_directory }} |tail -n 1' | cut -f 1)
 percent=$(echo "$bytes/1024/1024/1024/100" | bc -l )
@@ -8,4 +8,4 @@ timestamp=$(date +%s%N)
 
 echo "disk,device=archive,fstype=archive,host={{ surfsara_archive_web }},mode=ro,path={{ surfsara_archive_home_directory }} free=0i,inodes_free=0i,inodes_total=0i,inodes_used=0i,total=0i,used=${bytes}i,used_percent=0${percent} ${timestampt}"
 
-ansible-vault encrypt {{ archive_ansible_encrypted_ssh }} --vault-password-file {{ vault_password_file }}
+ansible-vault encrypt {{ item.archive_ansible_encrypted_ssh }} --vault-password-file {{ item.vault_password_file }}
