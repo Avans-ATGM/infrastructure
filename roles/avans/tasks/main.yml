@@ -74,6 +74,7 @@
       - virtualenv
       - wget
       - zlib1g-dev
+      - sshfs
 
 - name: Select sane default for students
   community.general.alternatives:
