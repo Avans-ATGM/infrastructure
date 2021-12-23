@@ -1,4 +1,4 @@
-ansible-vault decrypt  --vault-password-file /{{ item.jenkins_workspace }}/{{ item.vault_password_file }} 
+ansible-vault decrypt  --vault-password-file /{{ item.jenkins_workspace }}/{{ item.vault_password_file }} /{{ item.jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }
 
 bytes=$(ssh {{ item.surfsara_archive_user }}@{{ item.surfsara_archive_web }} -i {{ item. jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }} 'du -c {{ item.surfsara_archive_home_directory }} |tail -n 1' | cut -f 1)
 percent=$(echo "$bytes/1024/1024/1024/100" | bc -l )
