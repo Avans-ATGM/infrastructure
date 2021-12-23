@@ -125,4 +125,4 @@ monitor_archive:
     archive_ansible_encrypted_ssh: secret_SSH_key_archive
     host_archive_ansible_encrypted_ssh: galaxy.bioinformatics-atgm.nl
     vault_password_file: .vault_password
-    jenkins_workspace: /var/lib/jenkins/workspace/all_servers_(old)
+    jenkins_workspace: /var/lib/jenkins/workspace/all_servers_old

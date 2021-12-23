@@ -17,3 +17,21 @@
     mode: '0644'
   loop: "{{ monitor_archive }}"
   when: item.host_archive_ansible_encrypted_ssh == inventory_hostname
+
+- name: Change ownership SSH key
+  ansible.builtin.file:
+    path: /{{ item. jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }}
+    owner: "telegraf"
+    group: "telegraf"
+    mode: '0644'
+    loop: "{{ monitor_archive }}"
+  when: item.host_archive_ansible_encrypted_ssh == inventory_hostname
+
+- name: Change ownership vault key key
+  ansible.builtin.file:
+    path: /{{ item.jenkins_workspace }}/{{ item.vault_password_file }}
+    owner: "telegraf"
+    group: "telegraf"
+    mode: '0644'
+  loop: "{{ monitor_archive }}"
+  when: item.host_archive_ansible_encrypted_ssh == inventory_hostname
