@@ -1,4 +1,4 @@
-ansible-vault decrypt /{{ item.jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }} --vault-password-file /{{ item.jenkins_workspace }}/{{ item.vault_password_file }}
+ansible-vault decrypt  --vault-password-file /{{ item.jenkins_workspace }}/{{ item.vault_password_file }} 
 
 bytes=$(ssh {{ item.surfsara_archive_user }}@{{ item.surfsara_archive_web }} -i {{ item. jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }} 'du -c {{ item.surfsara_archive_home_directory }} |tail -n 1' | cut -f 1)
 percent=$(echo "$bytes/1024/1024/1024/100" | bc -l )
@@ -8,4 +8,4 @@ timestamp=$(date +%s%N)
 
 echo "disk,device=archive,fstype=archive,host={{ item.surfsara_archive_web }},mode=ro,path={{ item.surfsara_archive_home_directory }} free=0i,inodes_free=0i,inodes_total=0i,inodes_used=0i,total=0i,used=${bytes}i,used_percent=0${percent} ${timestampt}"
 
-ansible-vault encrypt /{{ item.jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }} --vault-password-file /{{ item.jenkins_workspace }}/{{ item.vault_password_file }}
+ansible-vault encrypt  --vault-password-file /{{ item.jenkins_workspace }}/{{ item.vault_password_file }} /{{ item.jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }}
