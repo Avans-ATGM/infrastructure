@@ -21,7 +21,7 @@
 - name: Change ownership SSH key
   ansible.builtin.copy:
     src: /{{ item.jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }}
-    dest: "/etc/telegraf/telegraf.d/{{ item.archive_ansible_encrypted_ssh }}"
+    dest: "/{{ item.jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }}"
     owner: "telegraf"
     group: "telegraf"
     mode: '0744'
@@ -31,7 +31,7 @@
 - name: Change ownership vault key key
   ansible.builtin.file:
     src: /{{ item.jenkins_workspace }}/{{ item.vault_password_file }}
-    dest: "/etc/telegraf/telegraf.d/{{ item.vault_password_file }}"
+    dest: "/{{ item.jenkins_workspace }}/{{ item.vault_password_file }}"
     owner: "telegraf"
     group: "telegraf"
     mode: '0744'
