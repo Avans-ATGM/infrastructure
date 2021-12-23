@@ -123,6 +123,6 @@ monitor_archive:
     surfsara_archive_web: archive.surfsara.nl
     surfsara_archive_home_directory: //home/gringott/*
     archive_ansible_encrypted_ssh: secret_SSH_key_archive
-    host_archive_ansible_encrypted_ssh: galaxy.bioinformatics-atgm.nl
+    host_archive_ansible_encrypted_ssh: galaxy.atgm.avans.nl
     vault_password_file: .vault_password
-    jenkins_workspace: /var/lib/jenkins/workspace/all_servers_old
+    jenkins_workspace: /var/lib/jenkins/workspace/all_servers
