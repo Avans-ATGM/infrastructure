@@ -20,7 +20,7 @@
 
 - name: Change ownership SSH key
   ansible.builtin.file:
-    path: /{{ item. jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }}
+    path: /{{ item.jenkins_workspace }}/roles/telegraf_archive/files/{{ item.archive_ansible_encrypted_ssh }}
     owner: "telegraf"
     group: "telegraf"
     mode: '0644'
