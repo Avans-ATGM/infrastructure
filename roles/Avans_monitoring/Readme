@@ -13,3 +13,20 @@ monitor_ssh_directory:
     jenkins_workspace: /var/lib/jenkins/workspace/all_servers #jenkins workspace
 
 2- ensure ssh connection is possible by using ``` sudo -u telegraf ssh ssh_user@ssh_ip ```
+
+
+
+######################################
+# monitoring students projects       #
+######################################
+
+The monitoring students projects pars works in combination with create project spaces in the Avans role
+If project directories are removed from the groupvars they wont be monitored anymore
+
+place in groupvars the following
+to create project directory if it didnt exists already and monitor the storage
+
+atgm_projects:
+    - name: project-01 # project name
+      year: "2022"      # the year
+      host: galaxy.bioinformatics-atgm.nl #host
