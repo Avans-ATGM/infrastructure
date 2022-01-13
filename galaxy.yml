@@ -27,7 +27,7 @@
         state: restarted
   roles:
     - avans
-    - ansible-htcondor
+    - htcondor-github
     - geerlingguy.nfs
     - galaxyproject.postgresql
     - role: natefoo.postgresql_objects

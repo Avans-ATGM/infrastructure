@@ -9,7 +9,7 @@
   roles:
     - avans
     - hxr.autofs
-    - ansible-htcondor
+    - htcondor-github
     - galaxyproject.cvmfs
     - influxdata.chrony
     - dj-wasabi.telegraf
