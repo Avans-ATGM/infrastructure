@@ -12,7 +12,7 @@
   version: 0.3.0
 - src: https://github.com/Avans-ATGM/ansible-galaxy-systemd
   version: 766d38fe69c71e19378840ff72d314ca4728840a
-  name: systemd-github
+  name: galaxyproject.galaxy_systemd
 - src: usegalaxy_eu.certbot
   version: 0.1.5
 - src: cyverse-ansible.singularity
