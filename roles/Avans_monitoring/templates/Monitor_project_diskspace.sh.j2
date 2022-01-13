@@ -1,10 +1,8 @@
 #monitoring for each in de vars file
 #this is combined with creating project diskspaces so we know what needs to be combined
-'{{ ansible_hostname }}'
-'{{ inventory_hostname }}'
-'{{ ansible_nodename }}'
+
 {% for project in atgm_projects %}
-    {% if project.host == inventory_hostname %}
+    {% if project.host == ansible_nodename %}
 
         bytes=$(du -c {{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }}/* |tail -n 1 | cut -f 1)
         percent=$(echo "$bytes/1024/1024/1024/100" | bc -l )
