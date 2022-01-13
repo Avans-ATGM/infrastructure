@@ -303,6 +303,11 @@ telegraf_plugins_extra:
       - data_format = "influx"
       - interval = "1m"
 
+  monitor_ssl:
+    plugin: x509_cert
+    config:
+      - 'sources = ["https://galaxy.atgm.avans.nl:443", "https://test-galaxy.atgm.avans.nl:443"]'
+
   postgres_extra:
     plugin: "exec"
     config:
