@@ -1,0 +1,61 @@
+#general
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: "/etc/telegraf/scripts/"
+    state: directory
+    mode: '0755'
+    owner: "telegraf"
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: "/etc/telegraf/.ssh/"
+    state: directory
+    mode: '0755'
+    owner: "telegraf"
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: "/etc/telegraf/.ssh/"
+    state: directory
+    mode: '0755'
+    owner: "telegraf"
+
+- name: create known_hosts file it it doesnt exists
+  copy:
+    content: ""
+    dest: "/etc/telegraf/.ssh/known_hosts"
+    force: no
+    group: sys
+    owner: telegraf
+    mode: '0755'
+
+# monitoring ssh directory
+- name: Copy main config file
+  template:
+    src: archive_diskspace.conf.j2
+    dest: "/etc/telegraf/telegraf.d/archive_diskspace.conf"
+    owner: "telegraf"
+    group: "telegraf"
+    mode: '0644'
+  loop: "{{ monitor_ssh_directory }}"
+  when: item.working_host == inventory_hostname
+
+- name: copy main script file
+  template:
+    src: Archive_diskspace_script.sh.j2
+    dest: "/etc/telegraf/scripts/Archive_diskspace_script.sh"
+    owner: "telegraf"
+    group: "telegraf"
+    mode: '0644'
+  loop: "{{ monitor_ssh_directory }}"
+  when: item.working_host == inventory_hostname
+
+- name: Change ownership SSH key & copy
+  ansible.builtin.copy:
+    src: /{{ item.jenkins_workspace }}/roles/Avans_monitoring/files/{{ item.encrypted_ssh_private_key }}
+    dest: "/etc/telegraf/.ssh/{{ item.encrypted_ssh_private_key }}"
+    owner: "telegraf"
+    group: "telegraf"
+    mode: '0744'
+  loop: "{{ monitor_ssh_directory }}"
+  when: item.working_host == inventory_hostname

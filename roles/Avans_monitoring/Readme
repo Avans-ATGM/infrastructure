@@ -1,0 +1,15 @@
+##################################################################
+# instalaltion monitoring directory file size over SSH connection#
+##################################################################24
+
+1- Ensure the following variabes are in the groupvars
+
+monitor_ssh_directory:
+ -  ssh_user: dlvrins1  #user of login aacount
+    ssh_ip: archive.surfsara.nl # server to login
+    directory: //home/gringott/* #directory to monitor size use * check all files
+    encrypted_ssh_private_key: secret_SSH_key_archive #name of ansible-vault encrypted id_rsa with .ansible-vault password
+    working_host: galaxy.bioinformatics-atgm.nl #host name which uses the task 
+    jenkins_workspace: /var/lib/jenkins/workspace/all_servers #jenkins workspace
+
+2- ensure ssh connection is possible by using ``` sudo -u telegraf ssh ssh_user@ssh_ip ```

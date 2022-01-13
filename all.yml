@@ -8,4 +8,4 @@
     - influxdata.chrony
     - dj-wasabi.telegraf
     #- dev-sec.os-hardening # kinda dangerous
-    - telegraf_archive
+    - Avans_monitoring
