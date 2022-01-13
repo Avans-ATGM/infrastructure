@@ -2,8 +2,8 @@
 #this is combined with creating project diskspaces so we know what needs to be combined
 
 {% for project in atgm_projects %}
-        {% if project.host == localhost %}
-
+        {% if project.host == ansible_hostname %}
+        
         bytes=$(du -c {{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }}/* |tail -n 1 | cut -f 1)
         percent=$(echo "$bytes/1024/1024/1024/100" | bc -l )
         timestamp=$(date +%s%N)
