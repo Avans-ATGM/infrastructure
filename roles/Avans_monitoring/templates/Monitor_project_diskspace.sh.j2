@@ -1,13 +1,13 @@
 #monitoring for each in de vars file
 #this is combined with creating project diskspaces so we know what needs to be combined
-
+'{{ ansible_hostname }}'
 {% for project in atgm_projects %}
-        {% if project.host == ansible_hostname %}
-        
+    {% if project.host == ansible_hostname %}
+
         bytes=$(du -c {{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }}/* |tail -n 1 | cut -f 1)
         percent=$(echo "$bytes/1024/1024/1024/100" | bc -l )
         timestamp=$(date +%s%N)
-        echo "disk,device={{ project.name }},fstype=sdb,host={{ inventory_hostname }},mode=ro,path={{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }} free=0i,inodes_free=0i,inodes_total=0i,inodes_used=0i,total=0i,used=${bytes}i,used_percent=0${percent} ${timestamp}"
+        echo "disk,device={{ project.name }},fstype=sdb,host={{ project.host }},mode=ro,path={{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }} free=0i,inodes_free=0i,inodes_total=0i,inodes_used=0i,total=0i,used=${bytes}i,used_percent=0${percent} ${timestamp}"
 
     {% endif%}
 {%endfor%}
