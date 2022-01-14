@@ -156,3 +156,43 @@
     - sda
     - sdb
   when: "'galaxy.bioinformatics-atgm.nl' in inventory_hostname"
+
+################
+# backup roles #
+################
+
+  # add templates to correct location
+
+  - name: Getting backup_timer ready
+    template:
+      src: student_project_backup.timer.j2
+      dest: "/etc/systemd/user/student_project_backup.timer"
+      owner: "telegraf"
+      group: "telegraf"
+      mode: '0644'
+  
+  - name: Getting backup borg script ready
+    template:
+      src: student_project_backup.sh.j2
+      dest: "/etc/systemd/user/student_project_backup.sh"
+      owner: "telegraf"
+      group: "telegraf"
+      mode: '0644'
+  
+  - name: Getting backup service ready
+    template:
+      src: student_project_backup.service.j2
+      dest: "/etc/systemd/user/student_project_backup.service"
+      owner: "telegraf"
+      group: "telegraf"
+      mode: '0644'
+
+  #adding backup directories
+  - name: Create data storage to bebacked up with every project
+    ansible.builtin.file:
+      path: "{{ hostvars.backup_location }}"
+      state: directory
+      mode: '0755'
+      owner: "{{ ansible_user }}"
+
+
