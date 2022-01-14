@@ -1,19 +1,12 @@
 #general
-- name: Create a directory if it does not exist
+- name: Create script directory if it doesn't exists
   ansible.builtin.file:
     path: "/etc/telegraf/scripts/"
     state: directory
     mode: '0755'
     owner: "telegraf"
 
-- name: Create a directory if it does not exist
-  ansible.builtin.file:
-    path: "/etc/telegraf/.ssh/"
-    state: directory
-    mode: '0755'
-    owner: "telegraf"
-
-- name: Create a directory if it does not exist
+- name: Create a .ssh directory if it doesn't exists
   ansible.builtin.file:
     path: "/etc/telegraf/.ssh/"
     state: directory
