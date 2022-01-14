@@ -166,26 +166,45 @@
   - name: Getting backup_timer ready
     template:
       src: student_project_backup.timer.j2
-      dest: "/etc/systemd/user/student_project_backup.timer"
-      owner: "telegraf"
-      group: "telegraf"
+      dest: "/etc/systemd/system/student_project_backup.timer"
+      owner: "root"
+      group: "root"
       mode: '0644'
   
   - name: Getting backup borg script ready
     template:
       src: student_project_backup.sh.j2
-      dest: "/etc/systemd/user/student_project_backup.sh"
-      owner: "telegraf"
-      group: "telegraf"
+      dest: "/etc/systemd/system/student_project_backup.sh"
+      owner: "root"
+      group: "root"
       mode: '0644'
   
   - name: Getting backup service ready
     template:
       src: student_project_backup.service.j2
-      dest: "/etc/systemd/user/student_project_backup.service"
-      owner: "telegraf"
-      group: "telegraf"
+      dest: "/etc/systemd/system/student_project_backup.service"
+      owner: "root"
+      group: "root"
       mode: '0644'
+  # restart services
+  - name: restart service systemd service issue daemon-reload to pick up config changes
+    systemd:
+      state: restarted
+      daemon_reload: yes
+      name: student_project_backup.service
+
+  - name: restart service systemd timer issue daemon-reload to pick up config changes
+    systemd:
+      state: restarted
+      daemon_reload: yes
+      name: student_project_backup.timer
+
+  # makesure that the service unit it running
+
+  - name: Make sure a service unit is running
+    ansible.builtin.systemd:
+      state: started
+      name: student_project_backup.service
 
   #adding backup directories
   - name: Create data storage to bebacked up with every project
