@@ -47,7 +47,7 @@
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
-  
+
 - name: create standard readme file
   copy:
     dest: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/Readme"
