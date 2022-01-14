@@ -123,7 +123,7 @@
       - zlib1g-dev
       - sshfs
       - borgbackup
-      - cron
+
 
 
 
