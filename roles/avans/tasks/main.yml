@@ -27,7 +27,7 @@
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
-- name: Create a directory if it does not exist
+- name: Create data storage to bebacked up with every project
   ansible.builtin.file:
     path: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/data_storage"
     state: directory
@@ -37,6 +37,28 @@
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
+- name: create standard readme file
+  copy:
+    dest: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/Readme"
+    force: no
+    group: sys
+    owner: telegraf
+    mode: '0755'
+    content: |
+      Dear students, welcome to your project directory.
+      Use it as you see fit but here are a few things you should know:
+      - Put in the data_storage are files which are essentional to yourbackup.
+        May something go terrible wrong and all your data is deleted we can retrieve a backup.
+        We will make an automated backup weekly (saturday) to an other machine of all files in the data_storage directory
+
+      - We will monitor howmuch storage space you are using. Try not to go over the 200 GB if it is not nessacery.
+
+      Further try also to make your own Read me files or add to this file with your favourite text editor.
+      For example explain what is in every directory and what the input, output are of your scripts / commands so we can recreate everything if needed from the backups
+
+      And remember have fun, if you have any questions please contact Donny or Bazante.
+  loop: "{{ atgm_projects }}"
+  when: item.host == inventory_hostname
 
 - name: Update the apt cache
   apt:
@@ -75,6 +97,7 @@
       - wget
       - zlib1g-dev
       - sshfs
+      - borgbackup
 
 - name: Select sensible default for students
   community.general.alternatives:
