@@ -43,7 +43,7 @@
   include_role:
     name: galaxyproject.miniconda
   vars:
-      miniconda_prefix: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/conda"
+    miniconda_prefix: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/conda"
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
