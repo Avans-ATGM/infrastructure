@@ -3,6 +3,6 @@ machine_shortname: Midgard
 
 directories_to_monitor_size:
 - path: /mnt/StudentFiles
-  max_size(gb): 5632
+  max_size: 5632
 - path: /mnt/TeacherFiles
-  max_size(gb): 5632
+  max_size: 5632

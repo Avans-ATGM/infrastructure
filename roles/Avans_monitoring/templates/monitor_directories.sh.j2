@@ -2,9 +2,8 @@
 
 {% for directory in hostvars[ansible_nodename].directories_to_monitor_size %}
 
-
         bytes=$(du -c {{ directory.path }} |tail -n 1 | cut -f 1)
-        percent=$(echo "$bytes/1024/1024/1024/{{ directory.max_size(gb) }}" | bc -l )
+        percent=$(echo "$bytes/1024/1024/1024/{{ directory.max_size }}" | bc -l )
         timestamp=$(date +%s%N)
         echo "disk,device=directories_of_interest,fstype=sdb,host={{ ansible_nodename }},mode=ro,path={{ directory.path }} free=0i,inodes_free=0i,inodes_total=0i,inodes_used=0i,total=0i,used=${bytes}i,used_percent=0${percent} ${timestamp}"
 

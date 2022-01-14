@@ -1,3 +1,6 @@
 project_directory: /media/miaomiao/Student_Files2
 
+directories_to_monitor_size:
+- path: /home
+  max_size: 873
 
