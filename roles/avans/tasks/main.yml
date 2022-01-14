@@ -39,17 +39,6 @@
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
-- name: Create miniconda enviorment for new users
-    include_role:
-      name: galaxyproject.miniconda
-    vars:
-        miniconda_prefix: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/conda"
-    become: true
-    become_user: "Project{{ item.name }}"
-    loop: "{{ atgm_projects }}"
-    when: item.host == inventory_hostname
-
-
 - name: create standard readme file
   copy:
     dest: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/Readme"
