@@ -1,2 +1,5 @@
 project_directory: /mount/sdb
 machine_shortname: Isengard
+
+backup_host: asgard.bioinformatics-atgm.nl
+backup_location: /mnt/TeacherFiles/project_backup
