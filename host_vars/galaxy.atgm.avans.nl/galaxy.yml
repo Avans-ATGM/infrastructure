@@ -4,3 +4,14 @@ openssl_domains:
 - "*.interactivetoolentrypoint.interactivetool.galaxy.atgm.avans.nl"
 - "{{ hostname }}"
 openssl_self_sign: false
+
+
+directories_to_monitor_size:
+- path: /data
+  max_size(gb): 8904
+- path: /data/databases
+  max_size(gb): 8904
+- path: /data/studentfiles
+  max_size(gb): 8904
+- path: /data/teacherfiles
+  max_size(gb): 8904

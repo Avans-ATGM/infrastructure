@@ -1,2 +1,8 @@
 project_directory: /mnt/StudentFiles
 machine_shortname: Asgard
+
+directories_to_monitor_size:
+- path: /mnt/StudentFiles
+  max_size(gb): 5632
+- path: /mnt/TeacherFiles
+  max_size(gb): 5632
