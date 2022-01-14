@@ -2,7 +2,7 @@ project_directory: /mount/sdb
 machine_shortname: Isengard
 
 directories_to_monitor_size:
-- path: /mnt/sdb
+- path: /mount/sdb
   max_size: 5632
-- path: /mnt/sda
+- path: /mount/sda
   max_size: 5632
