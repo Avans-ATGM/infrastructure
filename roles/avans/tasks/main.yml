@@ -186,25 +186,6 @@
       owner: "root"
       group: "root"
       mode: '0644'
-  # restart services
-  - name: restart service systemd service issue daemon-reload to pick up config changes
-    systemd:
-      state: restarted
-      daemon_reload: yes
-      name: student_project_backup.service
-
-  - name: restart service systemd timer issue daemon-reload to pick up config changes
-    systemd:
-      state: restarted
-      daemon_reload: yes
-      name: student_project_backup.timer
-
-  # makesure that the service unit it running
-
-  - name: Make sure a service unit is running
-    ansible.builtin.systemd:
-      state: started
-      name: student_project_backup.service
 
   #adding backup directories
   - name: Create data storage to bebacked up with every project

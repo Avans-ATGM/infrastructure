@@ -1,18 +1,17 @@
 #!/bin/sh
 
 exit_needed=$(False)
-{% for project in atgm_projects %}
-    {% if project.host == ansible_nodename %}
+
 
         exit_needed=$(True)
         set -e
 
         # go to directory needed to be backedup
-        cd {{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }}/data_storage$
+
 
         # See the section "Passphrase notes" for more infos.
         #where it will be stored
-        export BORG_REPO={{ hostvars[project.host].backup_user }}@{{ hostvars[project.host].backup_host}}:{{ hostvars[project.host].backup_location}}/{{ project.year }}/{{ project.name }}
+        export BORG_REPO={{ hostvars[project.host].backup_user }}@{{ hostvars[project.host].backup_host}}:{{ hostvars[project.host].backup_location}}
 
         export BORG_PASSPHRASE={{.vault_password}}
         # some helpers and error handling:
@@ -33,8 +32,11 @@ exit_needed=$(False)
             --exclude-caches                                  \
             ::docs-$(date "+%Y-%m-%dT%H-%M-%S") \
             # we backup all in the data storage directory
-            *
-
+            {% for project in atgm_projects %}
+                {% if project.host == ansible_nodename %}
+                    {{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }}/data_storage
+                {% endif %}
+            {% endfor %}    
         backup_exit=$?
 
         info "Pruning repository"
@@ -66,11 +68,4 @@ exit_needed=$(False)
             info "Backup and/or Prune finished with errors"
         fi
 
-        info ${global_exit}
-
-    {% endif%}
-{%endfor%}
-
-{% if exit_needed == True %}
-    exit
-{%endif%}
+        exit ${global_exit}
