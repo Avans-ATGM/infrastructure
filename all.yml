@@ -15,7 +15,7 @@
         name: galaxyproject.miniconda
       vars:
           miniconda_prefix: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/conda"
-      become: true
-      become_user: "Project{{ item.name }}"
       loop: "{{ atgm_projects }}"
       when: item.host == inventory_hostname
+    become: true
+    become_user: "Project{{ item.name }}"
