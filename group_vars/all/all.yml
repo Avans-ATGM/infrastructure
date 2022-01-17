@@ -114,12 +114,20 @@ atgm_users:
 - name: Dirowa
   groups: sudo,atgm-user
 
+
+
 # Project Accounts
 atgm_projects:
     - name: project-01
       year: "2022"
       host: galaxy.bioinformatics-atgm.nl
     - name: project-02
+      year: "2022"
+      host: galaxy.bioinformatics-atgm.nl
+    - name: Edwin
+      year: "2022"
+      host: galaxy.bioinformatics-atgm.nl
+    - name: Martijn
       year: "2022"
       host: galaxy.bioinformatics-atgm.nl
 
