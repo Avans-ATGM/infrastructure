@@ -126,10 +126,10 @@ atgm_projects:
       host: galaxy.bioinformatics-atgm.nl
     - name: Edwin
       year: "2022"
-      host: galaxy.bioinformatics-atgm.nl
+      host: asgard.bioinformatics-atgm.nl
     - name: Martijn
       year: "2022"
-      host: galaxy.bioinformatics-atgm.nl
+      host: asgard.bioinformatics-atgm.nl
 
 #telegraf_archive
 monitor_ssh_directory:
