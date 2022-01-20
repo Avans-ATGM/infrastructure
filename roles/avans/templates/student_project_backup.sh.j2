@@ -2,13 +2,12 @@
 #where it will be stored
 
 export BORG_REPO={{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host}}:{{ hostvars[ansible_nodename].backup_location}}
-
-
+export BORG_PASSPHRAS='Avans_backup'
 
 
 # initialse backup directory
 
-set -e $(BORG_REPO) 
+set -e $BORG_REPO
 
 # some helpers and error handling:
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
@@ -47,7 +46,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
         # other machines' archives also:
 
         borg prune                 \
-            --remote-path=$BORG_REPO     \
+            --remote-path=$(BORG_REPO)     \
             --list                 \
             --prefix 'project-{{ project.year }}-{{ project.name }}' \
             --show-rc              \
