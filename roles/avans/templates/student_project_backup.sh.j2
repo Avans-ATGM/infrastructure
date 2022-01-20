@@ -6,8 +6,8 @@ export BORG_PASSPHRAS='Avans_backup'
 
 
 # initialse backup directory
-
-borg init --encryption=repokey $BORG_REPO ||
+#todo make this an different playbook function who only like, play once
+#borg init --encryption=repokey $BORG_REPO || Just enter withouth thing???
 
 # some helpers and error handling:
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
@@ -34,7 +34,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
         backup_exit=$?
 
-        info "Pruning repository project-{{ project.year }}-{{ project.name }} "
+        info "Pruning repository of project-{{ project.year }}-{{ project.name }} "
 
         # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
         # archives of THIS machine. The '{hostname}-' prefix is very important to
