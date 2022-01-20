@@ -114,6 +114,8 @@ atgm_users:
 - name: Dirowa
   groups: sudo,atgm-user
 
+
+
 # Project Accounts
 atgm_projects:
     - name: project-01
@@ -122,6 +124,12 @@ atgm_projects:
     - name: project-02
       year: "2022"
       host: galaxy.bioinformatics-atgm.nl
+    - name: Edwin
+      year: "2022"
+      host: asgard.bioinformatics-atgm.nl
+    - name: Martijn
+      year: "2022"
+      host: asgard.bioinformatics-atgm.nl
 
 #telegraf_archive
 monitor_ssh_directory:
