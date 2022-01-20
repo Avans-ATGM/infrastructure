@@ -158,5 +158,13 @@
   when: "'galaxy.bioinformatics-atgm.nl' in inventory_hostname"
 
 
+#add bacup.yml tasks
 
 
+- name: Include student project backup tasks
+  include_tasks:
+    file: backup.yml
+    apply:
+      tags: initialise / update backup system
+  tags:
+    - when there are student projects
