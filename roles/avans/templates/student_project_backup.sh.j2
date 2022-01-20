@@ -3,4 +3,3 @@
 
 export BORG_REPO={{ hostvars[item.host].backup_user }}@{{ hostvars[item.host].backup_host}}:{{ hostvars[item.host].backup_location}}
 
-export BORG_PASSPHRASE={{.vault_password}}
