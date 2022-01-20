@@ -4,7 +4,6 @@ exit_needed=$(False)
 
 
         exit_needed=$(True)
-        set -e
 
         # go to directory needed to be backedup
 
@@ -14,26 +13,37 @@ exit_needed=$(False)
         export BORG_REPO={{ hostvars[project.host].backup_user }}@{{ hostvars[project.host].backup_host}}:{{ hostvars[project.host].backup_location}}
 
         export BORG_PASSPHRASE={{.vault_password}}
+
+
+        # initialse backup directory
+
+        set -e $BORG_REPO 
+
         # some helpers and error handling:
         info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
         trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
-        info "Starting backup"
+        {% for project in atgm_projects %}
+            {% if project.host == ansible_nodename %}
+        
+                #giving information which backup is generated
+                info "Starting backup {{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }}"
 
-        # Backup the most important directories into an archive named after
-        # the machine this script is currently running on:
+                # Backup the most important directories into an archive named after
+                # the machine this script is currently running on:
 
-        borg create \
-            --verbose                                         \
-            --list                                            \
-            --stats                                           \
-            --show-rc                                         \
-            --compression lz4                                 \
-            --exclude-caches                                  \
-            ::docs-$(date "+%Y-%m-%dT%H-%M-%S") \
-            # we backup all in the data storage directory
-            {% for project in atgm_projects %}
-                {% if project.host == ansible_nodename %}
+                borg create \
+                    --verbose                                         \
+                    --list                                            \
+                    --stats                                           \
+                    --show-rc                                         \
+                    --compression lz4                                 \
+                    --exclude-caches                                  \
+
+                    #gives the backup name docs-when-of who
+                    ::docs-$(date "+%Y-%m-%dT%H-%M-%S"){{ project.year }}/{{ project.name }} \
+
+                    #path to directory to be backedup
                     {{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }}/data_storage
                 {% endif %}
             {% endfor %}    
@@ -47,13 +57,16 @@ exit_needed=$(False)
         # other machines' archives also:
 
         borg prune                 \
-            --remote-path=borg1    \
+            --remote-path=$BORG_REPO     \
             --list                 \
             --prefix 'docs-' \
             --show-rc              \
+            #NA because we only do weekly
             --keep-daily    1      \
-            --keep-weekly   1      \
-            --keep-monthly  6
+            #should be automatic as our projects increases aka we keep the number of amount projects per week
+            --keep-weekly   {{atgm_projects|length}}      \
+            # we keep number of projects for 4 weeks?
+            --keep-monthly  {{atgm_projects|length | * 4}}   
 
         prune_exit=$?
 
