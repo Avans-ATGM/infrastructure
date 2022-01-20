@@ -1,9 +1,2 @@
-
 # See the section "Passphrase notes" for more infos.
 #where it will be stored
-
-export BORG_REPO={{ hostvars[project.host].backup_user }}@{{ hostvars[project.host].backup_host }}:{{ hostvars[project.host].backup_location }}
-
-export BORG_PASSPHRASE={{.vault_password}}
-
-
