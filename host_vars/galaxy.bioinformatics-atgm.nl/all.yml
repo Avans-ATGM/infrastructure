@@ -1,6 +1,9 @@
 project_directory: /mount/sdb
 machine_shortname: Isengard
 
+backup_user: thor
+backup_host: asgard.bioinformatics-atgm.nl
+backup_location: /mnt/TeacherFiles/project_backup
 directories_to_monitor_size:
 - path: /mount/sdb
   max_size: 5632

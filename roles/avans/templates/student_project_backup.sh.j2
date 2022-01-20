@@ -1,0 +1,84 @@
+#!/bin/sh
+
+exit_needed=$(False)
+
+
+        exit_needed=$(True)
+
+        # go to directory needed to be backedup
+
+
+        # See the section "Passphrase notes" for more infos.
+        #where it will be stored
+        export BORG_REPO={{ hostvars[project.host].backup_user }}@{{ hostvars[project.host].backup_host}}:{{ hostvars[project.host].backup_location}}
+
+        export BORG_PASSPHRASE={{.vault_password}}
+
+
+        # initialse backup directory
+
+        set -e $BORG_REPO 
+
+        # some helpers and error handling:
+        info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
+        trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
+
+        {% for project in atgm_projects %}
+            {% if project.host == ansible_nodename %}
+        
+                #giving information which backup is generated
+                info "Starting backup {{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }}"
+
+                # Backup the most important directories into an archive named after
+                # the machine this script is currently running on:
+
+                borg create \
+                    --verbose                                         \
+                    --list                                            \
+                    --stats                                           \
+                    --show-rc                                         \
+                    --compression lz4                                 \
+                    --exclude-caches                                  \
+
+                    #gives the backup name docs-when-of who
+                    ::project-{{ project.year }}-{{ project.name }}-$(date "+%Y-%m-%dT%H-%M-%S") \
+
+                    #path to directory to be backedup
+                    {{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }}/data_storage
+
+                backup_exit=$?
+
+                info "Pruning repository project-{{ project.year }}-{{ project.name }} "
+
+                # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
+                # archives of THIS machine. The '{hostname}-' prefix is very important to
+                # limit prune's operation to this machine's archives and not apply to
+                # other machines' archives also:
+
+                borg prune                 \
+                    --remote-path=$BORG_REPO     \
+                    --list                 \
+                    --prefix 'project-{{ project.year }}-{{ project.name }}' \
+                    --show-rc              \
+                    #NA because we only do weekly
+                    --keep-daily    1      \
+                    #should be automatic as our projects increases aka we keep the number of amount projects per week
+                    --keep-weekly   1     \
+                    # we keep number of projects for 4 weeks?
+                    --keep-monthly  4   
+
+                prune_exit=$?
+            {% endif %}
+        {% endfor %}    
+        # use highest exit code as global exit code
+        global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
+
+        if [ ${global_exit} -eq 0 ]; then
+            info "Backup and Prune finished successfully"
+        elif [ ${global_exit} -eq 1 ]; then
+            info "Backup and/or Prune finished with warnings"
+        else
+            info "Backup and/or Prune finished with errors"
+        fi
+
+        exit ${global_exit}

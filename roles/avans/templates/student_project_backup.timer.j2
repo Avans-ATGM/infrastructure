@@ -1,0 +1,11 @@
+[Unit]
+Description=Backup
+Requires=student_project_backup.service
+
+[Timer]
+Unit=student_project_backup.service
+OnCalendar=sat 12:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

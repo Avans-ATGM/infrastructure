@@ -1,6 +1,10 @@
 project_directory: /mnt/StudentFiles
 machine_shortname: Asgard
 
+backup_user: artemis
+backup_host: midgard.bioinformatics-atgm.nl
+backup_location: /mnt/TeacherFiles/project_backup
+
 directories_to_monitor_size:
 - path: /mnt/StudentFiles
   max_size: 5632
