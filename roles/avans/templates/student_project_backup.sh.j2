@@ -30,10 +30,10 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
             --exclude-caches                                  \
 
             #gives the backup name docs-when-of who
-            ::project-{{ project.year }}-{{ project.name }}-$(date "+%Y-%m-%dT%H-%M-%S") \
+            #::project-{{ project.year }}-{{ project.name }}-$(date "+%Y-%m-%dT%H-%M-%S") \
 
             #path to directory to be backedup
-            {{ hostvars[ansible_nodename].project_directory }}/{{ project.year }}/{{ project.name }}/data_storage
+            # {{ hostvars[ansible_nodename].project_directory }}/{{ project.year }}/{{ project.name }}/data_storage
 
         backup_exit=$?
 
