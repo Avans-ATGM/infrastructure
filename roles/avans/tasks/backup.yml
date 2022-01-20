@@ -27,7 +27,7 @@
   #adding backup directories
   - name: Create data storage to bebacked up with every project
     ansible.builtin.file:
-      path: "{{ hostvars.backup_location }}"
+      path: "{{ hostvars[ansible_nodename].backup_location }}"
       state: directory
       mode: '0755'
       owner: "{{ ansible_user }}"
