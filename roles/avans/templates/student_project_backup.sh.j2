@@ -1,7 +1,7 @@
 
-BORG_REPO=$({{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host}}:{{ hostvars[ansible_nodename].backup_location}})
+#BORG_REPO=$({{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host}}:{{ hostvars[ansible_nodename].backup_location}})
 
-BORG_PASSPHRASE=$({{.vault_password}})
+#BORG_PASSPHRASE=$({{.vault_password}})
 
 
 # initialse backup directory
@@ -16,7 +16,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
     {% if project.host == ansible_nodename %}
 
         #giving information which backup is generated
-        info "Starting backup {{ hostvars[ansible_nodename].project_directory }}/{{ project.year }}/{{ project.name }}"
+        #info "Starting backup {{ hostvars[ansible_nodename].project_directory }}/{{ project.year }}/{{ project.name }}"
 
         # Backup the most important directories into an archive named after
         # the machine this script is currently running on:
@@ -37,7 +37,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
         backup_exit=$?
 
-        info "Pruning repository project-{{ project.year }}-{{ project.name }} "
+        #info "Pruning repository project-{{ project.year }}-{{ project.name }} "
 
         # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
         # archives of THIS machine. The '{hostname}-' prefix is very important to
@@ -47,7 +47,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
         borg prune                 \
             --remote-path=${BORG_REPO}      \
             --list                 \
-            --prefix 'project-{{ project.year }}-{{ project.name }}' \
+            #--prefix 'project-{{ project.year }}-{{ project.name }}' \
             --show-rc              \
             #NA because we only do weekly
             --keep-daily    1      \
