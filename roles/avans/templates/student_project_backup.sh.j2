@@ -41,35 +41,35 @@ exit_needed=$(False)
                     --exclude-caches                                  \
 
                     #gives the backup name docs-when-of who
-                    ::docs-$(date "+%Y-%m-%dT%H-%M-%S"){{ project.year }}/{{ project.name }} \
+                    ::project-{{ project.year }}-{{ project.name }}-$(date "+%Y-%m-%dT%H-%M-%S") \
 
                     #path to directory to be backedup
                     {{ hostvars[project.host].project_directory }}/{{ project.year }}/{{ project.name }}/data_storage
-                {% endif %}
-            {% endfor %}    
-        backup_exit=$?
 
-        info "Pruning repository"
+                backup_exit=$?
 
-        # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
-        # archives of THIS machine. The '{hostname}-' prefix is very important to
-        # limit prune's operation to this machine's archives and not apply to
-        # other machines' archives also:
+                info "Pruning repository project-{{ project.year }}-{{ project.name }} "
 
-        borg prune                 \
-            --remote-path=$BORG_REPO     \
-            --list                 \
-            --prefix 'docs-' \
-            --show-rc              \
-            #NA because we only do weekly
-            --keep-daily    1      \
-            #should be automatic as our projects increases aka we keep the number of amount projects per week
-            --keep-weekly   {{atgm_projects|length}}      \
-            # we keep number of projects for 4 weeks?
-            --keep-monthly  {{atgm_projects|length | * 4}}   
+                # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
+                # archives of THIS machine. The '{hostname}-' prefix is very important to
+                # limit prune's operation to this machine's archives and not apply to
+                # other machines' archives also:
 
-        prune_exit=$?
+                borg prune                 \
+                    --remote-path=$BORG_REPO     \
+                    --list                 \
+                    --prefix 'project-{{ project.year }}-{{ project.name }}' \
+                    --show-rc              \
+                    #NA because we only do weekly
+                    --keep-daily    1      \
+                    #should be automatic as our projects increases aka we keep the number of amount projects per week
+                    --keep-weekly   1     \
+                    # we keep number of projects for 4 weeks?
+                    --keep-monthly  4   
 
+                prune_exit=$?
+            {% endif %}
+        {% endfor %}    
         # use highest exit code as global exit code
         global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
 

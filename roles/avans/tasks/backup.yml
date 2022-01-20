@@ -1,0 +1,33 @@
+  # add templates to correct location
+
+  - name: Getting backup_timer ready
+    template:
+      src: student_project_backup.timer.j2
+      dest: "/etc/systemd/system/student_project_backup.timer"
+      owner: "root"
+      group: "root"
+      mode: '0644'
+  
+  - name: Getting backup borg script ready
+    template:
+      src: student_project_backup.sh.j2
+      dest: "/usr/bin/student_project_backup.sh"
+      owner: "root"
+      group: "root"
+      mode: '0644'
+  
+  - name: Getting backup service ready
+    template:
+      src: student_project_backup.service.j2
+      dest: "/etc/systemd/system/student_project_backup.service"
+      owner: "root"
+      group: "root"
+      mode: '0644'
+
+  #adding backup directories
+  - name: Create data storage to bebacked up with every project
+    ansible.builtin.file:
+      path: "{{ hostvars.backup_location }}"
+      state: directory
+      mode: '0755'
+      owner: "{{ ansible_user }}"
