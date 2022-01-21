@@ -1,7 +1,7 @@
 # See the section "Passphrase notes" for more infos.
 #where it will be stored
 
-export BORG_REPO={{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host}}:{{ hostvars[ansible_nodename].backup_location}}
+export BORG_REPO={{ backup_user }}@{{ hostvars[ansible_nodename].backup_host}}:{{ hostvars[ansible_nodename].backup_location}}
 export BORG_PASSPHRAS={{ borg_encryption_password }}
 
 
