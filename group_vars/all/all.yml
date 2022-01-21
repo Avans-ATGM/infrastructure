@@ -144,4 +144,4 @@ monitor_ssh_directory:
     jenkins_workspace: /var/lib/jenkins/workspace/all_servers #could probably be deleted
 
 #backing user
-backup_user: "borg"
+backup_user: "Borg_backup"

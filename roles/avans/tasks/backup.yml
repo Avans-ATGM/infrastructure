@@ -38,13 +38,13 @@
   user:
     name: "{{ backup_user }}"
     home: "/home/{{ backup_user }}"
-    shell: /bin/bash
-    groups: sudo,atgm-user
+    shell: "/bin/bash"
+    groups: "sudo,atgm-user"
+    update_password: on_create
     password: "{{ Borg_user_pass | password_hash('sha512') }}"
     append: yes
     generate_ssh_key: yes
     ssh_key_file: "/home/{{ backup_user }}/.ssh/id_rsa"
-
 
 
 #initisalise backup directory if it doesnt exist
