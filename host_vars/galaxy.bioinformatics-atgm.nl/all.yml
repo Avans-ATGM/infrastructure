@@ -9,5 +9,5 @@ directories_to_monitor_size:
   max_size: 5632
 - path: /mount/sda
   max_size: 5632
--path: /mount/sdb/project_backup
+- path: /mount/sdb/project_backup
   max_size: 5632
