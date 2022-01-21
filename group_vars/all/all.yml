@@ -113,8 +113,6 @@ atgm_users:
   groups: sudo,atgm-user
 - name: Dirowa
   groups: sudo,atgm-user
-- name: Borg_backup
-  groups: sudo,atgm-user,root
 
 
 
@@ -146,4 +144,4 @@ monitor_ssh_directory:
     jenkins_workspace: /var/lib/jenkins/workspace/all_servers #could probably be deleted
 
 #backing user
-backup_user: "Borg_backup"
+backup_user: Borg_backup
