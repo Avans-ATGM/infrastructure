@@ -37,7 +37,7 @@
     name: "{{ backup_user }}"
     home: "/home/{{ backup_user }}"
     shell: "/bin/bash"
-    groups: "sudo,atgm-user,artemis,thor,researchers,root"
+    groups: "sudo,atgm-user,root"
     update_password: on_create
     password: "{{ Borg_user_pass | password_hash('sha512') }}"
     append: yes
