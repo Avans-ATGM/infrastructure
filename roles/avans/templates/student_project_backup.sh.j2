@@ -2,7 +2,7 @@
 #where it will be stored
 
 export BORG_REPO={{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host}}:{{ hostvars[ansible_nodename].backup_location}}
-export BORG_PASSPHRAS='Avans_backup'
+export BORG_PASSPHRAS={{ borg_encryption_password }}
 
 
 # initialse backup directory
@@ -41,17 +41,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
         # limit prune's operation to this machine's archives and not apply to
         # other machines' archives also:
 
-        borg prune                 \
-            --remote-path=$(BORG_REPO)     \
-            --list                 \
-            --prefix 'project-{{ project.year }}-{{ project.name }}' \
-            --show-rc              \
-            #NA because we only do weekly
-            --keep-daily    1      \
-            #should be automatic as our projects increases aka we keep the number of amount projects per week
-            --keep-weekly   1     \
-            # we keep number of projects for 4 weeks?
-            --keep-monthly  4   
+        borg prune --list --prefix 'project-{{ project.year }}-{{ project.name }}' --show-rc--keep-daily=1 --keep-weekly=1 --keep-monthly=4 $BORG_REPO  
 
         prune_exit=$?
     {% endif %}
