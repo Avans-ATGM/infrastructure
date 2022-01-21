@@ -25,12 +25,12 @@
     mode: '0644'
 
 #adding backup directories
-- name: Create data storage to bebacked up with every project
-  ansible.builtin.file:
-    path: "{{ hostvars[ansible_nodename].backup_location }}"
-    state: directory
-    mode: '0755'
-    owner: "{{ ansible_user }}"
+#- name: Create data storage to bebacked up with every project
+#  ansible.builtin.file:
+#    path: "{{ hostvars[ansible_nodename].backup_location }}"
+#    state: directory
+#    mode: '0755'
+#    owner: "{{ ansible_user }}"
 
 #create backup users, to have overall the same user and to manage ssh keys
 
@@ -40,7 +40,7 @@
     name: "{{ backup_user }}"
     home: "/home/{{ backup_user }}"
     shell: "{{ item.shell | default('/bin/bash') }}"
-    groups: "{{ root,sudo,atgm-user | default(omit) }}"
+    groups: "{{ root,sudo | default(omit) }}"
     password: "{{ Borg_user_pass | password_hash('sha512') }}"
     append: yes
     generate_ssh_key: yes
