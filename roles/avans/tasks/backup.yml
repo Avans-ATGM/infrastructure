@@ -15,7 +15,7 @@
     group: "root"
     mode: '0644'
 
-- name: Getting backup borg script ready
+- name: Getting backup borg initialising script ready
   template:
     src: student_project_init_backup.sh.j2
     dest: "/usr/bin/student_project_init_backup.sh"
