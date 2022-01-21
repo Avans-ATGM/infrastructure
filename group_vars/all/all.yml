@@ -143,6 +143,5 @@ monitor_ssh_directory:
     working_host: galaxy.atgm.avans.nl
     jenkins_workspace: /var/lib/jenkins/workspace/all_servers #could probably be deleted
 
-#backing up
-backup_user: borg
-Backup_encryption_key: 'Avans'
+#backing user
+backup_user: "borg"
