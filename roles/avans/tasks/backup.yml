@@ -49,14 +49,14 @@
 
 #initisalise backup directory if it doesnt exist
 
-- name: check if backup directory exists
-  ansible.builtin.stat:
-  #looks for the host, and of that host for the backup location
-    path: "{{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host }}:{{ hostvars[ansible_nodename].backup_location }}"
-  register: backup_directory_stats
+#- name: check if backup directory exists
+#  ansible.builtin.stat:
+#  #looks for the host, and of that host for the backup location
+#    path: "{{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host }}:{{ hostvars[ansible_nodename].backup_location }}"
+#  register: backup_directory_stats
 
-- name: Run command if /path/to/database does not exist
-  ansible.builtin.command: "/usr/bin/script to create database db_user db_name"
-    become: yes
-    become_user: {{ backup_user }}
-  when: backup_directory.stats.exits == False
+#- name: Run command if /path/to/database does not exist
+#  ansible.builtin.command: "/usr/bin/script to create database db_user db_name"
+#    become: yes
+#    become_user: {{ backup_user }}
+#  when: backup_directory.stats.exits == False
