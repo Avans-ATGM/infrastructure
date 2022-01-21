@@ -1,5 +1,5 @@
 # initialise shared ssh key
-ssh-copy-id -i /home{{ backup_user }}/.ssh/id_rsa.pub {{backup_user }}@{{ hostvars[ansible_nodename].backup_host}}
+ssh-copy-id -i /home/{{ backup_user }}/.ssh/id_rsa.pub {{backup_user }}@{{ hostvars[ansible_nodename].backup_host}}
 
 
 # See the section "Passphrase notes" for more infos.
