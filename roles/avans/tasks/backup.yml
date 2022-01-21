@@ -39,7 +39,7 @@
     name: "{{ backup_user }}"
     home: "/home/{{ backup_user }}"
     shell: "{{ item.shell | default('/bin/bash') }}"
-    groups: "{{ root,sudo | default(omit) }}"
+    groups: "atgm-user"
     password: "{{ Borg_user_pass | password_hash('sha512') }}"
     append: yes
     generate_ssh_key: yes
