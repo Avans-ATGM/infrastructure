@@ -3,7 +3,7 @@
 
 export BORG_REPO={{ backup_user }}@{{ hostvars[ansible_nodename].backup_host}}:{{ hostvars[ansible_nodename].backup_location}}
 export BORG_PASSPHRASE={{ borg_encryption_password }}
-export BORG_RSH="ssh -i //home/{{ {{ backup_user }} }}/.ssh/id_rsa"
+export BORG_RSH="ssh -i //home/{{ backup_user }}/.ssh/id_rsa"
 
 
 # initialse backup directory
