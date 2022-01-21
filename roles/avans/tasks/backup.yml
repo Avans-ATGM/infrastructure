@@ -21,7 +21,7 @@
       path: "{{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host }}:{{ hostvars[ansible_nodename].backup_location }}"
     register: backup_directory_stats
 
-  -name: if backup directory is missing
+  - name: if backup directory is missing
     debug:
     msg: "Backup directory {{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host }}:{{ hostvars[ansible_nodename].backup_location }} will be created"
     command: "borg init --encryption=repokey {{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host }}:{{ hostvars[ansible_nodename].backup_location }}"
