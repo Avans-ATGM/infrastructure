@@ -35,8 +35,7 @@
 #create backup users, to have overall the same user and to manage ssh keys
 
 - name: Create our backup user
-  ansible.builtin.user:
-    user:
+  user:
     name: "{{ backup_user }}"
     home: "/home/{{ backup_user }}"
     shell: "{{ item.shell | default('/bin/bash') }}"
