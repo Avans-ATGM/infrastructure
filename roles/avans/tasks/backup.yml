@@ -32,6 +32,9 @@
     group: "root"
     mode: '0644'
 
+#############################
+# create Borg_user accounts #
+#############################
 - name: Create our backup user
   user:
     name: "{{ backup_user }}"

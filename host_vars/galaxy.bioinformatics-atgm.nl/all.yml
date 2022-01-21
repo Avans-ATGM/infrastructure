@@ -3,8 +3,11 @@ machine_shortname: Isengard
 
 backup_host: asgard.bioinformatics-atgm.nl
 backup_location: /mnt/TeacherFiles/project_backup
+
 directories_to_monitor_size:
 - path: /mount/sdb
   max_size: 5632
 - path: /mount/sda
+  max_size: 5632
+-path: /mount/sdb/project_backup
   max_size: 5632
