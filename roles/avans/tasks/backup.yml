@@ -10,7 +10,7 @@
       password: "{{ Borg_user_pass | password_hash('sha512') }}"
       append: yes
       generate_ssh_key: yes
-      ssh_key_file: """/home/{{ backup_user }}/.ssh/id_rsa"
+      ssh_key_file: "/home/{{ backup_user }}/.ssh/id_rsa"
   
 
   #initisalise backup directory if it doesnt exist
