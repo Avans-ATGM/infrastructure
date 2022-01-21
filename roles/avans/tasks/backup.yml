@@ -1,63 +1,62 @@
-  # add templates to correct location
 
-  - name: Getting backup_timer ready
-    template:
-      src: student_project_backup.timer.j2
-      dest: "/etc/systemd/system/student_project_backup.timer"
-      owner: "root"
-      group: "root"
-      mode: '0644'
-  
-  - name: Getting backup borg script ready
-    template:
-      src: student_project_backup.sh.j2
-      dest: "/usr/bin/student_project_backup.sh"
-      owner: "root"
-      group: "root"
-      mode: '0644'
- 
-  
-  - name: Getting backup service ready
-    template:
-      src: student_project_backup.service.j2
-      dest: "/etc/systemd/system/student_project_backup.service"
-      owner: "root"
-      group: "root"
-      mode: '0644'
+- name: Getting backup_timer ready
+  template:
+    src: student_project_backup.timer.j2
+    dest: "/etc/systemd/system/student_project_backup.timer"
+    owner: "root"
+    group: "root"
+    mode: '0644'
 
-  #adding backup directories
-  - name: Create data storage to bebacked up with every project
-    ansible.builtin.file:
-      path: "{{ hostvars[ansible_nodename].backup_location }}"
-      state: directory
-      mode: '0755'
-      owner: "{{ ansible_user }}"
+- name: Getting backup borg script ready
+  template:
+    src: student_project_backup.sh.j2
+    dest: "/usr/bin/student_project_backup.sh"
+    owner: "root"
+    group: "root"
+    mode: '0644'
 
-  #create backup users, to have overall the same user and to manage ssh keys
 
-  - name: Create our backup user
-    ansible.builtin.user:
-      user:
-      name: "{{ backup_user }}"
-      home: "/home/{{ backup_user }}"
-      shell: "{{ item.shell | default('/bin/bash') }}"
-      groups: "{{ root,sudo,atgm-user | default(omit) }}"
-      password: "{{ Borg_user_pass | password_hash('sha512') }}"
-      append: yes
-      generate_ssh_key: yes
-      ssh_key_file: "/home/{{ backup_user }}/.ssh/id_rsa"
-  
+- name: Getting backup service ready
+  template:
+    src: student_project_backup.service.j2
+    dest: "/etc/systemd/system/student_project_backup.service"
+    owner: "root"
+    group: "root"
+    mode: '0644'
 
-  #initisalise backup directory if it doesnt exist
+#adding backup directories
+- name: Create data storage to bebacked up with every project
+  ansible.builtin.file:
+    path: "{{ hostvars[ansible_nodename].backup_location }}"
+    state: directory
+    mode: '0755'
+    owner: "{{ ansible_user }}"
 
-  - name: check if backup directory exists
-    ansible.builtin.stat:
-    #looks for the host, and of that host for the backup location
-      path: "{{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host }}:{{ hostvars[ansible_nodename].backup_location }}"
-    register: backup_directory_stats
+#create backup users, to have overall the same user and to manage ssh keys
 
-  - name: Run command if /path/to/database does not exist
-    ansible.builtin.command: /usr/bin/script to create database db_user db_name
-      become: yes
-      become_user: "{{ backup_user }}"
-    when: backup_directory.stats.exits == False
+- name: Create our backup user
+  ansible.builtin.user:
+    user:
+    name: "{{ backup_user }}"
+    home: "/home/{{ backup_user }}"
+    shell: "{{ item.shell | default('/bin/bash') }}"
+    groups: "{{ root,sudo,atgm-user | default(omit) }}"
+    password: "{{ Borg_user_pass | password_hash('sha512') }}"
+    append: yes
+    generate_ssh_key: yes
+    ssh_key_file: "/home/{{ backup_user }}/.ssh/id_rsa"
+
+
+#initisalise backup directory if it doesnt exist
+
+- name: check if backup directory exists
+  ansible.builtin.stat:
+  #looks for the host, and of that host for the backup location
+    path: "{{ hostvars[ansible_nodename].backup_user }}@{{ hostvars[ansible_nodename].backup_host }}:{{ hostvars[ansible_nodename].backup_location }}"
+  register: backup_directory_stats
+
+- name: Run command if /path/to/database does not exist
+  ansible.builtin.command: "/usr/bin/script to create database db_user db_name"
+    become: yes
+    become_user: "{{ backup_user }}"
+  when: backup_directory.stats.exits == False
