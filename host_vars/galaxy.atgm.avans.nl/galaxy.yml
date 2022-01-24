@@ -15,3 +15,6 @@ directories_to_monitor_size:
   max_size: 8904
 - path: /data/teacherfiles
   max_size: 8904
+
+backup_host: none
+backup_location: none
