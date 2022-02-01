@@ -4,3 +4,7 @@ openssl_domains:
 - "*.interactivetoolentrypoint.interactivetool.test-galaxy.atgm.avans.nl"
 - "{{ hostname }}"
 openssl_self_sign: false
+
+
+backup_host: none
+backup_location: none
