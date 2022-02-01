@@ -48,6 +48,9 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
     {% endif %}
 {% endfor %}    
 
+#Find total number of Archives
+N_archives=$(borg list $BORG_REPO | wc -l)
+info "Number of Archives $N_archives"
 # use highest exit code as global exit code
 global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
 
