@@ -25,36 +25,48 @@
 	<destinations default="condor_32">
 		<destination id="local_destination" runner="local_plugin"/>
 		<destination id="local_condor" runner="condor" />
+		{#CPU 2 8 GB RAM#}
 		<destination id="condor_8" runner="condor">
 			<param id="request_cpus">2</param>
 			<param id="request_memory">8GB</param>
 		</destination>
+		{#CPU 4  16 GB RAM#}
 		<destination id="condor_16" runner="condor">
 			<param id="request_cpus">4</param>
 			<param id="request_memory">16GB</param>
 		</destination>
+		{#CPU 2  16 GB RAM#}
 		<destination id="condor_16-fastqc" runner="condor">
 			<param id="request_cpus">2</param>
 			<param id="request_memory">16GB</param>
 			<env id="_JAVA_OPTIONS">-XX:MaxPermSize=2G -Xmx14G -Xms1G</env>
 		</destination>
+		{#CPU 4  40 GB RAM#}
 		<destination id="condor-shovill" runner="condor">
 			<param id="request_cpus">4</param>
 			<param id="request_memory">40GB</param>
 			<env id="SHOVILL_RAM">40</env>
 		</destination>
+		{#Default runner#}
 		<destination id="condor_32" runner="condor">
-			<param id="request_cpus">8</param>
+			<param id="request_cpus">4</param>
 			<param id="request_memory">32GB</param>
 		</destination>
+		{#CPU 20  32 GB RAM#}
 		<destination id="condor_32-20" runner="condor">
 			<param id="request_cpus">20</param>
 			<param id="request_memory">32GB</param>
 			<param id="requirements">Machine=="galaxy.bioinformatics-atgm.nl"</param>
 		</destination>
+		{#CPU 8  64 GB RAM#}
 		<destination id="condor_64" runner="condor">
 			<param id="request_cpus">8</param>
 			<param id="request_memory">64GB</param>
+		</destination>
+		{#CPU 8  256 GB RAM#}
+		<destination id="condor_kraken" runner="condor">
+			<param id="request_cpus">8</param>
+			<param id="request_memory">256GB</param>
 		</destination>
 
 		<destination id="interactive_local" runner="pulsar_embedded">
@@ -91,14 +103,25 @@
 		<group id="testing">cores,time</group>
 	</resources>
 	<tools>
-		<tool id="fastqc" destination="local_destination"/>
+		<tool id="fastqc" destination="condor_16-fastqc"/>
 		<tool id="shovill" destination="condor-shovill"/>
-		<tool id="flye" destination="condor_32-20"/>
-		<tool id="canu" destination="condor_32-20"/>
+		<tool id="flye" destination="condor_64"/>
+		<tool id="canu" destination="condor_64"/>
 		<tool id="bowtie2" destination="condor_16"/>
 		<tool id="upload1" destination="local_destination"/>
+		<tool id="kraken2" destination="condor_kraken"/>
+		<tool id="unicycler" destination="condor_64"/>
+		<tool id="quast" destination="condor_16"/>
+		<tool id="nanoplot" destination="condor_16"/>
+		<tool id="bandage" destination="condor_16"/>
+		<tool id="multiqc" destination="condor_16"/>
+
+
+
 		<tool id="bwa" destination="pulsar"/>
 		<tool id="bwa_mem" destination="pulsar"/>
+
+
 		<!-- All interactive tools need to go there -->
 		<tool id="interactive_tool_ethercalc" destination="interactive_local" />
 		<tool id="interactive_tool_askomics" destination="interactive_local" />
