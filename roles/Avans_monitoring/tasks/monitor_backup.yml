@@ -1,0 +1,5 @@
+- name: Giving Telegraf rights to look into journalctl
+  user:
+    name: telegraf
+    groups: adm,systemd-journal
+    append: yes
