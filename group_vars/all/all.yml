@@ -1,7 +1,8 @@
 # CVMFS vars
 cvmfs_role: client
 galaxy_cvmfs_repos_enabled: config-repo
-cvmfs_quota_limit: "{{ 1024 * 1024 * 10 }}"
+# This is measured in MB: so this should be 10 GB
+cvmfs_quota_limit: "{{ 1024 * 10 }}"
 
 # Galaxy vars that will be reused by Pulsar
 galaxy_job_metrics_plugins:
