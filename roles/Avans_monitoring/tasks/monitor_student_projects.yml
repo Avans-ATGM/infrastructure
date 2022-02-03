@@ -1,0 +1,17 @@
+# monitoring student projects
+
+- name: Copy main config file of monitoring student projects
+  template:
+    src: monitor_project_diskspace.conf.j2
+    dest: "/etc/telegraf/telegraf.d/monitor_project_diskspace.conf"
+    owner: "telegraf"
+    group: "telegraf"
+    mode: '0644'
+
+- name: copy main script file of monitoring student projects
+  template:
+    src: Monitor_project_diskspace.sh.j2
+    dest: "//etc/telegraf/scripts/Monitor_project_diskspace.sh"
+    owner: "telegraf"
+    group: "telegraf"
+    mode: '0644'

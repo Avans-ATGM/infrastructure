@@ -22,73 +22,40 @@
     owner: telegraf
     mode: '0755'
 
-# monitoring ssh directory
-- name: Copy main config file of monitoring ssh directory
-  template:
-    src: archive_diskspace.conf.j2
-    dest: "/etc/telegraf/telegraf.d/archive_diskspace.conf"
-    owner: "telegraf"
-    group: "telegraf"
-    mode: '0644'
-  loop: "{{ monitor_ssh_directory }}"
-  when: item.working_host == inventory_hostname
+#adding other modules
 
-- name: copy main script file of monitoring ssh directory
-  template:
-    src: Archive_diskspace_script.sh.j2
-    dest: "/etc/telegraf/scripts/Archive_diskspace_script.sh"
-    owner: "telegraf"
-    group: "telegraf"
-    mode: '0644'
-  loop: "{{ monitor_ssh_directory }}"
-  when: item.working_host == inventory_hostname
+#monitoring backups
+- name: Include monitoring backups
+  include_tasks:
+    file: monitor_backup.yml
+    apply:
+      tags: initialise / update backup system monitoring
+  tags:
+    - when there are student projects
 
-- name: Change ownership SSH key & copy
-  ansible.builtin.copy:
-    src: /{{ item.jenkins_workspace }}/roles/Avans_monitoring/files/{{ item.encrypted_ssh_private_key }}
-    dest: "/etc/telegraf/.ssh/{{ item.encrypted_ssh_private_key }}"
-    owner: "telegraf"
-    group: "telegraf"
-    mode: '0700'
-  loop: "{{ monitor_ssh_directory }}"
-  when: item.working_host == inventory_hostname
+#monitoring backups
+- name: Include monitoring student projects
+  include_tasks:
+    file: monitor_student_projects.yml
+    apply:
+      tags: initialise / update backup system monitoring
+
+#monitoring backups
+- name: Include monitoring Directories
+  include_tasks:
+    file: monitor_directories.yml
+    apply:
+      tags: initialise / update backup system monitoring
+
+#monitoring backups
+- name: Include monitoring ssh directorie
+  include_tasks:
+    file: monitor_ssh_directory.yml
+    apply:
+      tags: initialise / update backup system monitoring
 
 
-# monitoring student projects
 
-- name: Copy main config file of monitoring student projects
-  template:
-    src: monitor_project_diskspace.conf.j2
-    dest: "/etc/telegraf/telegraf.d/monitor_project_diskspace.conf"
-    owner: "telegraf"
-    group: "telegraf"
-    mode: '0644'
-
-- name: copy main script file of monitoring student projects
-  template:
-    src: Monitor_project_diskspace.sh.j2
-    dest: "//etc/telegraf/scripts/Monitor_project_diskspace.sh"
-    owner: "telegraf"
-    group: "telegraf"
-    mode: '0644'
-
-# monitoring directories of interest
-
-- name: Copy main config file of monitoring directories of interest
-  template:
-    src: monitor_directories.conf.j2
-    dest: "/etc/telegraf/telegraf.d/monitor_directories.conf"
-    owner: "telegraf"
-    group: "telegraf"
-    mode: '0644'
-
-- name: copy main script file of monitoring directories of interest
-  template:
-    src: monitor_directories.sh.j2
-    dest: "//etc/telegraf/scripts/monitor_directories.sh"
-    owner: "telegraf"
-    group: "telegraf"
-    mode: '0644'
 
 # reload telegraf, influx, grafana
 
@@ -104,13 +71,3 @@
     name: telegraf.service
 
 
-#adding other modules
-
-#monitoring backups
-- name: Include monitoring backups
-  include_tasks:
-    file: monitor_backup.yml
-    apply:
-      tags: initialise / update backup system monitoring
-  tags:
-    - when there are student projects
