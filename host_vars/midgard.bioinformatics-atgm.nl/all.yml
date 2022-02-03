@@ -4,6 +4,7 @@ machine_shortname: Midgard
 backup_host: galaxy.bioinformatics-atgm.nl
 backup_location: /mount/sdb/project_backup
 backup_max_size: 1000
+
 directories_to_monitor_size:
 - path: /mnt/StudentFiles
   max_size: 5632
