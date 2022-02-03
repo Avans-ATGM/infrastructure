@@ -30,3 +30,17 @@ atgm_projects:
     - name: project-01 # project name
       year: "2022"      # the year
       host: galaxy.bioinformatics-atgm.nl #host
+
+
+#################################
+# monitoring Borgbackups #
+#########################
+
+the scripts receives information from journalctl
+it will search for the last data who was added to the log file
+
+make sure the following is in hostvars
+
+backup_host: midgard.bioinformatics-atgm.nl
+backup_location: /mnt/TeacherFiles/project_backup
+backup_max_size: 1000
