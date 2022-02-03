@@ -22,4 +22,4 @@ Deduplicated_size_GB=$(journalctl -u student_project_backup.service --since=$dat
 
 #Host,N_pruning,N_databases_created,N_success,N_fail_error,T_archives,exit_status,Original_size,Compressed size,Deduplicated size time stamp
 
-echo "borg_backup,Host={{{{ ansible_nodename }},Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,$succesfull_jobs=${N_success},errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i $timestamp"
+echo "borg_backup,Host={{ ansible_nodename }},Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,$succesfull_jobs=${N_success},errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i $timestamp"
