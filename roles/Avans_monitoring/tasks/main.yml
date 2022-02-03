@@ -102,3 +102,15 @@
   ansible.builtin.systemd:
     state: started
     name: telegraf.service
+
+
+#adding other modules
+
+#monitoring backups
+- name: Include monitoring backups
+  include_tasks:
+    file: monitor_backup.yml
+    apply:
+      tags: initialise / update backup system monitoring
+  tags:
+    - when there are student projects
