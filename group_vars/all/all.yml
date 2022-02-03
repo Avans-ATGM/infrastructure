@@ -146,3 +146,7 @@ monitor_ssh_directory:
 
 #backing user
 backup_user: Borg_backup
+
+# Chrony
+chrony_server: null
+chrony_pool: "pool.ntp.org iburst maxsources 3"
