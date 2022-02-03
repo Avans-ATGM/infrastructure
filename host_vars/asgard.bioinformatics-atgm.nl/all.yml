@@ -3,6 +3,7 @@ machine_shortname: Asgard
 
 backup_host: midgard.bioinformatics-atgm.nl
 backup_location: /mnt/TeacherFiles/project_backup
+backup_max_size: 1000
 
 directories_to_monitor_size:
 - path: /mnt/StudentFiles
