@@ -19,5 +19,5 @@ Original_size_GB=$(journalctl -u student_project_backup.service --since=$date  -
 Compressed_size_GB=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "All archives" | tail -1 | cut -d " " -f 34| cut -d "." -f 1)
 Deduplicated_size_GB=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "All archives" | tail -1 | cut -d " " -f 47| cut -d "." -f 1)
 
-Perc_compressed_size=$($compressedsize\{{ hostvars[ansible_nodename].backup_max_size }})
-echo "borg_backup,Host={{ ansible_nodename }} Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,$succesfull_jobs=${N_success},errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i,Perc_compressed_size_gb=${Perc_compressed_size}i $timestamp"
+Perc_compressed_size=$(echo "$Compressed_size_GB/{{ hostvars[ansible_nodename].backup_max_size }}" | bc -l )
+echo "borg_backup,Host={{ ansible_nodename }} Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,succesfull_jobs=${N_success}i,errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i,Perc_compressed_size_gb=${Perc_compressed_size}i $timestamp"
