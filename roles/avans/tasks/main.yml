@@ -169,3 +169,9 @@
       tags: initialise / update backup system
   tags:
     - when there are student projects
+
+- name: adding TMPReaper
+  include_tasks:
+    file: TMP_reaper.yml
+    apply:
+      tags: getting tmp_reaper ready

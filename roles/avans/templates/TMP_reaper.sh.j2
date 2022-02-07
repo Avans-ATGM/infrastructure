@@ -1,0 +1,9 @@
+#using TMPreaper to delete old TMP files
+
+{% for directory in TMP_directories %}
+    {% if directory.host == ansible_nodename %}
+        
+        tmpreaper --mtime --mtime-dir {{ directory.time }} {{ directory.path }} 
+
+    {% endif %}
+{% endfor %}    
