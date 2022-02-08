@@ -39,7 +39,7 @@ localhost ansible_connection=local
 galaxy.atgm.avans.nl ansible_user=atgm-user
 
 [pulsarservers]
-asgard.bioinformatics-atgm.nl ansible_user=thor
+#asgard.bioinformatics-atgm.nl ansible_user=thor
 #midgard.bioinformatics-atgm.nl ansible_user=artemis
 galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 
