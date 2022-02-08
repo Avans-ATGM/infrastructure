@@ -366,7 +366,7 @@ rabbitmq_plugins: rabbitmq_management
 rabbitmq_config:
 - rabbit:
   - tcp_listeners:
-    - "'127.0.0.1'": 5672
+    - "'127.0.0.1'": 15672
   - ssl_listeners:
     - "'0.0.0.0'": 15671
   - ssl_options:
