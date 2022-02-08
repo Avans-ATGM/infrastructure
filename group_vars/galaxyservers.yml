@@ -376,16 +376,19 @@ rabbitmq_config:
      - fail_if_no_peer_cert: 'false'
 
 rabbitmq_vhosts:
+  - /pulsar/Isengard
   #- /pulsar/Asgard
   #- /pulsar/Midgard
-  - /pulsar/Isengard
-
 
 rabbitmq_users:
   - user: admin
     password: "{{ pulsar_password }}"
     tags: administrator
     vhost: /
+  - user: Isengard
+    password: "{{ pulsar_password }}"
+    tags: worker
+    vhost: /pulsar/Isengard
   #- user: Asgard
   #  password: "{{ pulsar_password }}"
   #  tags: worker
@@ -394,9 +397,4 @@ rabbitmq_users:
   #  password: "{{ pulsar_password }}"
   #  tags: worker
   #  vhost: /pulsar/Midgard
-  - user: Isengard
-    password: "{{ pulsar_password }}"
-    tags: worker
-    vhost: /pulsar/Isengard
-
 
