@@ -368,7 +368,7 @@ rabbitmq_config:
   - tcp_listeners:
     - "'127.0.0.1'": 5672
   - ssl_listeners:
-    - "'0.0.0.0'": 5671
+    - "'0.0.0.0'": 15671
   - ssl_options:
      - cacertfile: "/etc/ssl/certs/{{ openssl_domains[0] }}.crt"
      - certfile: "/etc/ssl/certs/{{ openssl_domains[0] }}.crt"
