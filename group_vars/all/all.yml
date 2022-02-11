@@ -119,12 +119,6 @@ atgm_users:
 
 # Project Accounts
 atgm_projects:
-    - name: project-01
-      year: "2022"
-      host: galaxy.bioinformatics-atgm.nl
-    - name: project-02
-      year: "2022"
-      host: galaxy.bioinformatics-atgm.nl
     - name: Edwin
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
