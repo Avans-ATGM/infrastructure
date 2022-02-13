@@ -7,7 +7,7 @@ date=$(date --date="$(printf "01 %s"$date_month)" +"%Y-%m"-$date_day )
 date1=$(date --date="next day" +%y-%m-%d)
 timestamp=$(date +%s%N)
 
-T_archives=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Number of Archives" | tail -1 |cut -d " " -f 16)
+T_archives=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Number of Archives" | tail -1 | rev | cut -d " " -f 1 | rev)
 
 N_success=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep success | wc -l)
 exit_status=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep successfully | wc -l)
