@@ -80,11 +80,7 @@
     name: editor
     path: /bin/nano
 
-
-###################################
-# updates and installing software #
-###################################
-
+############# General updating ########
 - name: Update the apt cache
   apt:
     update_cache: yes
@@ -125,9 +121,6 @@
       - borgbackup
       - tmpreaper
 
-
-
-
 - name: Ensure services are enabled + started
   systemd:
     name: "{{ item }}"
@@ -137,11 +130,7 @@
     - atop
     - atd
 
-
-
 #add bacup.yml tasks
-
-
 - name: Include student project backup tasks
   include_tasks:
     file: backup.yml
