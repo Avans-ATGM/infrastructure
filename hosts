@@ -32,9 +32,6 @@ asgard.bioinformatics-atgm.nl ansible_user=thor
 midgard.bioinformatics-atgm.nl ansible_user=artemis
 7kingdoms.bioinformatics-atgm.nl ansible_user=godzilla
 
-[localhost]
-localhost ansible_connection=local
-
 [automation]
 galaxy.atgm.avans.nl ansible_user=atgm-user
 
