@@ -3,7 +3,7 @@
 #####################
 [avans]
 midgard.bioinformatics-atgm.nl ansible_user=artemis
-galaxy.bioinformatics-atgm.nl ansible_user=atgm-user
+isengard.bioinformatics-atgm.nl ansible_user=atgm-user
 asgard.bioinformatics-atgm.nl ansible_user=thor
 7kingdoms.bioinformatics-atgm.nl ansible_user=godzilla
 
