@@ -75,10 +75,10 @@
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
-- name: Select sensible default for students
-  community.general.alternatives:
-    name: editor
-    path: /bin/nano
+#- name: Select sensible default for students
+#  community.general.alternatives:
+#    name: editor
+#    path: /bin/nano
 
 ############# General updating ########
 - name: Update the apt cache
