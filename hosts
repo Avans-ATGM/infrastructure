@@ -38,6 +38,6 @@ galaxy.atgm.avans.nl ansible_user=atgm-user
 [pulsarservers]
 #asgard.bioinformatics-atgm.nl ansible_user=thor
 #midgard.bioinformatics-atgm.nl ansible_user=artemis
-isengard.bioinformatics-atgm.nl ansible_user=bioinf_team
+isengard.bioinformatics-atgm.nl ansible_user=atgm-user
 
 
