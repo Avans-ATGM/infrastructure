@@ -24,9 +24,9 @@ make
 
 Service     | Infrastructure Provider | Notes
 ---         | ---                     | ---
-7kingdoms   | BML                     | Teachers
-OldGalaxy   | BML                     | Galaxy administrator projects
-Midgard     | BML                     | Sequencing projects & fast5 will be kept with SNELLIUS basecalling
+7kingdoms   | BML                     | Teachers / Overload galaxy (hopefully)
+Isengard    | BML                     | Student accounts 
+Midgard     | BML                     | Sequencing projects & fast5 will be kept with SNELLIUS basecalling / Student
 Asgard      | BML                     | Intern Machine / Teachers
 145.48.6.40 | DIF                     | Galaxy Test Server, we deploy here simultaneously (or use it really for testing if we like.)
 145.48.6.41 | DIF                     | Galaxy Production Server

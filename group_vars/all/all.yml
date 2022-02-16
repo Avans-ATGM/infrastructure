@@ -131,9 +131,42 @@ atgm_projects:
     #  host: asgard.bioinformatics-atgm.nl
 
 # students on midgard
-    - name: 2022MBI_test
+
+    - name: 2022MBI_01
       year: "2022"
       host: midgard.bioinformatics-atgm.nl
+    - name: 2022MBI_02
+      year: "2022"
+      host: midgard.bioinformatics-atgm.nl
+    - name: 2022MBI_03
+      year: "2022"
+      host: midgard.bioinformatics-atgm.nl
+    - name: 2022MBI_04
+      year: "2022"
+      host: midgard.bioinformatics-atgm.nl
+    - name: 2022MBI_05
+      year: "2022"
+
+# students on isengard
+      host: midgard.bioinformatics-atgm.nl
+    - name: 2022MBI_06
+      year: "2022"
+      host: isengard.bioinformatics-atgm.nl
+    - name: 2022MBI_07
+      year: "2022"
+      host: isengard.bioinformatics-atgm.nl
+    - name: 2022MBI_08
+      year: "2022"
+      host: isengard.bioinformatics-atgm.nl
+    - name: 2022MBI_09
+      year: "2022"
+      host: isengard.bioinformatics-atgm.nl
+    - name: 2022MBI_10
+      year: "2022"
+      host: isengard.bioinformatics-atgm.nl
+    - name: 2022MBI_11
+      year: "2022"
+      host: isengard.bioinformatics-atgm.nl
 
 
 #telegraf_archive
