@@ -1,8 +1,8 @@
 project_directory: /mnt/StudentFiles
 machine_shortname: Midgard
 
-backup_host: galaxy.bioinformatics-atgm.nl
-backup_location: /mount/sdb/project_backup
+backup_host: isengard.bioinformatics-atgm.nl
+backup_location: //mnt/backup
 backup_max_size: 1000
 
 directories_to_monitor_size:
