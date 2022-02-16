@@ -10,5 +10,4 @@ directories_to_monitor_size:
   max_size: 5500
 - path: /mnt/teacherfiles
   max_size: 3400
-- path: /mnt/backup
-  max_size: 1300
+
