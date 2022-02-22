@@ -114,7 +114,8 @@ atgm_users:
   groups: sudo,atgm-user
 - name: Dirowa
   groups: sudo,atgm-user
-
+- name: Eefje
+  groups: sudo, atgm-user
 
 
 # Project Accounts
@@ -129,7 +130,9 @@ atgm_projects:
     #- name: Laura
     #  year: "2021"
     #  host: asgard.bioinformatics-atgm.nl
-
+    - name: Tim
+      year: "2022"
+      host: asgard.bioinformatics-atgm.nl
 # students on midgard
 
     - name: 2022MBI_01
