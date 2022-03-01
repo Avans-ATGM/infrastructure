@@ -21,8 +21,6 @@
   version: 2.6.3
 - src: galaxyproject.repos
   version: 0.0.2
-#- src: galaxyproject.slurm
-  #version: 1.0.0
 - src: usegalaxy_eu.rabbitmq
   version: 0.1.0
 - src: galaxyproject.cvmfs
@@ -69,3 +67,5 @@
   version: 0.0.3
 - src: usegalaxy_eu.gie_proxy
   version: 0.0.2
+- src: galaxyproject.proftpd
+  version: 0.3.1

@@ -18,6 +18,7 @@
     - galaxyproject.nginx
     - geerlingguy.pip
     - geerlingguy.docker
+    - galaxyproject.cvmfs
     - influxdata.chrony
     - dj-wasabi.telegraf
   post_tasks:
@@ -28,6 +29,7 @@
         state: started
         volumes:
         - "{{ cocalc_data_dir }}:/projects"
+        - "/cvmfs:/cvmfs:shared"
         env:
             COCALC_NO_IDLE_TIMEOUT: "yes"
             R_LIBS_USER: "~/R"
