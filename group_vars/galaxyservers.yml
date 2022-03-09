@@ -48,6 +48,8 @@ galaxy_commit_id: release_21.09
 galaxy_config_style: yaml
 galaxy_force_checkout: true
 
+#possible change conda envs in next semester when galaxy server is used less? perhaps reinstalling items due hardcoding???????
+#miniconda_prefix: "{{ file_path }}/dependencies/_conda"
 miniconda_prefix: "{{ galaxy_tool_dependency_dir }}/_conda"
 miniconda_version: "4.7.12"
 miniconda_manage_dependencies: false
@@ -59,7 +61,9 @@ galaxy_config:
     database_connection: "postgresql:///galaxy?host=/var/run/postgresql"
     file_path: /data
     check_migrate_tools: false
-    tool_data_path: "{{ galaxy_mutable_data_dir }}/tool-data"
+    # due to storage room is the conde enviorments and dependencies changed from location
+    #tool_data_path: "{{ galaxy_mutable_data_dir }}/tool-data"
+    tool_data_path: "{{ file_path }}/galaxy/var/tool-data"
     data_dir: "{{ galaxy_mutable_data_dir }}" # I think this is fixed in more recent role versions.
     auth_config_file: "{{ galaxy_config_dir }}/auth_conf.xml"
     job_config_file: "{{ galaxy_config_dir }}/job_conf.xml"
