@@ -49,6 +49,7 @@ galaxy_config_style: yaml
 galaxy_force_checkout: true
 
 #possible change conda envs in next semester when galaxy server is used less? perhaps reinstalling items due hardcoding???????
+#miniconda_prefix: "{{ file_path }}/dependencies/_conda"
 miniconda_prefix: "{{ galaxy_tool_dependency_dir }}/_conda"
 miniconda_version: "4.7.12"
 miniconda_manage_dependencies: false
