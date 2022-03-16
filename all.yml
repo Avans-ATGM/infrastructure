@@ -9,3 +9,4 @@
     #- dj-wasabi.telegraf
     #- dev-sec.os-hardening # kinda dangerous
     - Avans_monitoring
+    - arillso.sudoers
