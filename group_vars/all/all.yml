@@ -104,18 +104,19 @@ nginx_conf_ssl_certificate_key: "/etc/ssl/private/{{ openssl_domains[0] }}.pem"
 atgm_groups:
 - name: students
 - name: atgm-user
+- name: teacher
 
 atgm_users:
 - name: hexylena
-  groups: sudo,atgm-user
+  groups: sudo,atgm-user, teacher, students
 - name: Bazante
-  groups: sudo,atgm-user
+  groups: sudo,atgm-user, teacher, students
 - name: Ted
-  groups: sudo,atgm-user
+  groups: sudo,atgm-user, teacher, students
 - name: Dirowa
-  groups: sudo,atgm-user
+  groups: sudo,atgm-user, teacher, students
 - name: Eefje
-  groups: sudo, atgm-user
+  groups: sudo, atgm-user, teacher, students
 
 
 # Project Accounts
@@ -124,52 +125,73 @@ atgm_projects:
     - name: Edwin
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
+      groups: students
     - name: Martijn
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
+      groups: students
     #- name: Laura
     #  year: "2021"
     #  host: asgard.bioinformatics-atgm.nl
     - name: Tim
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
+      groups: students
 # students on midgard
 
     - name: 2022MBI_01
       year: "2022"
       host: midgard.bioinformatics-atgm.nl
+      groups: students
     - name: 2022MBI_02
       year: "2022"
       host: midgard.bioinformatics-atgm.nl
+      groups: students
     - name: 2022MBI_03
       year: "2022"
       host: midgard.bioinformatics-atgm.nl
+      groups: students
     - name: 2022MBI_04
       year: "2022"
       host: midgard.bioinformatics-atgm.nl
+      groups: students
     - name: 2022MBI_05
       year: "2022"
+      host: midgard.bioinformatics-atgm.nl
+      groups: students
+
 
 # students on isengard
-      host: midgard.bioinformatics-atgm.nl
     - name: 2022MBI_06
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
+      groups: students
+
     - name: 2022MBI_07
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
+      groups: students
+
     - name: 2022MBI_08
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
+      groups: students
+
     - name: 2022MBI_09
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
+      groups: students
+
     - name: 2022MBI_10
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
+      groups: students
+
     - name: 2022MBI_11
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
+      groups: students
+
 
 
 #telegraf_archive
