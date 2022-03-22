@@ -117,6 +117,8 @@ atgm_users:
   groups: sudo,atgm-user, teacher, students
 - name: Eefje
   groups: sudo, atgm-user, teacher, students
+- name: Maureen
+  groups: sudo, atgm-user, teacher, students
 
 
 # Project Accounts
