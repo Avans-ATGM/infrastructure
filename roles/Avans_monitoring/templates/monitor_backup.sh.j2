@@ -2,7 +2,7 @@
 
 date_month=$(journalctl -u student_project_backup.service |tail -1 | cut -d " " -f 1)
 date_day=$(journalctl -u student_project_backup.service |tail -1 | cut -d " " -f 2)
-date=$(date --date="$(printf "01 %s"$date_month)" +"%Y-%m"-$date_day )
+date=$(date --date="$(printf "01 %s"$mydate)" +"%Y-%m"-$date_day )
 
 date1=$(date --date="next day" +%y-%m-%d)
 timestamp=$(date +%s%N)
