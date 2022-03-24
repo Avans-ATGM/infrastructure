@@ -27,6 +27,8 @@
         name: cocalc
         image: sagemathinc/cocalc
         state: started
+        restart_policy: always
+        restart_retries: 3
         volumes:
         - "{{ cocalc_data_dir }}:/projects"
         - "/cvmfs:/cvmfs:shared"
