@@ -65,7 +65,7 @@
 
       - We will monitor howmuch storage space you are using. Try not to go over the 200 GB if it is not nessacery.
 
-      - Therby we have alot of cores to use on this machine (28), however we have to share with other users. 
+      - Therby we have alot of cores to use on this machine (28), however we have to share with other users.
         So try not to use more than 6 cpu at the same time. For big jobs can you always ask Donny and or Bazante what the possibilities are.
 
       Further try also to make your own Read me files or add to this file with your favourite text editor.
@@ -126,6 +126,7 @@
       - sshfs
       - borgbackup
       - tmpreaper
+      - mlocate
 
 - name: Ensure services are enabled + started
   systemd:
