@@ -203,6 +203,10 @@ atgm_projects:
       host: isengard.bioinformatics-atgm.nl
       groups: students
 
+    - name: 2022MBI_13
+      year: "2022"
+      host: isengard.bioinformatics-atgm.nl
+      groups: students
 
 
 #telegraf_archive
