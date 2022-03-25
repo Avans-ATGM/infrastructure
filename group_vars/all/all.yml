@@ -197,6 +197,11 @@ atgm_projects:
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
       groups: students
+    
+    - name: 2022MBI_12
+      year: "2022"
+      host: isengard.bioinformatics-atgm.nl
+      groups: students
 
 
 
