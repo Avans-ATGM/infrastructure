@@ -1,0 +1,23 @@
+<tool id="exstract_identifiers" name="exstract file names" version="0.0.1" python_template_version="3.5">
+
+    <command detect_errors="exit_code"><![CDATA[
+        cp '$file_name_search' '$files'
+    ]]></command>
+    <inputs>
+        <param name="input_files" type="data" format="data" label="input data sets" multiple="True"> </param>
+    </inputs>
+    <outputs>
+        <data format="tabular" name="files" />
+    </outputs>
+    <configfiles>
+        <configfile name="file_name_search">
+            #for $dataset in $input_files:
+                ${element_identifier}
+                #end for
+        </configfile>
+
+    </configfiles>
+    <help><![CDATA[
+        TODO: Fill in help.
+    ]]></help>
+</tool>

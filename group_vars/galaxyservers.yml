@@ -160,6 +160,9 @@ galaxy_config_files:
 - src: "files/galaxy/config/trs_servers_conf.yml"
   dest: "{{ galaxy_config.galaxy.trs_servers_config_file }}"
 
+#custome galaxy tools
+galaxy_local_tools:
+  - exstract_identifiers.xml
 # systemd
 galaxy_systemd_mode: mule
 galaxy_zergpool_listen_addr: 127.0.0.1:8080
