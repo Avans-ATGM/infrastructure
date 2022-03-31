@@ -1,5 +1,4 @@
-<tool id="exstract_identifiers" name="exstract file names" version="0.0.1" python_template_version="3.5">
-
+<tool id="extract_identifiers" name="Extract file names" python_template_version="3.5" version="0.0.11">
     <command detect_errors="exit_code"><![CDATA[
         cp '$file_name_search' '$files'
     ]]></command>
@@ -10,12 +9,12 @@
         <data format="tabular" name="files" />
     </outputs>
     <configfiles>
-        <configfile name="file_name_search">
-            #for $dataset in $input_files:
-                ${element_identifier}
-                #end for
-        </configfile>
-
+            <configfile name="file_name_search">identifier      tags
+#for $dataset in $input_files:
+#set $mytags = ','.join([tag.user_value for tag in $dataset.tags])
+$dataset.element_identifier     $mytags
+#end for
+</configfile>
     </configfiles>
     <help><![CDATA[
         TODO: Fill in help.

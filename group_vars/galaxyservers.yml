@@ -162,7 +162,7 @@ galaxy_config_files:
 
 #custome galaxy tools
 galaxy_local_tools:
-  - exstract_identifiers.xml
+  - extract_identifiers.xml
 # systemd
 galaxy_systemd_mode: mule
 galaxy_zergpool_listen_addr: 127.0.0.1:8080
