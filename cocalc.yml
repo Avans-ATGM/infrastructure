@@ -40,6 +40,7 @@
 
 # Delta with base:
 # Packages: pandoc-citeproc
-# Scripts: * * * * * /data/cocalc/fix-r-path.sh
+# Cron Scripts: * * * * * /data/cocalc/fix-r-path.sh
 # Symlink /usr/bin/jupyter → /usr/local/bin/jupyter
+# Rscript -c 'install.packages("Rcmdr")'
 # TODO: pip install sqlalchemy for everyone since that seems to require a kernel restart.
