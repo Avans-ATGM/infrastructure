@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <auth>
+	<!--
 	<authenticator>
 		<type>ldap</type>
 		<options>
@@ -19,10 +20,11 @@
 			<auto-register-roles>{department}</auto-register-roles>
 		</options>
 	</authenticator>
+	-->
 	<authenticator>
 		<type>localdb</type>
 		<options>
-			<allow-password-change>False</allow-password-change>
+			<allow-password-change>true</allow-password-change>
 		</options>
 	</authenticator>
 </auth>
