@@ -51,9 +51,20 @@
             R_LIBS_USER: "~/R"
         ports:
         - 8443:443
+        - 145.48.6.42:2222:22
+
+    #- name: Run a simple command (argv)
+      #community.docker.docker_container_exec:
+        #container: foo
+        #argv:
+          #- /bin/bash
+          #- "-c"
+          #- "ls -lah > /dev/stderr"
+        #chdir: /root
+      #register: result
 
 # Delta with base:
-# Packages: pandoc-citeproc
+# Packages: pandoc-citeproc, cmake
 # Cron Scripts: * * * * * /data/cocalc/fix-r-path.sh
 # Symlink /usr/bin/jupyter → /usr/local/bin/jupyter
 # Rscript -c 'install.packages("Rcmdr")'
