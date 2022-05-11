@@ -1,4 +1,4 @@
-FROM sagemathinc/cocalc:08fa3bbfaeaa54612d5d715f6ea5d5c072670db3ad553958906c5762ef142b94
+FROM sagemathinc/cocalc:latest
 
 # Install system packages
 RUN apt install -y pandoc-citeproc cmake bamtools bedtools git gzip libcairo2 libcairo2-dev libx11-dev locate pip rna-star samtools tree xvfb libxt-dev python3-pip build-essential build-essential procps curl file git python3-pip
