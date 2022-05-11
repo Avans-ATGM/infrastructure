@@ -40,8 +40,8 @@
     - name: Cocalc
       docker_container:
         name: cocalc
-        image: sagemathinc/cocalc
-        #image: atgm/cocalc:v1
+        #image: sagemathinc/cocalc
+        image: atgm/cocalc:v1
         state: started
         restart_policy: always
         restart_retries: 3
