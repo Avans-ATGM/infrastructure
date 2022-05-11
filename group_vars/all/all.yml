@@ -106,19 +106,13 @@ atgm_groups:
 - name: atgm-user
 - name: teacher
 
-atgm_users:
+atgm_admins:
 - name: hexylena
   groups: sudo,atgm-user, teacher, students
 - name: Bazante
   groups: sudo,atgm-user, teacher, students
-- name: Ted
-  groups: sudo,atgm-user, teacher, students
 - name: Dirowa
   groups: sudo,atgm-user, teacher, students
-- name: Eefje
-  groups: sudo, atgm-user, teacher, students
-- name: Maureen
-  groups: sudo, atgm-user, teacher, students
 
 
 # Project Accounts
@@ -201,7 +195,7 @@ atgm_projects:
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
       groups: students
-    
+
     - name: 2022MBI_12
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
