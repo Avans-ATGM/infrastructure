@@ -44,7 +44,7 @@
         image: atgm/cocalc:v1
         state: started
         restart_policy: always
-        restart_retries: 3
+        #restart_retries: 3
         volumes:
         - "{{ cocalc_data_dir }}:/projects"
         - "{{ cocalc_opt_dir }}:/opt"
