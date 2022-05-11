@@ -1,7 +1,7 @@
 FROM sagemathinc/cocalc:08fa3bbfaeaa54612d5d715f6ea5d5c072670db3ad553958906c5762ef142b94
 
 # Install system packages
-RUN apt install pandoc-citeproc cmake bamtools bedtools cairo2 git gzip libcairo2 libcairo2-dev libx11-dev locate pip python3-virtuelenv rna-star samtools tree xvfb brew libxt-dev python3-pip build-essential build-essential procps curl file git python3-pip
+RUN apt install -y pandoc-citeproc cmake bamtools bedtools git gzip libcairo2 libcairo2-dev libx11-dev locate pip rna-star samtools tree xvfb libxt-dev python3-pip build-essential build-essential procps curl file git python3-pip
 
 # Setup the fix-r-path script
 RUN echo "* * * * * /data/cocalc/fix-r-path.sh" > /etc/cron.d/fix-r-path

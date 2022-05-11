@@ -31,16 +31,17 @@
         mode: '0644'
     - name: build container image
       docker_image:
-        name: atgm-cocalc:v1
+        name: atgm/cocalc
         build:
           path: /opt/cocalc-build/
-          source: build
+        tag: v1
+        source: build
         state: present
     - name: Cocalc
       docker_container:
         name: cocalc
         image: sagemathinc/cocalc
-        #image: atgm-cocalc:v1
+        #image: atgm/cocalc:v1
         state: started
         restart_policy: always
         restart_retries: 3
