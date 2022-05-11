@@ -1,4 +1,5 @@
 cocalc_data_dir: /data/cocalc
+cocalc_opt_dir: /data/opt
 openssl_domains:
 - "cocalc.atgm.avans.nl"
 - "{{ hostname }}"

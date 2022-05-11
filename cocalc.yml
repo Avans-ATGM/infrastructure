@@ -47,6 +47,7 @@
         restart_retries: 3
         volumes:
         - "{{ cocalc_data_dir }}:/projects"
+        - "{{ cocalc_opt_dir }}:/opt"
         - "/cvmfs:/cvmfs:shared"
         env:
             COCALC_NO_IDLE_TIMEOUT: "yes"
