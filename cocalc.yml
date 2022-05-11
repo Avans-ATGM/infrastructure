@@ -24,8 +24,8 @@
   post_tasks:
     - name: copy Dockerfile
       copy:
-        src: ./files/cocalc/Dockerfile
-        dest: /opt/cocalc-build/Dockerfile
+        src: ./files/cocalc/
+        dest: /opt/cocalc-build/
         owner: root
         group: root
         mode: '0644'
