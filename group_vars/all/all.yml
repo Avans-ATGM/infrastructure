@@ -113,6 +113,8 @@ atgm_admins:
   groups: sudo,atgm-user, teacher, students
 - name: Dirowa
   groups: sudo,atgm-user, teacher, students
+- name: Miaomiao
+  groups: sudo,atgm-user, teacher, students
 
 
 # Project Accounts
