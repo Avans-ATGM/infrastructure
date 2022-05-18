@@ -21,8 +21,8 @@ test-galaxy.atgm.avans.nl ansible_user=atgm-user galaxy_instance_codename=dev
 # SUNSET
 #galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 
-[spider_galaxy]
-spider_galaxy@galaxy.bioinformatics-atgm.nl
+#S[spider_galaxy]
+#spider_galaxy@galaxy.bioinformatics-atgm.nl
 
 [cocalc]
 cocalc.atgm.avans.nl ansible_user=atgm-user
