@@ -1,3 +1,6 @@
+########################################
+# initialising student project bacckup#
+########################################
 
 - name: Getting backup_timer ready
   template:
@@ -46,3 +49,28 @@
     append: yes
 
 
+- name: Create a .ssh directory if it doesn't exists
+  ansible.builtin.file:
+    path: ""/home/{{ backup_user }}/.ssh/"
+    state: directory
+    mode: '0755'
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user }}"
+
+- name: create known_hosts file it it doesnt exists
+  copy:
+    content: ""
+    dest: ""/home/{{ backup_user }}"/.ssh/known_hosts"
+    force: no
+    group: sys
+    owner: "{{ backup_user }}"
+    mode: '0755'
+
+- name: Change ownership SSH key & copy
+  ansible.builtin.copy:
+    src: "/{{ role_path }}/files/secret_SSH_key_archive"
+    dest: ""/home/{{ backup_user }}"/.ssh/{{ item.encrypted_ssh_private_key }}"
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user }}"
+    mode: '0700'
+    force: no

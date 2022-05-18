@@ -56,13 +56,6 @@
       tags: initialise / update backup system monitoring
 
 
-- name: Change file ownership, group and permissions
-  ansible.builtin.file:
-    path: "/etc/telegraf/.ssh/"
-    owner: telegraf
-    group: telegraf
-    mode: '0755'
-
 # reload telegraf, influx, grafana
 
 - name: Restart service telegraf
