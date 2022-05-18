@@ -19,6 +19,13 @@
   loop: "{{ monitor_ssh_directory }}"
   when: item.working_host == inventory_hostname
 
+- name: Change file ownership, group and permissions
+  ansible.builtin.file:
+    path: /etc/telegraf/.ssh
+    owner: jenkins
+    group: jenkins
+    mode: '0700'
+
 
 - name: Change ownership SSH key & copy
   ansible.builtin.copy:
@@ -30,3 +37,10 @@
     force: no
   loop: "{{ monitor_ssh_directory }}"
   when: item.working_host == inventory_hostname
+
+  - name: Change file ownership, group and permissions
+  ansible.builtin.file:
+    path: /etc/telegraf/.ssh
+    owner: telegraf
+    group: telegraf
+    mode: '0755'
