@@ -10,7 +10,7 @@
   ansible.builtin.file:
     path: "/etc/telegraf/.ssh/"
     state: directory
-    mode: '0775'
+    mode: '0755'
     owner: "telegraf"
 
 - name: create known_hosts file it it doesnt exists
