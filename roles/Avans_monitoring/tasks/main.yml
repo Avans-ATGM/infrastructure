@@ -11,7 +11,8 @@
     path: "/etc/telegraf/.ssh/"
     state: directory
     mode: '0755'
-    owner: "jenkins"
+    owner: "telegraf"
+    group: "telegraf"
 
 - name: create known_hosts file it it doesnt exists
   copy:

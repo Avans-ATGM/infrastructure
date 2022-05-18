@@ -22,9 +22,9 @@
 - name: Change file ownership, group and permissions
   ansible.builtin.file:
     path: /etc/telegraf/.ssh
-    owner: jenkins
-    group: jenkins
-    mode: '0700'
+    owner: telegraf
+    group: telegraf
+    mode: '0755'
   loop: "{{ monitor_ssh_directory }}"
   when: item.working_host == inventory_hostname
 
@@ -36,14 +36,7 @@
     group: "telegraf"
     mode: '0700'
     force: no
+  become: true
   loop: "{{ monitor_ssh_directory }}"
   when: item.working_host == inventory_hostname
 
-- name: Change file ownership, group and permissions
-  ansible.builtin.file:
-    path: /etc/telegraf/.ssh
-    owner: telegraf
-    group: telegraf
-    mode: '0755'
-  loop: "{{ monitor_ssh_directory }}"
-  when: item.working_host == inventory_hostname
