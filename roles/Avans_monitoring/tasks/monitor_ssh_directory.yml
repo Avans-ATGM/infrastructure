@@ -21,7 +21,7 @@
 
 - name: Change ownership SSH key & copy
   ansible.builtin.copy:
-    src: /{{ item.jenkins_workspace }}/roles/Avans_monitoring/files/{{ item.encrypted_ssh_private_key }}
+    src: /roles/Avans_monitoring/files/{{ item.encrypted_ssh_private_key }}
     dest: "/etc/telegraf/.ssh/{{ item.encrypted_ssh_private_key }}"
     owner: "telegraf"
     group: "telegraf"
