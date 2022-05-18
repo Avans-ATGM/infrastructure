@@ -216,7 +216,7 @@ monitor_ssh_directory:
     directory: //home/gringott/*
     encrypted_ssh_private_key: secret_SSH_key_archive
     working_host: galaxy.atgm.avans.nl
-    jenkins_workspace: /var/lib/jenkins/workspace/all_servers #could probably be deleted
+    #jenkins_workspace: /var/lib/jenkins/workspace/all #could probably be deleted
 
 #backing user
 backup_user: Borg_backup
