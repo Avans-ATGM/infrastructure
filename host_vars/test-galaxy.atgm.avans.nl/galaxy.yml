@@ -8,3 +8,6 @@ openssl_self_sign: false
 
 backup_host: none
 backup_location: none
+
+directories_to_monitor_size:
+
