@@ -218,8 +218,11 @@ monitor_ssh_directory:
     working_host: galaxy.atgm.avans.nl
     #jenkins_workspace: /var/lib/jenkins/workspace/all #could probably be deleted
 
+#borg backing up general
 #backing user
 backup_user: Borg_backup
+encrypted_ssh_private_key_archive: secret_archive_ssh_key
+
 
 # Chrony
 chrony_server: null
