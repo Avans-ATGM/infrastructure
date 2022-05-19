@@ -28,7 +28,7 @@
   loop: "{{ monitor_ssh_directory }}"
   when: item.working_host == inventory_hostname
 
-- name: Change ownership SSH key & copy (update?)
+- name: Change ownership SSH key & copy update?
   ansible.builtin.copy:
     src: "//var/lib/jenkins/workspace/all_servers/roles/Avans_monitoring/files/{{ item.encrypted_ssh_private_key }}"
     dest: "/etc/telegraf/.ssh/{{ item.encrypted_ssh_private_key }}"
