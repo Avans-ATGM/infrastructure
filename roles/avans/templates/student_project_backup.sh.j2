@@ -47,6 +47,42 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
     {% endif %}
 {% endfor %}    
 
+# our non student project backing up method
+{% for project in projects %}
+    {% if project.host == ansible_nodename %}
+
+            #giving information which backup is generated
+        info "Starting backup {{ hostvars[ansible_nodename].project_directory }}/{{ project.year }}/{{ project.name }}"
+
+        # Backup the most important directories into an archive named after
+        # the machine this script is currently running on:
+
+        borg create \
+            --verbose                                         \
+            --stats                                           \
+            --show-rc                                         \
+            --compression lz4                                 \
+            --exclude-caches                                  \
+            # how it is saved in other machine
+            $BORG_REPO::project-{{ project.name_project }}-$(date "+%Y-%m-%dT%H-%M-%S") \
+            # path of project to safe
+            {{ project.path }}
+
+        backup_exit=$?
+
+        info "Pruning repository of project-{{ project.name_project }} "
+
+        # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
+        # archives of THIS machine. The '{hostname}-' prefix is very important to
+        # limit prune's operation to this machine's archives and not apply to
+        # other machines' archives also:
+
+        borg prune --list --prefix 'project-{{ project.name_project }}' --show-rc --keep-daily=1 --keep-weekly=1 --keep-monthly=3 $BORG_REPO  
+
+        prune_exit=$?
+    {% endif %}
+{% endfor %}    
+
 #Find total number of Archives
 N_archives=$(borg list $BORG_REPO | wc -l)
 info "Number of Archives \t $N_archives"
