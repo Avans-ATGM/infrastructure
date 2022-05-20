@@ -227,7 +227,7 @@ backup_archive_usr_1: dlvrins1
 back_up_archive_path_1: //home/gringott/backup
 
 projects:
-  - path: //mnt/TeacherFiles/Dirowa/euTyper_end_data
+  - path: //mnt/TeacherFiles/Dirowa/euTyper_end_data/scheme_seeds
     host: midgard.bioinformatics-atgm.nl
     name_project: euTyper
 
