@@ -25,3 +25,23 @@ atgm_projects:
       host: galaxy.bioinformatics-atgm.nl
 
 which telles. at which machine the directorie and where is.
+
+
+
+# how to retrieve a backup
+
+#perform from the machine the backup is created and fill int the following to make life easy
+
+```
+Borg_backup@midgard:/home/artemis$ export BORG_RSH="ssh -i //home/(backup user)/.ssh/id_rsa"
+Borg_backup@midgard:/home/artemis$ export BORG_PASSPHRASE=(staat in secret file)
+#data is findable in hostvars under the machine it i used
+Borg_backup@midgard:/home/artemis$ export BORG_REPO=(borg user)@(machine):(path)
+```
+##### for tips on how to fill in. check the script in /bin/usr/
+
+# find all current backups
+borg list
+#this command will produce a list, use the first column for the next command to retrieve the backup 
+#this command will exstract the backup in the directry you are in
+borg extract ::project-2022-2022MBI_04-2022-05-14T12-00-26
