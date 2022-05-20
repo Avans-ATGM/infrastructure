@@ -52,7 +52,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
     {% if project.host == ansible_nodename %}
 
             #giving information which backup is generated
-        info "Starting backup {{ hostvars[ansible_nodename].project_directory }}/{{ project.year }}/{{ project.name }}"
+        info "Starting backup {{ project.path }}"
 
         # Backup the most important directories into an archive named after
         # the machine this script is currently running on:
