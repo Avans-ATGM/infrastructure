@@ -12,9 +12,4 @@ export BORG_RSH="ssh -i //home/{{ backup_user }}/.ssh/id_rsa"
 borg init --encryption=repokey $BORG_REPO
 
 #archive initialiation
-
-export BORG_REPO={{ backup_archive_usr_1 }}@{{ backup_archive_addres_1 }}:{{ back_up_archive_path_1 }}
-export BORG_PASSPHRASE={{ borg_encryption_password }}
-export BORG_RSH="ssh -i //home/{{ backup_user }}/.ssh/{{ encrypted_ssh_private_key_archive }}"
-
 borg init --encryption=repokey $BORG_REPO
