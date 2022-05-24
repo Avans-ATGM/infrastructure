@@ -6,3 +6,11 @@ directories_to_monitor_size:
 
 backup_host: none
 backup_location: none
+
+ssh_connectivity:
+- server: isengard.bioinformatics-atgm.nl
+- server: asgard.bioinformatics-atgm.nl
+- server: galaxy.atgm.avans.nl
+- server: cocalc.atgm.avans.nl
+- server: asgard.bioinformatics-atgm.nl
+- server: 7kingdoms.bioinformatics-atgm.nl
