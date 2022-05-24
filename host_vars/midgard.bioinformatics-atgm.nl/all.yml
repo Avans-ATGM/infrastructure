@@ -5,10 +5,22 @@ backup_host: isengard.bioinformatics-atgm.nl
 backup_location: /mnt/backup
 backup_max_size: 1000
 
+
+#monitor certain directories
 directories_to_monitor_size:
 - path: /mnt/StudentFiles
   max_size: 5632
 - path: /mnt/TeacherFiles
   max_size: 5632
 
+#max size of student projects
 max_student_project_size: 300
+
+#should be able to ssh too
+ssh_connectivity:
+- server: isengard.bioinformatics-atgm.nl
+- server: asgard.bioinformatics-atgm.nl
+- server: galaxy.atgm.avans.nl
+- server: cocalc.atgm.avans.nl
+- server: asgard.bioinformatics.nl
+- server: 7kingdoms.bioinformatics-atgm.nl

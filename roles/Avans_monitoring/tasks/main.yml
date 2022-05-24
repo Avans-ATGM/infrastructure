@@ -48,10 +48,10 @@
     apply:
       tags: initialise / update backup system monitoring
 
-#monitoring backups
-- name: Include monitoring ssh directorie
+#monitor ssh connections
+- name: Include monitoring ssh connections
   include_tasks:
-    file: monitor_ssh_directory.yml
+    file: ssh_connectivity.yml
     apply:
       tags: initialise / update backup system monitoring
 
