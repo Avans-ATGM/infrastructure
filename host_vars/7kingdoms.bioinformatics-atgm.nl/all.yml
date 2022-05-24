@@ -13,4 +13,3 @@ ssh_connectivity:
 - server: galaxy.atgm.avans.nl
 - server: cocalc.atgm.avans.nl
 - server: asgard.bioinformatics-atgm.nl
-- server: 7kingdoms.bioinformatics-atgm.nl

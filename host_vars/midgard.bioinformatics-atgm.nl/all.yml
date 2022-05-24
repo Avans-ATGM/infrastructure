@@ -18,7 +18,6 @@ max_student_project_size: 300
 
 #should be able to ssh too
 ssh_connectivity:
-- server: isengard.bioinformatics-atgm.nl
 - server: asgard.bioinformatics-atgm.nl
 - server: galaxy.atgm.avans.nl
 - server: cocalc.atgm.avans.nl

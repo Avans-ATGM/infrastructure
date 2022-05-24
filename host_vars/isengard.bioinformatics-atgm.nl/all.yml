@@ -14,7 +14,6 @@ directories_to_monitor_size:
 max_student_project_size: 300
 
 ssh_connectivity:
-- server: isengard.bioinformatics-atgm.nl
 - server: asgard.bioinformatics-atgm.nl
 - server: galaxy.atgm.avans.nl
 - server: cocalc.atgm.avans.nl
