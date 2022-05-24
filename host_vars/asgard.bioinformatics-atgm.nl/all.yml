@@ -13,3 +13,12 @@ directories_to_monitor_size:
 
 #because they are our interns <3
 max_student_project_size: 500
+
+
+ssh_connectivity:
+- server: isengard.bioinformatics-atgm.nl
+- server: asgard.bioinformatics-atgm.nl
+- server: galaxy.atgm.avans.nl
+- server: cocalc.atgm.avans.nl
+- server: asgard.bioinformatics-atgm.nl
+- server: 7kingdoms.bioinformatics-atgm.nl

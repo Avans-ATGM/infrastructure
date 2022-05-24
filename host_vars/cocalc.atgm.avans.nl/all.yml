@@ -5,3 +5,8 @@ backup_max_size: none
 directories_to_monitor_size:
 - path: /data/cocalc
   max_size: 8904
+
+ssh_connectivity:
+- server: galaxy.atgm.avans.nl
+- server: cocalc.atgm.avans.nl
+

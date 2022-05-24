@@ -2,3 +2,8 @@ backup_host: none
 backup_location: none
 backup_max_size: none
 machine_shortname: galaxy
+
+ssh_connectivity:
+- server: galaxy.atgm.avans.nl
+- server: cocalc.atgm.avans.nl
+
