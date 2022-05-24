@@ -58,7 +58,7 @@
 			<param id="request_memory">32GB</param>
 			<param id="requirements">Machine=="galaxy.bioinformatics-atgm.nl"</param>
 		</destination>
-		{#CPU 8  64 GB RAM#}
+		{#CPU 6  64 GB RAM#}
 		<destination id="condor_64" runner="condor">
 			<param id="request_cpus">6</param>
 			<param id="request_memory">64GB</param>
@@ -115,6 +115,8 @@
 		<tool id="nanoplot" destination="condor_16"/>
 		<tool id="bandage" destination="condor_16"/>
 		<tool id="multiqc" destination="condor_16"/>
+		<tool id="Unicycler" destination="condor_64"/>
+
 		<tool id="ncbi_blast_plus" destination="condor_8"/>
 
 
