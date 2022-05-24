@@ -10,3 +10,6 @@ directories_to_monitor_size:
   max_size: 5632
 - path: /mnt/TeacherFiles
   max_size: 5632
+
+#because they are our interns <3
+max_student_project_size: 500
