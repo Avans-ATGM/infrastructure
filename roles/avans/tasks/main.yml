@@ -42,6 +42,7 @@
       - borgbackup
       - tmpreaper
       - mlocate
+      - nmap
 
 - name: Ensure services are enabled + started
   systemd:
