@@ -92,10 +92,10 @@ info "Number of Archives \t $N_archives on {{ansible_nodename}} "
 ##################################
 
 
-mkdir archive_mountpoint
+mkdir /home/{{backup_user}}/archive_mountpoint
 info "setting up sshfs connection!"
-sshfs -o IdentityFile=/home/{{backup_user}}/.ssh/{{encrypted_ssh_private_key_archive}} {{backup_archive_usr_1}}@{{backup_archive_addres_1}}:{{back_up_archive_path_1}} archive_mountpoint
-export BORG_REPO=archive_mountpoint
+sshfs -o IdentityFile=/home/{{backup_user}}/.ssh/{{encrypted_ssh_private_key_archive}} {{backup_archive_usr_1}}@{{backup_archive_addres_1}}:{{back_up_archive_path_1}} /home/{{backup_user}}/archive_mountpoint
+export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
 
 
 # our non student project backing up method
@@ -138,8 +138,8 @@ info "Number of Archives \t $N_archives on {{ backup_archive_addres_1 }}"
 
 info "closing up sshfs connection!"
 
-fusermount -u archive_mountpoint
-rm archive_mountpoint
+fusermount -u /home/{{backup_user}}/archive_mountpoint
+rm /home/{{backup_user}}/archive_mountpoint
 
 
 # use highest exit code as global exit code
