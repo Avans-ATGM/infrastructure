@@ -39,7 +39,6 @@
       - wget
       - zlib1g-dev
       - sshfs
-      - fusermount
       - borgbackup
       - tmpreaper
       - mlocate
