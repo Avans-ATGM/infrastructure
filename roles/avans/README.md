@@ -44,4 +44,11 @@ Borg_backup@midgard:/home/artemis$ export BORG_REPO=(borg user)@(machine):(path)
 borg list
 #this command will produce a list, use the first column for the next command to retrieve the backup 
 #this command will exstract the backup in the directry you are in
-borg extract ::project-2022-2022MBI_04-2022-05-14T12-00-26
+borg extract $BORG_REPO::project-2022-2022MBI_04-2022-05-14T12-00-26
+
+# for archive
+
+sshfs to the the backup directory /home/gringott/backup archive_mounpoint
+borg list archive mountpont
+#### select your favourite backup
+borg exstract archive_mountpoint::backupname
