@@ -230,7 +230,12 @@ projects:
   - path: //mnt/TeacherFiles/Dirowa/euTyper_end_data
     host: midgard.bioinformatics-atgm.nl
     name_project: euTyper_end_data
-
+  - path: //mnt/studentfiles/student_final_assignment_data
+    host: isengard.bioinformatics-atgm.nl
+    name_project: final_assignment_data
+  - path: //mnt/studentfiles/student_final_assignment_data
+    host: isengard.bioinformatics-atgm.nl
+    name_project: final_assignment_data
 # Chrony
 chrony_server: null
 chrony_pool: "pool.ntp.org iburst maxsources 3"
