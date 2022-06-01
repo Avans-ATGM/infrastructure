@@ -93,7 +93,8 @@ info "Number of Archives \t $N_archives on {{ansible_nodename}} "
 
 
 mkdir archive_mountpoint
-sshfs -o IdentityFile=/home/{{backup_user}}/.ssh/{{encrypted_ssh_private_key_archive}} {{backup_archive_usr_1}}@{{backup_archive_addres_1}}:{{back_up_archive_path_1}}
+info "setting up sshfs connection!"
+sshfs -o IdentityFile=/home/{{backup_user}}/.ssh/{{encrypted_ssh_private_key_archive}} {{backup_archive_usr_1}}@{{backup_archive_addres_1}}:{{back_up_archive_path_1}} archive_mountpoint
 export BORG_REPO=archive_mountpoint
 
 
@@ -134,6 +135,8 @@ export BORG_REPO=archive_mountpoint
 #Find total number of Archives
 N_archives=$(borg list $BORG_REPO | wc -l)
 info "Number of Archives \t $N_archives on {{ backup_archive_addres_1 }}"
+
+info "closing up sshfs connection!"
 
 fusermount -u archive_mountpoint
 rm archive_mountpoint
