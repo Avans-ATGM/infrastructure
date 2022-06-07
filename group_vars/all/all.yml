@@ -226,6 +226,8 @@ backup_archive_addres_1: archive.surfsara.nl
 backup_archive_usr_1: dlvrins1
 back_up_archive_path_1: //home/gringott/backup
 
+
+
 projects:
   - path: //mnt/TeacherFiles/Dirowa/euTyper_end_data
     host: midgard.bioinformatics-atgm.nl

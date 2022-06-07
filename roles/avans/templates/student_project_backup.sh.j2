@@ -83,7 +83,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
 #Find total number of Archives
 N_archives=$(borg list $BORG_REPO | wc -l)
-info "Number of Archives \t $N_archives on {{ansible_nodename}} "
+info "Number of Archives on {{ ansible_nodename }} \t $N_archives "
 
 
 ##################################
@@ -133,7 +133,7 @@ export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
 
 #Find total number of Archives
 N_archives=$(borg list $BORG_REPO | wc -l)
-info "Number of Archives \t $N_archives on {{ backup_archive_addres_1 }}"
+info "Number of Archives on {{ backup_archive_addres_1 }} \t $N_archives"
 
 info "closing up sshfs connection!"
 
