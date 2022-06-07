@@ -6,12 +6,12 @@ all:
 gx:
 	./bin/clean-deps.py
 	ansible-galaxy install -p roles -r requirements.yml
-	ansible-playbook galaxy.yml --diff --extra-vars "os_env_umask='022'"
+	ansible-playbook galaxy.yml --diff --extra-vars "__galaxy_dir_perms='0755' os_env_umask='022'"
 
 it-test-galaxy:
 	./bin/clean-deps.py
 	#ansible-galaxy install -p roles -r requirements.yml
-	ansible-playbook it-test-galaxy.yml --diff --extra-vars "os_env_umask='022'"
+	ansible-playbook it-test-galaxy.yml --diff --extra-vars "__galaxy_dir_perms='0755' os_env_umask='022'"
 
 agoge:
 	./bin/clean-deps.py
@@ -31,9 +31,9 @@ automation:
 spidergalaxy:
 	./bin/clean-deps.py
 	ansible-galaxy install -p roles -r requirements.yml
-	ansible-playbook spidergalaxy.yml --diff --extra-vars "os_env_umask='022'"
+	ansible-playbook spidergalaxy.yml --diff --extra-vars "__galaxy_dir_perms='0755' os_env_umask='022'"
 
 pulsar:
 	./bin/clean-deps.py
 	ansible-galaxy install -p roles -r requirements.yml
-	ansible-playbook pulsar.yml --diff --extra-vars "os_env_umask='022'"
+	ansible-playbook pulsar.yml --diff --extra-vars "__galaxy_dir_perms='0755' os_env_umask='022'"
