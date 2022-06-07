@@ -1,5 +1,8 @@
-- src: galaxyproject.galaxy
-  version: 0.9.17
+#- src: galaxyproject.galaxy
+  #version: 0.9.17
+- src: https://github.com/galaxyproject/ansible-galaxy/
+  version: 939532e5d925c720a8eae70b07ca58982feb2479
+  name: galaxyproject.galaxy
 - src: galaxyproject.nginx
   version: 0.7.0
 - src: galaxyproject.postgresql
