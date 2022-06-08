@@ -25,7 +25,7 @@ echo "borg_backup,Host={{ ansible_nodename }} Pruned_archives=${N_pruning}i,Numb
 T_archives=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Number of Archives on {{ backup_archive_addres_1 }}" | tail -1 | rev | cut -d " " -f 1 | rev)
 
 N_success0
-exit_status=0
+exit_status=1
 N_pruning=0
 N_databases_created=0
 N_fail_error=0
