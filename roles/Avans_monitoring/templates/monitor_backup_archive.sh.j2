@@ -1,9 +1,12 @@
 
+
 date_month=$(journalctl -u student_project_backup.service |tail -1 | cut -d " " -f 1)
 date_day=$(journalctl -u student_project_backup.service |tail -1 | cut -d " " -f 2)
 date=$(date --date="$(printf "01 %s"$mydate)" +"%Y-%m"-$date_day )
 date1=$(date --date="next day" +%y-%m-%d)
 timestamp=$(date +%s%N)
+
+T_archives=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Number of Archives on {{ backup_archive_addres_1 }}" | tail -1 | rev | cut -d " " -f 1 | rev)
 
 N_success=0
 exit_status=1
