@@ -75,7 +75,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
         # limit prune's operation to this machine's archives and not apply to
         # other machines' archives also:
 
-        borg prune --list --prefix 'project-{{ project.year }}-{{ project.name }}' --show-rc --keep-last {{ backups_to_keep }} $BORG_REPO  
+        borg prune --list --prefix 'project-{{ project.name_project }}' --show-rc --keep-last {{ backups_to_keep }} $BORG_REPO  
 
         prune_exit=$?
     {% endif %}
