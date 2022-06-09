@@ -222,12 +222,15 @@ monitor_ssh_directory:
 #backing user
 backup_user: Borg_backup
 encrypted_ssh_private_key_archive: secret_archive_ssh_key
+backups_to_keep: 3
+max_size_local: 1000 # in gb
+#backup system with non student prjects (backup locally and on surfsara archive)
 backup_archive_addres_1: archive.surfsara.nl
 backup_archive_usr_1: dlvrins1
 back_up_archive_path_1: //home/gringott/backup
+max_size_archive: 10000 #in gb
 
-
-
+#backup projects
 projects:
   - path: //mnt/studentfiles/student_final_assignment_data
     host: isengard.bioinformatics-atgm.nl
