@@ -25,6 +25,14 @@
       systemd:
         name: galaxy
         state: restarted
+  pre_tasks:
+    - name: copy welcome.html
+      copy:
+        src: templates/galaxy/config/welcome.html
+        dest: /srv/welcome.html
+        owner: root
+        group: root
+        mode: '0644'
   roles:
     - avans
     - htcondor-github
