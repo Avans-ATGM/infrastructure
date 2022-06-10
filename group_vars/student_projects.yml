@@ -1,3 +1,4 @@
 # NGINX
 nginx_servers:
   - homedirs
+nginx_ssl_servers: []

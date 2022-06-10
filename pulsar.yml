@@ -20,3 +20,5 @@
     - role: galaxyproject.cvmfs
       become: yes
     - galaxyproject.pulsar
+    - role: galaxyproject.nginx
+      become: yes
