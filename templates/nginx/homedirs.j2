@@ -1,0 +1,16 @@
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    server_name "{{ inventory_hostname }}";
+
+    #location / {
+    #    return 302 https://$host$request_uri;
+    #}
+
+	location ~ ^/~(.+?)(/.*)?$ {
+		alias /home/$1/public_html$2;
+		index index.html index.htm;
+		autoindex on;
+	}
+}

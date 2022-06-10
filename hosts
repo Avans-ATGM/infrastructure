@@ -32,6 +32,9 @@ asgard.bioinformatics-atgm.nl ansible_user=thor
 midgard.bioinformatics-atgm.nl ansible_user=artemis
 7kingdoms.bioinformatics-atgm.nl ansible_user=godzilla
 
+[student_projects]
+isengard.bioinformatics-atgm.nl ansible_user=atgm-user
+
 [automation]
 galaxy.atgm.avans.nl ansible_user=atgm-user
 
