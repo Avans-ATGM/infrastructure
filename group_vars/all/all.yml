@@ -165,7 +165,10 @@ atgm_projects:
       year: "2022"
       host: midgard.bioinformatics-atgm.nl
       groups: students
-
+    - name: 2022MBI_15
+      year: "2022"
+      host: midgard.bioinformatics-atgm.nl
+      groups: students
 
 # students on isengard
     - name: 2022MBI_06
