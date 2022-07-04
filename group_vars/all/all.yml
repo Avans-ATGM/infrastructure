@@ -227,11 +227,19 @@ backup_user: Borg_backup
 encrypted_ssh_private_key_archive: secret_archive_ssh_key
 backups_to_keep: 3
 max_size_local: 1000 # in gb
+
 #backup system with non student prjects (backup locally and on surfsara archive)
+#also used as archiving
 backup_archive_addres_1: archive.surfsara.nl
 backup_archive_usr_1: dlvrins1
 back_up_archive_path_1: //home/gringott/backup
 max_size_archive: 10000 #in gb
+
+#archiving
+host_tree_server: isengard.bioinformatics-atgm.nl
+host_user: Dirowa
+host_key: /home/Dirowa/.ssh/id_rsa
+tree_location_on_host: mnt/teacherfiles/Archive
 
 #backup projects
 projects:

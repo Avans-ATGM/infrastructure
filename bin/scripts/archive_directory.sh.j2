@@ -1,0 +1,115 @@
+#!/bin/bash
+
+
+##########
+# Config #
+##########
+
+archive_private_key="/home/Dirowa/.ssh/secret_archive_ssh_key"
+
+#archive stats
+user="{{ backup_archive_usr_1 }}"
+server="{{ backup_archive_addres_1 }}"
+home_dir="{{ archiving_home_path }}"
+
+
+host_tree_server="{{ host_tree_server }}"
+host_user="{{ host_user }}"
+host_key="{{ host_key }}"
+tree_location_on_host="{{ tree_location_on_host }}"
+
+log_file="archiving_log.txt"
+date=$(date)
+while getopts f:a:s: option
+do
+    case "${option}"
+        in
+        f)file=${OPTARG};;
+        a)archive=${OPTARG};;
+        s)safe_as1=${OPTARG};;
+    esac
+done
+
+safe_as="${safe_as1}.tar.gz"
+tree_file="${safe_as1}_tree.txt"
+
+####################
+# param checks######
+####################
+if  ssh ${user}@${server} -i $archive_private_key  '[ ! -d "${home_dir}/${archive}/"  ]';
+    then
+        echo "directory $archive does not existis"
+        exit
+fi
+
+   #smoll check to see if directory is available
+   #check if storage location is possible
+
+ if  ssh ${host_user}@${host_tree_server} -i $host_key  '[ ! -d "${tree_location_on_host}/${archive}"  ]';
+  then
+    echo "directory $archive does not existis on Github Mirror"
+    exit
+ fi
+
+if [[ ! -d "$file" ]]; then
+    echo "Directory to backup $file_path does not exist"
+    exit
+fi
+
+
+#####################
+# initiating logfile#
+#####################
+
+if [[ ! -f "$log_file" ]]; then
+    printf "Log File - \n " > $log_file
+fi
+
+
+#####################
+# the actual script#
+######################
+
+
+echo "archiving '$file' as '$safe_as1' on location: '$archive'"
+echo "creating tar file ${safe_as} from directory $file"
+tar -czf $safe_as $file
+
+#copying files over
+scp -i $archive_private_key $safe_as "${user}@${server}:${home_dir}/${archive}"
+echo "compressing & sending data over complete"
+
+check_1=$(md5sum $safe_as | cut -d " " -f 1)
+archive_location_file="${home_dir}/${archive}/${safe_as}"
+check_2=$(ssh ${user}@${server} -i  $archive_private_key "md5sum $archive_location_file | cut -d ' ' -f 1 ")
+
+##### check if everything went okay #####
+  if [[ $check_1 == $check_2 ]];
+    then
+       echo "copy file succesfully"
+       rm $safe_as # removing tar.gz file since already copied
+
+       tree  $file > $tree_file #generating tree file and copying it over
+       echo "created tree file"
+       scp -i $host_key $tree_file "${host_user}@${host_tree_server}:${tree_location_on_host}/${archive}" #the copy
+
+   #check sum to see everything went correctly
+       check_1=$(md5sum $tree_file | cut -d " " -f 1)
+       check_2=$(ssh ${host_user}@${host_tree_server} -i  $host_key "md5sum ${tree_location_on_host}${archive}/${tree_file}  | cut -d ' ' -f 1 ")
+       if [[ $check_1 == $check_2 ]];
+         then
+             echo "Created tree on archive mirror succesfully"
+             echo "$date \t SUCCES \t $file $safe_as backup on archive and tree made on github mirror\n" >> $log_file
+
+             rm $tree_file
+         else
+             echo "unable to create tree on archive mirror"
+             echo "$date \t ERROR \t tree on github mirror $file $safe_as unsuccesfull MD5sum different\n" >> $log_file
+             rm $tree_file
+       fi
+
+  else
+     echo "copy of $file unsucesfful MD5sum is different"
+     echo "$date \t ERROR \t copy $file $safe_as to archive unsuccesfull MD5sum different\n" >> $log_file
+     rm $safe_as #
+  fi

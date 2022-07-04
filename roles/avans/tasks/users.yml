@@ -119,3 +119,15 @@
     mode: '0700'
     force: no
   loop: "{{ atgm_admins }}"
+
+#########################
+# getting scripts ready #
+#########################
+
+- name: Getting archiving script ready
+  template:
+    src: bin/scripts/archive_directory.sh.j2
+    dest: "/usr/bin/archive_directory.sh"
+    owner: "root"
+    group: "root"
+    mode: '0644'
