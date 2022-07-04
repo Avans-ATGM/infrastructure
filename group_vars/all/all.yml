@@ -240,6 +240,7 @@ host_tree_server: isengard.bioinformatics-atgm.nl
 host_user: Dirowa
 host_key: /home/Dirowa/.ssh/id_rsa
 tree_location_on_host: mnt/teacherfiles/Archive
+archiving_home_path: //home/gringott
 
 #backup projects
 projects:
