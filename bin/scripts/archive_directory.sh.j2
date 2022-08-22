@@ -6,8 +6,8 @@
 ##########
 env | grep -e USER -e HOME
 
-archive_private_key="$HOME/.ssh/{{ archive_key }}"
-archive_mirror_key="$user_home/.ssh/{{ mirror_key }}"
+archive_private_key="/home/$SUDO_USER/.ssh/{{ archive_key }}"
+archive_mirror_key="$/home/$SUDO_USER/.ssh/{{ mirror_key }}"
 
 #archive stats
 user="{{ backup_archive_usr_1 }}"
