@@ -12,7 +12,7 @@
     name: "{{ item.name }}"
     home: "/home/{{ item.name }}"
     shell: "{{ item.shell | default('/bin/bash') }}"
-    comment: "{{ item.user_name }}"
+    comment: "{{ item.users_name }}"
     groups: "{{ item.groups | default(omit) }}"
     update_password: on_create
     password: "{{ avans_default_password | password_hash('sha512') }}"
@@ -28,6 +28,8 @@
     update_password: on_create
     password: "{{ avans_default_password | password_hash('sha512') }}"
     append: yes
+    comment: "{{ item.users_name }}"
+
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 

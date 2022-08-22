@@ -109,17 +109,17 @@ atgm_groups:
 atgm_admins:
 - name: hexylena
   groups: sudo,atgm-user, teacher, students
-  comment: Helena
+  users_name: Helena
 
 - name: Bazante
   groups: sudo,atgm-user, teacher, students
-  comment: Bazante
+  users_name: Bazante
 - name: Dirowa
   groups: sudo,atgm-user, teacher, students
-  comment: Donny
+  users_name: Donny
 - name: Miaomiao
   groups: sudo,atgm-user, teacher, students
-  comment: Miaomiao 
+  users_name: Miaomiao 
 
 # Project Accounts
 atgm_projects:
@@ -144,7 +144,7 @@ atgm_projects:
     - name: 2022MBI_01
       year: "2022"
       host: midgard.bioinformatics-atgm.nl
-      user_name: "Kees and Ted"
+      users_name: "Kees and Ted"
       groups: Students
 
 # students on isengard
@@ -152,7 +152,7 @@ atgm_projects:
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
       groups: students
-      username: "Charlie and Bob"
+      users_name: "Charlie and Bob"
 
 
 
