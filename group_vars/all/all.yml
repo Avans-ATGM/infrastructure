@@ -109,32 +109,36 @@ atgm_groups:
 atgm_admins:
 - name: hexylena
   groups: sudo,atgm-user, teacher, students
+  comment: Helena
+
 - name: Bazante
   groups: sudo,atgm-user, teacher, students
+  comment: Bazante
 - name: Dirowa
   groups: sudo,atgm-user, teacher, students
+  comment: Donny
 - name: Miaomiao
   groups: sudo,atgm-user, teacher, students
-
+  comment: Miaomiao 
 
 # Project Accounts
 atgm_projects:
 # interns
-    - name: Edwin
-      year: "2022"
-      host: asgard.bioinformatics-atgm.nl
-      groups: students
-    - name: Martijn
-      year: "2022"
-      host: asgard.bioinformatics-atgm.nl
-      groups: students
-    #- name: Laura
-    #  year: "2021"
-    #  host: asgard.bioinformatics-atgm.nl
-    - name: Tim
-      year: "2022"
-      host: asgard.bioinformatics-atgm.nl
-      groups: students
+  #  - name: Edwin
+  #    year: "2022"
+  #    host: asgard.bioinformatics-atgm.nl
+  #    groups: students
+  #  - name: Martijn
+  #    year: "2022"
+  #    host: asgard.bioinformatics-atgm.nl
+  #    groups: students
+  #  #- name: Laura
+  #  #  year: "2021"
+  #  #  host: asgard.bioinformatics-atgm.nl
+  #  - name: Tim
+  #    year: "2022"
+  #    host: asgard.bioinformatics-atgm.nl
+  #    groups: students
 # students on midgard
 
     - name: 2022MBI_01
