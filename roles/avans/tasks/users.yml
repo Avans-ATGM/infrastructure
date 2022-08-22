@@ -125,8 +125,8 @@
 
 - name: Change ownership SSH key & copy
   ansible.builtin.copy:
-    src: "/{{ role_path }}/files/{{ secret_archive_mirror_key }}"
-    dest: "/home/{{ item.name  }}/.ssh/{{ secret_archive_mirror_key }}"
+    src: "/{{ role_path }}/files/{{ mirror_key }}"
+    dest: "/home/{{ item.name  }}/.ssh/{{ mirror_key }}"
     owner: "{{ item.name  }}"
     group: "{{ item.name  }}"
     mode: '0700'
