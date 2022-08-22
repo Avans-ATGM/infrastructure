@@ -124,10 +124,11 @@ atgm_admins:
 # Project Accounts
 atgm_projects:
 # interns
-  #  - name: Edwin
-  #    year: "2022"
-  #    host: asgard.bioinformatics-atgm.nl
-  #    groups: students
+    - name: Edwin
+      year: "2022"
+      host: asgard.bioinformatics-atgm.nl
+      groups: students
+      users_name:"Edwin van iets"
   #  - name: Martijn
   #    year: "2022"
   #    host: asgard.bioinformatics-atgm.nl
