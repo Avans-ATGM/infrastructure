@@ -12,6 +12,7 @@
     name: "{{ item.name }}"
     home: "/home/{{ item.name }}"
     shell: "{{ item.shell | default('/bin/bash') }}"
+    comment: "{{ item.user_name }}"
     groups: "{{ item.groups | default(omit) }}"
     update_password: on_create
     password: "{{ avans_default_password | password_hash('sha512') }}"
