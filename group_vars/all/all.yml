@@ -128,7 +128,7 @@ atgm_projects:
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
       groups: students
-      users_name:"Edwin van iets"
+      users_name: "Edwin van iets"
   #  - name: Martijn
   #    year: "2022"
   #    host: asgard.bioinformatics-atgm.nl
