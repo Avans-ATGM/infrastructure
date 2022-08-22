@@ -4,9 +4,9 @@
 ##########
 # Config #
 ##########
-export user_home=$(eval echo "~$different_user")    # prints $different_user's home dir.
+env | grep -e USER -e HOME
 
-archive_private_key="$user_home/.ssh/{{ archive_key }}"
+archive_private_key="$HOME/.ssh/{{ archive_key }}"
 archive_mirror_key="$user_home/.ssh/{{ mirror_key }}"
 
 #archive stats
