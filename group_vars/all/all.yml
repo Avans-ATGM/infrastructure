@@ -140,76 +140,16 @@ atgm_projects:
     - name: 2022MBI_01
       year: "2022"
       host: midgard.bioinformatics-atgm.nl
-      groups: students
-    - name: 2022MBI_02
-      year: "2022"
-      host: midgard.bioinformatics-atgm.nl
-      groups: students
-    - name: 2022MBI_03
-      year: "2022"
-      host: midgard.bioinformatics-atgm.nl
-      groups: students
-    - name: 2022MBI_04
-      year: "2022"
-      host: midgard.bioinformatics-atgm.nl
-      groups: students
-    - name: 2022MBI_05
-      year: "2022"
-      host: midgard.bioinformatics-atgm.nl
-      groups: students
-    - name: Kiki
-      year: "2022"
-      host: midgard.bioinformatics-atgm.nl
-      groups: students
-    - name: 2022MBI_14
-      year: "2022"
-      host: midgard.bioinformatics-atgm.nl
-      groups: students
-    - name: 2022MBI_15
-      year: "2022"
-      host: midgard.bioinformatics-atgm.nl
-      groups: students
+      user_name: "Kees and Ted"
+      groups: Students
 
 # students on isengard
     - name: 2022MBI_06
       year: "2022"
       host: isengard.bioinformatics-atgm.nl
       groups: students
+      username: "Charlie and Bob"
 
-    - name: 2022MBI_07
-      year: "2022"
-      host: isengard.bioinformatics-atgm.nl
-      groups: students
-
-    - name: 2022MBI_08
-      year: "2022"
-      host: isengard.bioinformatics-atgm.nl
-      groups: students
-
-    - name: 2022MBI_09
-      year: "2022"
-      host: isengard.bioinformatics-atgm.nl
-      groups: students
-
-    - name: 2022MBI_10
-      year: "2022"
-      host: isengard.bioinformatics-atgm.nl
-      groups: students
-
-    - name: 2022MBI_11
-      year: "2022"
-      host: isengard.bioinformatics-atgm.nl
-      groups: students
-
-    - name: 2022MBI_12
-      year: "2022"
-      host: isengard.bioinformatics-atgm.nl
-      groups: students
-
-    - name: 2022MBI_13
-      year: "2022"
-      host: isengard.bioinformatics-atgm.nl
-      groups: students
 
 
 #telegraf_archive
@@ -238,7 +178,8 @@ max_size_archive: 10000 #in gb
 #archiving
 host_tree_server: isengard.bioinformatics-atgm.nl
 host_user: Dirowa
-host_key: /home/Dirowa/.ssh/id_rsa
+mirror_key: secret_archive_mirror_key
+archive_key: secret_archive_ssh_key
 tree_location_on_host: mnt/teacherfiles/Archive
 archiving_home_path: //home/gringott
 

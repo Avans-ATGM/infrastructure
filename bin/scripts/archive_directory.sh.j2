@@ -4,8 +4,10 @@
 ##########
 # Config #
 ##########
+export user_home=$(eval echo "~$different_user")    # prints $different_user's home dir.
 
-archive_private_key="/home/Dirowa/.ssh/secret_archive_ssh_key"
+archive_private_key="$user_home/.ssh/{{ secret_archive_ssh_key }}"
+archive_mirror_key="$user_home/.ssh/{{ mirror_key }}"
 
 #archive stats
 user="{{ backup_archive_usr_1 }}"
@@ -15,7 +17,6 @@ home_dir="{{ archiving_home_path }}"
 
 host_tree_server="{{ host_tree_server }}"
 host_user="{{ host_user }}"
-host_key="{{ host_key }}"
 tree_location_on_host="{{ tree_location_on_host }}"
 
 log_file="archiving_log.txt"
@@ -45,7 +46,7 @@ fi
    #smoll check to see if directory is available
    #check if storage location is possible
 
- if  ssh ${host_user}@${host_tree_server} -i $host_key  '[ ! -d "${tree_location_on_host}/${archive}"  ]';
+ if  ssh ${host_user}@${host_tree_server} -i $archive_mirror_key  '[ ! -d "${tree_location_on_host}/${archive}"  ]';
   then
     echo "directory $archive does not existis on Github Mirror"
     exit
@@ -91,11 +92,11 @@ check_2=$(ssh ${user}@${server} -i  $archive_private_key "md5sum $archive_locati
 
        tree  $file > $tree_file #generating tree file and copying it over
        echo "created tree file"
-       scp -i $host_key $tree_file "${host_user}@${host_tree_server}:${tree_location_on_host}/${archive}" #the copy
+       scp -i $archive_mirror_key $tree_file "${host_user}@${host_tree_server}:${tree_location_on_host}/${archive}" #the copy
 
    #check sum to see everything went correctly
        check_1=$(md5sum $tree_file | cut -d " " -f 1)
-       check_2=$(ssh ${host_user}@${host_tree_server} -i  $host_key "md5sum ${tree_location_on_host}${archive}/${tree_file}  | cut -d ' ' -f 1 ")
+       check_2=$(ssh ${host_user}@${host_tree_server} -i  $archive_mirror_key "md5sum ${tree_location_on_host}${archive}/${tree_file}  | cut -d ' ' -f 1 ")
        if [[ $check_1 == $check_2 ]];
          then
              echo "Created tree on archive mirror succesfully"
