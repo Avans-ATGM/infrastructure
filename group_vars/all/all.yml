@@ -141,18 +141,18 @@ atgm_projects:
   #    groups: students
 # students on midgard
 
-    - name: 2022MBI_01
-      year: "2022"
-      host: midgard.bioinformatics-atgm.nl
-      users_name: "Kees and Ted"
-      groups: Students
+  #  - name: 2022MBI_01
+  #    year: "2022"
+  #    host: midgard.bioinformatics-atgm.nl
+  #    users_name: "Kees and Ted"
+  #    groups: Students
 
 # students on isengard
-    - name: 2022MBI_06
-      year: "2022"
-      host: isengard.bioinformatics-atgm.nl
-      groups: students
-      users_name: "Charlie and Bob"
+  #  - name: 2022MBI_06
+  #    year: "2022"
+  #    host: isengard.bioinformatics-atgm.nl
+  #    groups: students
+  #    users_name: "Charlie and Bob"
 
 
 
