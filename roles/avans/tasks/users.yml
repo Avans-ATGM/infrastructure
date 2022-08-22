@@ -29,7 +29,6 @@
     password: "{{ avans_default_password | password_hash('sha512') }}"
     append: yes
     comment: "{{ item.users_name }}"
-
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
