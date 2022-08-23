@@ -97,7 +97,7 @@ check_2=$(ssh ${user}@${server} -i  $archive_private_key "md5sum $archive_locati
 
        tree  $file > $tree_file #generating tree file and copying it over
        echo "created tree file"
-       scp -i $archive_mirror_key $tree_file "${host_user}@${host_tree_server}:${tree_location_on_host}/${archive}/{$tree_file}" #the copy
+       scp -i $archive_mirror_key $tree_file "${host_user}@${host_tree_server}:${tree_location_on_host}/${archive}/${tree_file}" #the copy
 
    #check sum to see everything went correctly
        check_1=$(md5sum $tree_file | cut -d " " -f 1)
