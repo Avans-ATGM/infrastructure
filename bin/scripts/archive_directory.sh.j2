@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#########
+# how to install
+# ssh-copy-id the ssh keys to the arcive seperately and encrypt it with ansible vault and put it in the files direcotry of this role.
+# also change the parameters in the group vars to that name
+# do the same with the main github mirror placeS
 
 ##########
 # Config #
@@ -7,7 +12,7 @@
 env | grep -e USER -e HOME
 
 archive_private_key="/home/$SUDO_USER/.ssh/{{ archive_key }}"
-archive_mirror_key="$/home/$SUDO_USER/.ssh/{{ mirror_key }}"
+archive_mirror_key="/home/$SUDO_USER/.ssh/{{ mirror_key }}"
 
 #archive stats
 user="{{ backup_archive_usr_1 }}"
@@ -92,11 +97,11 @@ check_2=$(ssh ${user}@${server} -i  $archive_private_key "md5sum $archive_locati
 
        tree  $file > $tree_file #generating tree file and copying it over
        echo "created tree file"
-       scp -i $archive_mirror_key $tree_file "${host_user}@${host_tree_server}:${tree_location_on_host}/${archive}" #the copy
+       scp -i $archive_mirror_key $tree_file "${host_user}@${host_tree_server}:${tree_location_on_host}/${archive}/{$tree_file}" #the copy
 
    #check sum to see everything went correctly
        check_1=$(md5sum $tree_file | cut -d " " -f 1)
-       check_2=$(ssh ${host_user}@${host_tree_server} -i  $archive_mirror_key "md5sum ${tree_location_on_host}${archive}/${tree_file}  | cut -d ' ' -f 1 ")
+       check_2=$(ssh ${host_user}@${host_tree_server} -i  $archive_mirror_key "md5sum ${tree_location_on_host}/${archive}/${tree_file}  | cut -d ' ' -f 1 ")
        if [[ $check_1 == $check_2 ]];
          then
              echo "Created tree on archive mirror succesfully"
