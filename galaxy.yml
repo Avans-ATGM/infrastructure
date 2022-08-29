@@ -50,7 +50,7 @@
     - galaxyproject.galaxy_systemd
     - galaxyproject.gxadmin
     - hxr.monitor-cluster
-    - usegalaxy_eu.rabbitmq
+    #- usegalaxy_eu.rabbitmq
     - galaxyproject.nginx
     - galaxyproject.cvmfs
     - influxdata.chrony
