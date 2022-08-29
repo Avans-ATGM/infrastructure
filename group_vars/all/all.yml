@@ -124,11 +124,16 @@ atgm_admins:
 # Project Accounts
 atgm_projects:
 # interns
-    - name: Edwin
+    - name: Mirthe
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
-      groups: students
-      users_name: "Edwin van iets"
+      groups: students,atgm-user
+      users_name: "Mirthe Raats 2022"
+    - name: Rubiela
+      year: "2022"
+      host: asgard.bioinformatics-atgm.nl
+      groups: students,atgm-user
+      users_name: "Rubiela Rosalia 2022"
     - name: Okan
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
