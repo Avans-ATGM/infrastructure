@@ -134,6 +134,11 @@ atgm_projects:
       host: asgard.bioinformatics-atgm.nl
       groups: students,atgm-user
       users_name: "Rubiela Rosalia 2022"
+    - name: Gijs
+      year: "2022"
+      host: asgard.bioinformatics-atgm.nl
+      groups: students,atgm-user
+      users_name: "Gijs Van den Berg 2022"
     - name: Okan
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
