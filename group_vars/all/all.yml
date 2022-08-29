@@ -128,22 +128,22 @@ atgm_projects:
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
       groups: students,atgm-user
-      users_name: "Mirthe Raats 2022"
+      users_name: "Mirthe Raats 2022,Miaomiao"
     - name: Rubiela
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
       groups: students,atgm-user
-      users_name: "Rubiela Rosalia 2022"
+      users_name: "Rubiela Rosalia 2022, Miaomiao"
     - name: Gijs
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
       groups: students,atgm-user
-      users_name: "Gijs Van den Berg 2022"
+      users_name: "Gijs Van den Berg 2022,Nishant"
     - name: Okan
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
       groups: students
-      users_name: Okan Fakoglu
+      users_name: "Okan Fakoglu 2022, eefje"
 
   #  #- name: Laura
   #  #  year: "2021"
