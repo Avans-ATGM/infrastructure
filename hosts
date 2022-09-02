@@ -5,7 +5,7 @@
 midgard.bioinformatics-atgm.nl ansible_user=artemis
 isengard.bioinformatics-atgm.nl ansible_user=atgm-user
 asgard.bioinformatics-atgm.nl ansible_user=thor
-7kingdoms.bioinformatics-atgm.nl ansible_user=godzilla
+7kingdoms.bioinformatics-atgm.nl ansible_user=atgm-user
 
 [dif-it]
 test-galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-tstvserver01.avans.nl
