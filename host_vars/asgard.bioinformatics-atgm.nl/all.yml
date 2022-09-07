@@ -1,5 +1,4 @@
 project_directory: /mnt/StudentFiles
-teacher_location: /mnt/TeacherFiles
 machine_shortname: Asgard
 
 backup_host: midgard.bioinformatics-atgm.nl

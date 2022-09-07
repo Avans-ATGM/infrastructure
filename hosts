@@ -2,45 +2,45 @@
 ### Owner Groups  ###
 #####################
 [avans]
-#midgard.bioinformatics-atgm.nl ansible_user=artemis
+midgard.bioinformatics-atgm.nl ansible_user=artemis
 isengard.bioinformatics-atgm.nl ansible_user=atgm-user
-#asgard.bioinformatics-atgm.nl ansible_user=thor
+asgard.bioinformatics-atgm.nl ansible_user=thor
 7kingdoms.bioinformatics-atgm.nl ansible_user=atgm-user hostname=Erebor
 
-#[dif-it]
-#test-galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-tstvserver01.avans.nl
-#galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-hslod01.avans.nl
-#cocalc.atgm.avans.nl ansible_user=atgm-user hostname=atgm-hslod02.avans.nl
+[dif-it]
+test-galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-tstvserver01.avans.nl
+galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-hslod01.avans.nl
+cocalc.atgm.avans.nl ansible_user=atgm-user hostname=atgm-hslod02.avans.nl
 
 #####################
 ### Machine Roles ###
 #####################
-#[galaxyservers]
-#galaxy.atgm.avans.nl ansible_user=atgm-user galaxy_instance_codename=prod
-#test-galaxy.atgm.avans.nl ansible_user=atgm-user galaxy_instance_codename=dev
-## SUNSET
-##galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
+[galaxyservers]
+galaxy.atgm.avans.nl ansible_user=atgm-user galaxy_instance_codename=prod
+test-galaxy.atgm.avans.nl ansible_user=atgm-user galaxy_instance_codename=dev
+# SUNSET
+#galaxy.bioinformatics-atgm.nl ansible_user=bioinf_team
 
-##S[spider_galaxy]
-##spider_galaxy@galaxy.bioinformatics-atgm.nl
+#S[spider_galaxy]
+#spider_galaxy@galaxy.bioinformatics-atgm.nl
 
-#[cocalc]
-#cocalc.atgm.avans.nl ansible_user=atgm-user
+[cocalc]
+cocalc.atgm.avans.nl ansible_user=atgm-user
 
-#[agoge]
-#asgard.bioinformatics-atgm.nl ansible_user=thor
-#midgard.bioinformatics-atgm.nl ansible_user=artemis
-#7kingdoms.bioinformatics-atgm.nl ansible_user=atgm-user hostname=Erebor
+[agoge]
+asgard.bioinformatics-atgm.nl ansible_user=thor
+midgard.bioinformatics-atgm.nl ansible_user=artemis
+7kingdoms.bioinformatics-atgm.nl ansible_user=atgm-user hostname=Erebor
 
-#[student_projects]
-#isengard.bioinformatics-atgm.nl ansible_user=atgm-user
+[student_projects]
+isengard.bioinformatics-atgm.nl ansible_user=atgm-user
 
-#[automation]
-#galaxy.atgm.avans.nl ansible_user=atgm-user
+[automation]
+galaxy.atgm.avans.nl ansible_user=atgm-user
 
 #[pulsarservers]
-##asgard.bioinformatics-atgm.nl ansible_user=thor
-##midgard.bioinformatics-atgm.nl ansible_user=artemis
-##isengard.bioinformatics-atgm.nl ansible_user=atgm-user
+#asgard.bioinformatics-atgm.nl ansible_user=thor
+#midgard.bioinformatics-atgm.nl ansible_user=artemis
+#isengard.bioinformatics-atgm.nl ansible_user=atgm-user
 
 

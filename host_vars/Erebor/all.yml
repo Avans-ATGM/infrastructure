@@ -1,5 +1,4 @@
 project_directory: /mnt/student_files
-teacher_location: /mnt/TeacherFiles
 
 directories_to_monitor_size:
 - path: /mnt/teacher_files
