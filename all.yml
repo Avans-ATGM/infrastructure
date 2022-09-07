@@ -3,7 +3,7 @@
   become: true
   become_user: root
   roles:
-    - dj-wasabi.telegraf
+    #- dj-wasabi.telegraf
     - avans
     #- jnv.unattended-upgrades # Handled by DIF
     - influxdata.chrony
