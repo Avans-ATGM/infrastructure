@@ -1,8 +1,13 @@
-project_directory: /media/miaomiao/Student_Files2
+project_directory: /mnt/student_files
+teacher_location: /mnt/TeacherFiles
 
 directories_to_monitor_size:
-- path: /home
-  max_size: 873
+- path: /mnt/teacher_files
+  max_size: 3400
+- path: /mnt/backup
+  max_size: 1000
+- path: /mnt/student_files
+  max_size: 2500
 
 backup_host: none
 backup_location: none

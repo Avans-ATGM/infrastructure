@@ -1,4 +1,6 @@
 project_directory: /mnt/studentfiles
+teacher_location: /mnt/TeacherFiles
+
 machine_shortname: Isengard
 
 backup_host: asgard.bioinformatics-atgm.nl
