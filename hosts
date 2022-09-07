@@ -5,7 +5,7 @@
 midgard.bioinformatics-atgm.nl ansible_user=artemis
 isengard.bioinformatics-atgm.nl ansible_user=atgm-user
 asgard.bioinformatics-atgm.nl ansible_user=thor
-7kingdoms.bioinformatics-atgm.nl ansible_user=atgm-user
+7kingdoms.bioinformatics-atgm.nl ansible_user=atgm-user hostname=Erebor
 
 [dif-it]
 test-galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-tstvserver01.avans.nl
@@ -30,7 +30,7 @@ cocalc.atgm.avans.nl ansible_user=atgm-user
 [agoge]
 asgard.bioinformatics-atgm.nl ansible_user=thor
 midgard.bioinformatics-atgm.nl ansible_user=artemis
-7kingdoms.bioinformatics-atgm.nl ansible_user=godzilla
+7kingdoms.bioinformatics-atgm.nl ansible_user=atgm-user hostname=Erebor
 
 [student_projects]
 isengard.bioinformatics-atgm.nl ansible_user=atgm-user
