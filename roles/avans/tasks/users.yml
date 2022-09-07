@@ -10,7 +10,10 @@
 - name: Create our admin users
   user:
     name: "{{ item.name }}"
-    home: "/{{ teacher_location }}/{{ item.name }}"
+      home: "/{{ teacher_location }}/{{ item.name }}"
+    when: teacher_location is defined
+      home: "/home/{{ item.name }}"
+    when: teacher_location is not defined
     shell: "{{ item.shell | default('/bin/bash') }}"
     comment: "{{ item.users_name }}"
     groups: "{{ item.groups | default(omit) }}"
@@ -18,7 +21,6 @@
     password: "{{ avans_default_password | password_hash('sha512') }}"
     append: yes
   loop: "{{ atgm_admins }}"
-  when: teacher_location is defined
 
 - name: Create our admin users
   user:
@@ -31,7 +33,6 @@
     password: "{{ avans_default_password | password_hash('sha512') }}"
     append: yes
   loop: "{{ atgm_admins }}"
-  when: teacher_location is not defined
 
 - name: Create our projects
   user:
