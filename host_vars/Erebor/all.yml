@@ -1,0 +1,19 @@
+project_directory: /mnt/student_files
+
+directories_to_monitor_size:
+- path: /mnt/teacher_files
+  max_size: 3400
+- path: /mnt/backup
+  max_size: 1000
+- path: /mnt/student_files
+  max_size: 2500
+
+backup_host: none
+backup_location: none
+
+ssh_connectivity:
+- server: isengard.bioinformatics-atgm.nl
+- server: asgard.bioinformatics-atgm.nl
+- server: galaxy.atgm.avans.nl
+- server: cocalc.atgm.avans.nl
+- server: asgard.bioinformatics-atgm.nl
