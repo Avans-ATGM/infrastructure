@@ -3,7 +3,7 @@
 		<plugin id="local_plugin" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner"/>
 
 		<plugin id="condor" type="runner" load="galaxy.jobs.runners.condor:CondorJobRunner"/>
-#		<plugin id="pulsar_embedded" type="runner" load="galaxy.jobs.runners.pulsar:PulsarEmbeddedJobRunner">
+{#		<plugin id="pulsar_embedded" type="runner" load="galaxy.jobs.runners.pulsar:PulsarEmbeddedJobRunner">
 #			<param id="pulsar_config">{{ galaxy_config_dir }}/pulsar_app.yml</param>
 		</plugin>
 #		{% for machine in groups['pulsarservers'] %}
@@ -17,7 +17,7 @@
 #			<param id="galaxy_url">{{ inventory_hostname }}</param>
 #			<param id="manager">_default_</param>
 #		</plugin>
-#		{% endfor%}
+		{% endfor%} #}
 	</plugins>
 
 
@@ -84,7 +84,7 @@
 		</destination>
 
 		{# Pulsar #}
-#		{% for machine in groups['pulsarservers'] %}
+{#		{% for machine in groups['pulsarservers'] %}
 #		<destination id="pulsar" runner="pulsar_runner_{{ hostvars[machine].machine_shortname }}" >
 #			<param id="default_file_action">remote_transfer</param>
 #			<param id="dependency_resolution">remote</param>
@@ -96,7 +96,7 @@
 #			<param id="outputs_to_working_directory">False</param>
 #		</destination>
 #		{% endfor %}
-
+#}
 	</destinations>
 
 	<resources>
