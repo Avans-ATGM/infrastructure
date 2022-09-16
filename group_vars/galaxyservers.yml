@@ -352,6 +352,9 @@ tiaas_info:
   owner_site: "https://{{ inventory_hostname }}"
   domain: "https://{{ inventory_hostname }}"
 
+tiaas_other_config: |
+  TIAAS_EXPOSE_USERNAME = True
+
 # NFS
 nfs_exports:
 - "/srv/galaxy 145.48.205.36(rw,sync,no_root_squash,no_subtree_check) 145.48.205.37(rw,sync,no_root_squash,no_subtree_check) 145.48.205.25(rw,sync,no_root_squash,no_subtree_check)"
