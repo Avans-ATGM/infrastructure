@@ -17,21 +17,21 @@ postgresql_objects_privileges:
     roles: telegraf
     privs: SELECT
     objs: ALL_IN_SCHEMA
-  #- database: galaxy
-    #roles: tiaas
-    #objs: galaxy_user,galaxy_session,job,history,workflow,workflow_invocation
-    #type: table
-    #privs: SELECT
-  #- database: galaxy
-    #roles: tiaas
-    #objs: user_group_association,galaxy_group,role,group_role_association
-    #type: table
-    #privs: SELECT,INSERT
-  #- database: galaxy
-    #roles: tiaas
-    #objs: role_id_seq,galaxy_group_id_seq,group_role_association_id_seq,user_group_association_id_seq
-    #type: sequence
-    #privs: USAGE,SELECT
+  - database: galaxy
+    roles: tiaas
+    objs: galaxy_user,galaxy_session,job,history,workflow,workflow_invocation
+    type: table
+    privs: SELECT
+  - database: galaxy
+    roles: tiaas
+    objs: user_group_association,galaxy_group,role,group_role_association
+    type: table
+    privs: SELECT,INSERT
+  - database: galaxy
+    roles: tiaas
+    objs: role_id_seq,galaxy_group_id_seq,group_role_association_id_seq,user_group_association_id_seq
+    type: sequence
+    privs: USAGE,SELECT
 
 # PostgreSQL Backups
 postgresql_backup_dir: /data/backups
@@ -345,8 +345,9 @@ tiaas_version: main
 tiaas_admin_user: admin
 tiaas_admin_pass: "{{ secret_tiaas_admin_pw }}"
 
+
 tiaas_info:
-  owner: default
+  owner: Avans
   owner_email: bioinformatics-team@bioinformatics-atgm.nl
   owner_site: "https://{{ inventory_hostname }}"
   domain: "https://{{ inventory_hostname }}"
