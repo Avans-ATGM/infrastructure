@@ -345,6 +345,12 @@ tiaas_version: main
 tiaas_admin_user: admin
 tiaas_admin_pass: "{{ secret_tiaas_admin_pw }}"
 
+tiaas_info:
+  owner: default
+  owner_email: bioinformatics-team@bioinformatics-atgm.nl
+  owner_site: "https://{{ inventory_hostname }}"
+  domain: "https://{{ inventory_hostname }}"
+
 # NFS
 nfs_exports:
 - "/srv/galaxy 145.48.205.36(rw,sync,no_root_squash,no_subtree_check) 145.48.205.37(rw,sync,no_root_squash,no_subtree_check) 145.48.205.25(rw,sync,no_root_squash,no_subtree_check)"
