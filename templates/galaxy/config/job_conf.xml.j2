@@ -3,10 +3,10 @@
 		<plugin id="local_plugin" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner"/>
 
 		<plugin id="condor" type="runner" load="galaxy.jobs.runners.condor:CondorJobRunner"/>
-{#		<plugin id="pulsar_embedded" type="runner" load="galaxy.jobs.runners.pulsar:PulsarEmbeddedJobRunner">
-#			<param id="pulsar_config">{{ galaxy_config_dir }}/pulsar_app.yml</param>
+		<plugin id="pulsar_embedded" type="runner" load="galaxy.jobs.runners.pulsar:PulsarEmbeddedJobRunner">
+			<param id="pulsar_config">{{ galaxy_config_dir }}/pulsar_app.yml</param>
 		</plugin>
-#		{% for machine in groups['pulsarservers'] %}
+{#		{% for machine in groups['pulsarservers'] %}
 #		<plugin id="pulsar_runner_{{ hostvars[machine].machine_shortname }}" type="runner" load="galaxy.jobs.runners.pulsar:PulsarMQJobRunner" >
 #			<param id="amqp_url">pyamqp://{{hostvars[machine].machine_shortname}}:{{ pulsar_password }}@localhost:5671/pulsar/Isengard?ssl=1</param>
 #			<param id="amqp_ack_republish_time">1200</param>
