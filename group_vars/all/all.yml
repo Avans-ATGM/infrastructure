@@ -1,6 +1,6 @@
 # CVMFS vars
 cvmfs_role: client
-galaxy_cvmfs_repos_enabled: config-repo
+galaxy_cvmfs_repos_enabled: true
 # This is measured in MB: so this should be 10 GB
 cvmfs_quota_limit: "{{ 1024 * 10 }}"
 
