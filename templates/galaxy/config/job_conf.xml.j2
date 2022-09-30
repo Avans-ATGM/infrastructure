@@ -35,6 +35,11 @@
 			<param id="request_cpus">4</param>
 			<param id="request_memory">16GB</param>
 		</destination>
+		{# CPU 3 60 GB RAM#}
+		<destination id="condor_3" runner="condor">
+			<param id="request_cpus">3</param>
+			<param id="request_memory">64GB</param>
+		</destination>
 		{#CPU 2  16 GB RAM#}
 		<destination id="condor_16-fastqc" runner="condor">
 			<param id="request_cpus">2</param>
@@ -105,7 +110,7 @@
 	<tools>
 		<tool id="fastqc" destination="condor_16-fastqc"/>
 		<tool id="shovill" destination="condor-shovill"/>
-		<tool id="flye" destination="condor_64"/>
+		<tool id="flye" destination="condor_3"/>
 		<tool id="canu" destination="condor_64"/>
 		<tool id="bowtie2" destination="condor_16"/>
 		<tool id="upload1" destination="local_destination"/>
