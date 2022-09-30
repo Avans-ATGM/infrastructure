@@ -1,12 +1,20 @@
 server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+	listen 80 default_server;
+	listen [::]:80 default_server;
 
-    server_name "{{ inventory_hostname }}";
+	server_name "{{ inventory_hostname }}";
 
-    #location / {
-    #    return 302 https://$host$request_uri;
-    #}
+	#location / {
+	#    return 302 https://$host$request_uri;
+	#}
+
+	location ~ ^/~(.+?)/secure(/.*)?$ {
+		alias /home/$1/public_html/secure$2;
+		index index.html index.htm;
+		autoindex on;
+		auth_pam                "Secure zone";
+		auth_pam_service_name   "nginx";
+	}
 
 	location ~ ^/~(.+?)(/.*)?$ {
 		alias /home/$1/public_html$2;
