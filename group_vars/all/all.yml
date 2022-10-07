@@ -87,6 +87,7 @@ nginx_conf_http:
   client_max_body_size: 1g
 nginx_servers:
   - homedirs
+-nginx_ssl_servers: []
 
 openssl_domains:
 - "{{ hostname | default(inventory_hostname) }}"
