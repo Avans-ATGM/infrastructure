@@ -2,7 +2,7 @@ server {
         listen 80 default_server;
         listen [::]:80 default_server;
 
-        server_name "{{ HOSTNAME }}";
+        server_name "{{ ansible_nodename }}";
 
         #location / {
         #    return 302 https://$host$request_uri;
