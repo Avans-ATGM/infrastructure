@@ -102,6 +102,24 @@
     group: "{{ item.name  }}"
   loop: "{{ atgm_admins }}"
 
+- name: Create a .ssh directory if it doesn't exists
+  ansible.builtin.file:
+    path: "/home/{{ item.name  }}/secure/"
+    state: directory
+    mode: '0755'
+    owner: "{{ item.name }}"
+    group: "{{ item.name  }}"
+  loop: "{{ atgm_admins }}"
+
+- name: Create a .ssh directory if it doesn't exists
+  ansible.builtin.file:
+    path: "/home/{{ item.name  }}/public/"
+    state: directory
+    mode: '0755'
+    owner: "{{ item.name }}"
+    group: "{{ item.name  }}"
+  loop: "{{ atgm_admins }}"
+
 - name: create known_hosts file it it doesnt exists
   copy:
     content: ""
