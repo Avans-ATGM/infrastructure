@@ -85,6 +85,8 @@ nginx_selinux_allow_local_connections: true
 nginx_enable_default_server: false
 nginx_conf_http:
   client_max_body_size: 1g
+nginx_servers:
+  - homedirs
 
 openssl_domains:
 - "{{ hostname | default(inventory_hostname) }}"
@@ -105,6 +107,7 @@ atgm_groups:
 - name: students
 - name: atgm-user
 - name: teacher
+- name: sequencing
 
 atgm_admins:
 - name: hexylena

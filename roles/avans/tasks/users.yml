@@ -48,7 +48,25 @@
 #    miniconda_prefix: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/conda"
 #  loop: "{{ atgm_projects }}"
 #  when: item.host == inventory_hostname
+- name: Create a secure nginx directory 
+  ansible.builtin.file:
+    path: "/home/{{ item.name  }}/secure/"
+    state: directory
+    mode: '0755'
+    owner: "{{ item.name }}"
+    group: "{{ item.name  }}"
+  loop: "{{ atgm_projects }}"
+  when: item.host == inventory_hostname
 
+- name: Create public NGINX directory
+  ansible.builtin.file:
+    path: "/home/{{ item.name  }}/public/"
+    state: directory
+    mode: '0755'
+    owner: "{{ item.name }}"
+    group: "{{ item.name  }}"
+  loop: "{{ atgm_projects }}"
+  when: item.host == inventory_hostname
 
 - name: create standard readme file
   copy:
@@ -102,7 +120,7 @@
     group: "{{ item.name  }}"
   loop: "{{ atgm_admins }}"
 
-- name: Create a .ssh directory if it doesn't exists
+- name: Create a secure nginx directory 
   ansible.builtin.file:
     path: "/home/{{ item.name  }}/secure/"
     state: directory
@@ -111,7 +129,7 @@
     group: "{{ item.name  }}"
   loop: "{{ atgm_admins }}"
 
-- name: Create a .ssh directory if it doesn't exists
+- name: Create public NGINX directory
   ansible.builtin.file:
     path: "/home/{{ item.name  }}/public/"
     state: directory
