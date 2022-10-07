@@ -48,9 +48,9 @@
 #    miniconda_prefix: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/conda"
 #  loop: "{{ atgm_projects }}"
 #  when: item.host == inventory_hostname
-- name: Create a secure nginx directory 
+- name: Create public NGINX directory
   ansible.builtin.file:
-    path: "/home/{{ item.name  }}/secure/"
+    path: "/home/{{ item.name }}/public_html/"
     state: directory
     mode: '0755'
     owner: "{{ item.name }}"
@@ -58,9 +58,9 @@
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
-- name: Create public NGINX directory
+- name: Create a secure nginx directory 
   ansible.builtin.file:
-    path: "/home/{{ item.name  }}/public/"
+    path: "/home/{{ item.name  }}/public_html//secure/"
     state: directory
     mode: '0755'
     owner: "{{ item.name }}"
@@ -122,7 +122,7 @@
 
 - name: Create a secure nginx directory 
   ansible.builtin.file:
-    path: "/home/{{ item.name  }}/secure/"
+    path: "/home/{{ item.name  }}/public_html/"
     state: directory
     mode: '0755'
     owner: "{{ item.name }}"
@@ -131,7 +131,7 @@
 
 - name: Create public NGINX directory
   ansible.builtin.file:
-    path: "/home/{{ item.name  }}/public/"
+    path: "/home/{{ item.name  }}/public_html/secure/"
     state: directory
     mode: '0755'
     owner: "{{ item.name }}"
