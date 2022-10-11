@@ -3,7 +3,7 @@
 #########################################################
 - name: Create a researcher directory if it doesnt exist yet
   ansible.builtin.file:
-    path: {{ teacher_directory }}/researcher
+    path: "{{ teacher_directory }}/researcher"
     state: directory
     mode: '0755'
 
