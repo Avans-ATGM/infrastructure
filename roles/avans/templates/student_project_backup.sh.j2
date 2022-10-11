@@ -47,7 +47,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
     {% endif %}
 {% endfor %}    
 
-{% for project in researcher %}
+{% for project in researchers %}
     {% if project.host == ansible_nodename %}
 
         #giving information which backup is generated
@@ -166,8 +166,8 @@ export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
     {% endif %}
 {% endfor %}    
 
-{% for project in projects %}
-    {% if project.host == researcher %}
+{% for project in researchers %}
+    {% if project.host == ansible_nodename %}
 
         #giving information which backup is generated
         info  "Starting backup {{ hostvars[ansible_nodename].teacher_directory }}/researcher/{{ project.name }} on archive"
