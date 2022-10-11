@@ -2,16 +2,12 @@
 # Use in the main sequencing folder.
 
 for barcode in fastq_pass/barcode?? fastq_pass/unclassified; do zcat $barcode/*.fastq.gz > $barcode.fastq; done
-
-
 for barcode in fastq_fail/barcode?? fastq_fail/unclassified; do zcat $barcode/*.fastq.gz > $barcode.fastq; done
 
 
 # no uncompressing --> less efficient
 
 for barcode in fastq_pass/barcode?? fastq_pass/unclassified; do cat $barcode/*.fastq.gz > $barcode.fastq.gz; done
-
-
 for barcode in fastq_fail/barcode?? fastq_fail/unclassified; do cat $barcode/*.fastq.gz > $barcode.fastq.gz; done
 
 

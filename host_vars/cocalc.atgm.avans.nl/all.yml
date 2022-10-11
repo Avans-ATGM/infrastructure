@@ -9,3 +9,4 @@ directories_to_monitor_size:
 ssh_connectivity:
 - server: galaxy.atgm.avans.nl
 
+teacher_directory: none

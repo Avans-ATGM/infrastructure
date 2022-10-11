@@ -1,19 +1,21 @@
 project_directory: /mnt/StudentFiles
+teacher_directory: /mnt/TeacherFiles
+
 machine_shortname: Asgard
 
 backup_host: midgard.bioinformatics-atgm.nl
-backup_location: /mnt/TeacherFiles/project_backup
+backup_location: {{ teacher_directory }}project_backup
 backup_max_size: 1000
 
 directories_to_monitor_size:
 - path: /mnt/StudentFiles
   max_size: 5632
-- path: /mnt/TeacherFiles
+- path: {{ teacher_directory }}
   max_size: 5632
 
 #because they are our interns <3
 max_student_project_size: 500
-
+max_teacher_project_size: 500
 
 ssh_connectivity:
 - server: isengard.bioinformatics-atgm.nl

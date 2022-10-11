@@ -1,4 +1,5 @@
 project_directory: /mnt/StudentFiles
+teacher_directory: /mnt/TeacherFiles
 
 machine_shortname: Midgard
 
@@ -11,11 +12,12 @@ backup_max_size: 1000
 directories_to_monitor_size:
 - path: /mnt/StudentFiles
   max_size: 5632
-- path: /mnt/TeacherFiles
+- path: {{ teacher_directory }}
   max_size: 5632
 
 #max size of student projects
 max_student_project_size: 300
+max_teacher_project_size: 500
 
 #should be able to ssh too
 ssh_connectivity:

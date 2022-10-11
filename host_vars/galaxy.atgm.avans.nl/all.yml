@@ -6,3 +6,5 @@ machine_shortname: galaxy
 ssh_connectivity:
 - server: cocalc.atgm.avans.nl
 
+teacher_directory: none
+max_teacher_project_size: 500

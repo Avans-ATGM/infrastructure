@@ -47,6 +47,38 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
     {% endif %}
 {% endfor %}    
 
+{% for project in researcher %}
+    {% if project.host == ansible_nodename %}
+
+        #giving information which backup is generated
+        info "Starting backup {{ hostvars[ansible_nodename].teacher_directory }}/researcher/{{ project.name }}"
+
+        # Backup the most important directories into an archive named after
+        # the machine this script is currently running on:
+
+        borg create \
+            --verbose                                         \
+            --stats                                           \
+            --show-rc                                         \
+            --compression lz4                                 \
+            --exclude-caches                                  \
+            $BORG_REPO::Research_project-{{ project.name }}-$(date "+%Y-%m-%dT%H-%M-%S") \
+            {{ hostvars[ansible_nodename].teacher_directory }}/researcher/{{ project.name }}/data_storage
+
+        backup_exit=$?
+
+        info "Pruning repository of research Research_project-{{ project.name }}"
+
+        # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
+        # archives of THIS machine. The '{hostname}-' prefix is very important to
+        # limit prune's operation to this machine's archives and not apply to
+        # other machines' archives also:
+
+        borg prune --list --prefix 'research Research_project-{{ project.name }}' --show-rc --keep-last {{ backups_to_keep }} $BORG_REPO  
+
+        prune_exit=$?
+    {% endif %}
+{% endfor %}     
 
 {% for project in projects %}
     {% if project.host == ansible_nodename %}
@@ -129,6 +161,39 @@ export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
         # other machines' archives also:
 
         borg prune --list --prefix 'project-{{ project.name_project }}' --show-rc --keep-daily=1 --keep-weekly=1 --keep-monthly=3 $BORG_REPO  
+
+        prune_exit=$?
+    {% endif %}
+{% endfor %}    
+
+{% for project in projects %}
+    {% if project.host == researcher %}
+
+        #giving information which backup is generated
+        info  "Starting backup {{ hostvars[ansible_nodename].teacher_directory }}/researcher/{{ project.name }} on archive"
+
+        # Backup the most important directories into an archive named after
+        # the machine this script is currently running on:
+
+        borg create \
+            --verbose                                         \
+            --stats                                           \
+            --show-rc                                         \
+            --compression lz4                                 \
+            --exclude-caches                                  \
+            BORG_REPO::Research_project-{{ project.name }}-$(date "+%Y-%m-%dT%H-%M-%S") \
+            {{ hostvars[ansible_nodename].teacher_directory }}/researcher/{{ project.name }}/data_storage
+
+        backup_exit=$?
+
+        info "Pruning repository of research project-{{ project.name }} "
+
+        # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
+        # archives of THIS machine. The '{hostname}-' prefix is very important to
+        # limit prune's operation to this machine's archives and not apply to
+        # other machines' archives also:
+
+        borg prune --list --prefix 'Research_project-{{ project.name }}' --show-rc --keep-daily=1 --keep-weekly=1 --keep-monthly=3 $BORG_REPO  
 
         prune_exit=$?
     {% endif %}

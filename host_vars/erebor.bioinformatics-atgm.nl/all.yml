@@ -1,7 +1,8 @@
 project_directory: /mnt/student_files
+teacher_directory: /mnt/teacher_files
 
 directories_to_monitor_size:
-- path: /mnt/teacher_files
+- path: {{ teacher_directory }}
   max_size: 3400
 - path: /mnt/backup
   max_size: 1000
@@ -17,3 +18,5 @@ ssh_connectivity:
 - server: galaxy.atgm.avans.nl
 - server: cocalc.atgm.avans.nl
 - server: asgard.bioinformatics-atgm.nl
+
+max_teacher_project_size: 500
