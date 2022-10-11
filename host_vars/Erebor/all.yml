@@ -3,7 +3,7 @@ teacher_directory: /mnt/teacher_files
 
 
 directories_to_monitor_size:
-- path: {{ teacher_directory }}
+- path: "{{ teacher_directory }}"
   max_size: 3400
 - path: /mnt/backup
   max_size: 1000
