@@ -260,11 +260,3 @@
 
 
 
-
-    - name: Create a symbolic link
-  ansible.builtin.file:
-    src: /file/to/link/to
-    dest: /path/to/symlink
-    owner: foo
-    group: foo
-    state: link
