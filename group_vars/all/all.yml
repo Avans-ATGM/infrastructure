@@ -129,7 +129,7 @@ atgm_admins:
 #Researcher
 researchers:
 - name: Laura
-  groups: atgm-user,students,researcher
+  groups: atgm-user,students,researcher,sudo
   users_name: Laura Smolders
   host: asgard.bioinformatics-atgm.nl
  
