@@ -6,3 +6,6 @@ machine_shortname: test-galaxy
 ssh_connectivity:
 - server: galaxy.atgm.avans.nl
 - server: cocalc.atgm.avans.nl
+
+teacher_directory: none
+project_directory: none
