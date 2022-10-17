@@ -114,25 +114,29 @@ atgm_groups:
 #admins
 atgm_admins:
 - name: hexylena
-  groups: sudo,atgm-user, teacher, students,researcher
+  groups: sudo,atgm-user, teacher, students,researcher,sequencing
   users_name: Helena
 - name: Bazante
-  groups: sudo,atgm-user, teacher, students,researcher
+  groups: sudo,atgm-user, teacher, students,researcher,sequencing
   users_name: Bazante
 - name: Dirowa
-  groups: sudo,atgm-user, teacher, students,researcher
+  groups: sudo,atgm-user, teacher, students,researcher,sequencing
   users_name: Donny
 - name: Miaomiao
-  groups: sudo,atgm-user, teacher, students,researcher
+  groups: sudo,atgm-user, teacher, students,researcher,sequencing
   users_name: Miaomiao 
 
 #Researcher
 researchers:
 - name: Laura
-  groups: atgm-user,students,researcher,sudo
+  groups: atgm-user,students,researcher,sudo,sequencing
   users_name: Laura Smolders
   host: asgard.bioinformatics-atgm.nl
- 
+- name: sequencing
+  groups: atgm-user,students,researcher,sudo
+  users_name: account to store sequencing dataon
+  host: midgard.bioinformatics-atgm.nl
+
 
 # Project Accounts
 atgm_projects:
