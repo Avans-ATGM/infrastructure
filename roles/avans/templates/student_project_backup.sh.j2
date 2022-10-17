@@ -51,7 +51,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
     {% if project.host == ansible_nodename %}
 
         #giving information which backup is generated
-        info "Starting backup {{ hostvars[ansible_nodename].teacher_directory }}/researcher/{{ project.name }}"
+        info "Starting backup {{ hostvars[ansible_nodename].teacher_directory }}/research/{{ project.name }}"
 
         # Backup the most important directories into an archive named after
         # the machine this script is currently running on:
@@ -63,7 +63,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
             --compression lz4                                 \
             --exclude-caches                                  \
             $BORG_REPO::Research_project-{{ project.name }}-$(date "+%Y-%m-%dT%H-%M-%S") \
-            {{ hostvars[ansible_nodename].teacher_directory }}/researcher/{{ project.name }}/data_storage
+            {{ hostvars[ansible_nodename].teacher_directory }}/research/{{ project.name }}/data_storage
 
         backup_exit=$?
 
@@ -170,7 +170,7 @@ export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
     {% if project.host == ansible_nodename %}
 
         #giving information which backup is generated
-        info  "Starting backup {{ hostvars[ansible_nodename].teacher_directory }}/researcher/{{ project.name }} on archive"
+        info  "Starting backup {{ hostvars[ansible_nodename].teacher_directory }}/research/{{ project.name }} on archive"
 
         # Backup the most important directories into an archive named after
         # the machine this script is currently running on:
@@ -182,7 +182,7 @@ export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
             --compression lz4                                 \
             --exclude-caches                                  \
             BORG_REPO::Research_project-{{ project.name }}-$(date "+%Y-%m-%dT%H-%M-%S") \
-            {{ hostvars[ansible_nodename].teacher_directory }}/researcher/{{ project.name }}/data_storage
+            {{ hostvars[ansible_nodename].teacher_directory }}/research/{{ project.name }}/data_storage
 
         backup_exit=$?
 
