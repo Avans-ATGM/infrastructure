@@ -3,3 +3,5 @@ backup_location: none
 backup_max_size: none
 
 teacher_directory: none
+
+homedirs_port: 8008

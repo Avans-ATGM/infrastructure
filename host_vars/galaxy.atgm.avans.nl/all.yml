@@ -8,3 +8,5 @@ ssh_connectivity:
 
 teacher_directory: none
 max_teacher_project_size: 500
+
+homedirs_port: 8008

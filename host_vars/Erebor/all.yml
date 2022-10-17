@@ -21,3 +21,5 @@ ssh_connectivity:
 - server: asgard.bioinformatics-atgm.nl
 
 max_teacher_project_size: 500
+
+homedirs_port: 8008

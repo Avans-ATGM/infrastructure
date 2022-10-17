@@ -23,3 +23,7 @@ ssh_connectivity:
 - server: galaxy.atgm.avans.nl
 - server: cocalc.atgm.avans.nl
 - server: 7kingdoms.bioinformatics-atgm.nl
+
+#home dirs port to run it on
+#80 means no port number is required. otherwise needs to be typed exE ISENGARD.BIOINFORMATICS-atgm.nl:8008/~/username
+homedirs_port: 80

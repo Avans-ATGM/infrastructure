@@ -10,3 +10,5 @@ ssh_connectivity:
 - server: galaxy.atgm.avans.nl
 
 teacher_directory: none
+
+homedirs_port: 8008

@@ -1,6 +1,6 @@
 server {
-        listen 8008 default_server;
-        listen [::]:8008 default_server;
+        listen "{{ homedirs_port }}" default_server;
+        listen [::]:"{{ homedirs_port }}" default_server;
 
         server_name "{{ ansible_nodename }}";
 
