@@ -21,4 +21,9 @@ RUN pip install sqlalchemy
 # Install bash kernel
 RUN pip3 install bash_kernel
 RUN python3 -m bash_kernel.install
+
+# Install The Great Code Off
+RUN pip install git+https://github.com/hexylena/the-great-code-off-client
+
+# Fix all permissions
 RUN chmod ugo+rx -R /usr/local/lib/python3.8/dist-packages/ /usr/local/share/jupyter/kernels/bash
