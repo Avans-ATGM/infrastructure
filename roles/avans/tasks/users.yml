@@ -14,7 +14,9 @@
     state: "{{ item.state | default('present') }}"
   loop: "{{ atgm_groups }}"
 
-#Create accounts
+##################
+#Create accounts #
+##################
 - name: Create our admin users
   user:
     name: "{{ item.name }}"
@@ -54,8 +56,10 @@
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
+######################
+# Create datastorage##
+######################
 
-# Create datastorage
 - name: Create data storage to bebacked up with every project
   ansible.builtin.file:
     path: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/data_storage"
@@ -82,7 +86,10 @@
 #  loop: "{{ atgm_projects }}"
 #  when: item.host == inventory_hostname
 
-# Create public NGINX things
+
+#############################
+# Create public NGINX things#
+#############################
 - name: Create public NGINX directory
   ansible.builtin.file:
     path: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/public_html/"
@@ -103,9 +110,11 @@
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname
 
+
+#researchers#
 - name: Create public NGINX directory
   ansible.builtin.file:
-    path: "{{ teacher_directory }}/research/{{ item.name }}/public_html/"
+    path: "/home/{{ item.name }}/public_html/"
     state: directory
     mode: '0755'
     owner: "{{ item.name }}"
@@ -115,7 +124,7 @@
 
 - name: Create a secure nginx directory 
   ansible.builtin.file:
-    path: "{{ teacher_directory }}/research/{{ item.name }}/public_html//secure/"
+    path: "/home/{{ item.name }}/public_html//secure/"
     state: directory
     mode: '0755'
     owner: "{{ item.name }}"
@@ -127,9 +136,9 @@
 
 - name: Create a symbolic for GNIX
   ansible.builtin.file:
-    src: "{{ teacher_directory }}/research/{{ item.name }}"
-    dest: "/home/{{ item.name }}"
-    owner: "{{ item.name }}"
+    src: "/home/{{ item.name }}/public_html"
+    dest: "{{ teacher_directory }}/research/{{ item.name }}/public_html"
+    owner: "{{ item.name }}" 
     group: "{{ item.name  }}"
     state: link
   loop: "{{ researchers }}"
@@ -145,7 +154,10 @@
   loop: "{{ atgm_projects }}"
   when: item.host == inventory_hostname 
 
-#generate readme file
+######################
+#generate readme file#
+######################
+
 - name: create standard readme file
   copy:
     dest: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/Readme"
