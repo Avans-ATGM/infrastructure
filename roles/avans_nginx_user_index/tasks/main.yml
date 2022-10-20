@@ -18,6 +18,3 @@
   systemd:
     name: nginx
     state: reloaded
-  register: nova_nginx_restart
-  until: nova_nginx_restart | success
-  retries: 5
