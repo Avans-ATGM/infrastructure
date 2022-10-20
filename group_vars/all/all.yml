@@ -132,10 +132,7 @@ researchers:
   groups: atgm-user,students,researcher,sudo,sequencing
   users_name: Laura Smolders
   host: asgard.bioinformatics-atgm.nl
-- name: sequencing
-  groups: atgm-user,students,researcher,sudo
-  users_name: account to store sequencing dataon
-  host: midgard.bioinformatics-atgm.nl
+
 
 
 # Project Accounts
