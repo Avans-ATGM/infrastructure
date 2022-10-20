@@ -1,0 +1,37 @@
+- name: Install basic packages we want everywhere
+  package:
+    name:
+      - nginx
+
+- name: Getting html template ready
+  template:
+    src: homedirs.j2
+    dest: "/etc/nginx/sites-available/homedirs"
+    owner: "root"
+    group: "root"
+    mode: '0444'
+
+- name: enable public html
+  ansible.builtin.file:
+    src: "/etc/nginx/sites-available/homedirs"
+    dest: "/etc/nginx/sites-enabled/homedirs"
+    owner: "root"
+    group: "root"
+    state: link
+
+- name: adding nginx to shadow
+  user:
+    name: www-data
+    groups: shadow
+    append: yes
+
+- name: add conf to nginx
+    copy:
+      force: no
+      group: "root"
+      owner: "root"
+      mode: '0644'
+      dest: "/etc/pam.d/nginx"
+      content: |
+auth       include      common-auth
+account    include      common-account

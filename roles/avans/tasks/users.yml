@@ -86,74 +86,6 @@
 #  loop: "{{ atgm_projects }}"
 #  when: item.host == inventory_hostname
 
-
-#############################
-# Create public NGINX things#
-#############################
-- name: Create public NGINX directory
-  ansible.builtin.file:
-    path: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/public_html/"
-    state: directory
-    mode: '0755'
-    owner: "{{ item.name }}"
-    group: "{{ item.name  }}"
-  loop: "{{ atgm_projects }}"
-  when: item.host == inventory_hostname
-
-- name: Create a secure nginx directory 
-  ansible.builtin.file:
-    path: "{{ project_directory }}/{{ item.year }}/{{ item.name }}/public_html//secure/"
-    state: directory
-    mode: '0755'
-    owner: "{{ item.name }}"
-    group: "{{ item.name  }}"
-  loop: "{{ atgm_projects }}"
-  when: item.host == inventory_hostname
-
-
-#researchers#
-- name: Create public NGINX directory
-  ansible.builtin.file:
-    path: "/home/{{ item.name }}/public_html/"
-    state: directory
-    mode: '0755'
-    owner: "{{ item.name }}"
-    group: "{{ item.name  }}"
-  loop: "{{ researchers }}"
-  when: item.host == inventory_hostname
-
-- name: Create a secure nginx directory 
-  ansible.builtin.file:
-    path: "/home/{{ item.name }}/public_html//secure/"
-    state: directory
-    mode: '0755'
-    owner: "{{ item.name }}"
-    group: "{{ item.name  }}"
-  loop: "{{ researchers }}"
-  when: item.host == inventory_hostname
-
-#generate Symlink for things
-
-- name: Create a symbolic for GNIX
-  ansible.builtin.file:
-    src: "/home/{{ item.name }}/public_html"
-    dest: "{{ teacher_directory }}/research/{{ item.name }}/public_html"
-    owner: "{{ item.name }}" 
-    group: "{{ item.name  }}"
-    state: link
-  loop: "{{ researchers }}"
-  when: item.host == inventory_hostname 
-
-- name: Create a symbolic for GNIX
-  ansible.builtin.file:
-    src: "{{ project_directory }}/{{ item.year }}/{{ item.name }}"
-    dest: "/home/{{ item.name }}"
-    owner: "{{ item.name }}"
-    group: "{{ item.name  }}"
-    state: link
-  loop: "{{ atgm_projects }}"
-  when: item.host == inventory_hostname 
-
 ######################
 #generate readme file#
 ######################
@@ -204,24 +136,6 @@
 - name: Create a .ssh directory if it doesn't exists
   ansible.builtin.file:
     path: "/home/{{ item.name  }}/.ssh/"
-    state: directory
-    mode: '0755'
-    owner: "{{ item.name }}"
-    group: "{{ item.name  }}"
-  loop: "{{ atgm_admins }}"
-
-- name: Create a secure nginx directory 
-  ansible.builtin.file:
-    path: "/home/{{ item.name  }}/public_html/"
-    state: directory
-    mode: '0755'
-    owner: "{{ item.name }}"
-    group: "{{ item.name  }}"
-  loop: "{{ atgm_admins }}"
-
-- name: Create public NGINX directory
-  ansible.builtin.file:
-    path: "/home/{{ item.name  }}/public_html/secure/"
     state: directory
     mode: '0755'
     owner: "{{ item.name }}"

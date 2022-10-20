@@ -10,5 +10,6 @@
     #- dj-wasabi.telegraf
     #- dev-sec.os-hardening # kinda dangerous
     - Avans_monitoring
-    - galaxyproject.nginx
+    - avans_nginx_user_index
+    #- galaxyproject.nginx
 

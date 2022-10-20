@@ -1,0 +1,23 @@
+- name: getting directories ready
+  include_tasks:
+    file: users_dirs.yml
+    apply:
+      tags: users_dirs
+
+- name: updating Nginx
+  include_tasks:
+    file: users_dirs.yml
+    apply:
+      tags: users_dirs
+
+#################
+# Reload NGINX #
+#################
+
+	- name: Reload Nginx
+  systemd:
+    name: nginx
+    state: reloaded
+  register: nova_nginx_restart
+  until: nova_nginx_restart | success
+  retries: 5
