@@ -14,7 +14,7 @@
 # Reload NGINX #
 #################
 
-	- name: Reload Nginx
+- name: Reload Nginx
   systemd:
     name: nginx
     state: reloaded
