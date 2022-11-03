@@ -43,6 +43,7 @@
       - tmpreaper
       - mlocate
       - nmap
+      - sl
 
 - name: Ensure services are enabled + started
   systemd:
