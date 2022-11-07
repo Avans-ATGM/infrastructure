@@ -9,6 +9,6 @@ directories_to_monitor_size:
 ssh_connectivity:
 - server: galaxy.atgm.avans.nl
 
-teacher_directory: none
+teacher_directory: /data/Teachers_Files
 
 homedirs_port: 8008
