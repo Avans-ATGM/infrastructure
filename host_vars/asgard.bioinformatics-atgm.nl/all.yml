@@ -26,4 +26,4 @@ ssh_connectivity:
 
 #home dirs port to run it on
 #80 means no port number is required. otherwise needs to be typed exE ISENGARD.BIOINFORMATICS-atgm.nl:8008/~/username
-homedirs_port: 80
+homedirs_port: 8008
