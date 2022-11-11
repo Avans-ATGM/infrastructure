@@ -20,7 +20,7 @@
 - name: Create our admin users
   user:
     name: "{{ item.name }}"
-    home: "//{{ item.name }}"
+    home: "/home/{{ item.name }}"
     shell: "{{ item.shell | default('/bin/bash') }}"
     comment: "{{ item.users_name }}"
     groups: "{{ item.groups | default(omit) }}"
