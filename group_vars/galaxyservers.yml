@@ -341,9 +341,12 @@ monitor_condor_split_util: true
 tiaas_dir: /srv/tiaas
 tiaas_user: tiaas
 tiaas_group: tiaas
-tiaas_version: main
+#tiaas_version: main
 tiaas_admin_user: admin
 tiaas_admin_pass: "{{ secret_tiaas_admin_pw }}"
+tiaas_templates_dir: tiaas/html
+tiaas_show_advertising: false
+tiaas_retain_contact_require_consent: false
 
 
 tiaas_info:

@@ -51,7 +51,7 @@
     - galaxyproject.gxadmin
     - hxr.monitor-cluster
     #- usegalaxy_eu.rabbitmq
-    - usegalaxy_eu.tiaas2
+    - galaxyproject.tiaas2
     - galaxyproject.nginx
     - galaxyproject.cvmfs
     - influxdata.chrony
