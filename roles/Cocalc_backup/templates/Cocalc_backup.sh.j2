@@ -51,7 +51,7 @@ do
   # limit prune's operation to this machine's archives and not apply to
   # other machines' archives also:
   
-  borg prune --list --prefix 'project-${tmp_id}' --show-rc --keep-last {{ backups_to_keep }} $BORG_REPO  
+  borg prune --list --prefix project-${tmp_id} --show-rc --keep-last {{ backups_to_keep }} $BORG_REPO  
   
   prune_exit=$?
 
