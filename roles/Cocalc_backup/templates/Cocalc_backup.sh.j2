@@ -1,0 +1,74 @@
+
+export BORG_REPO={{ backup_user }}@{{ hostvars[ansible_nodename].backup_host}}:{{ hostvars[ansible_nodename].backup_location}}
+export BORG_PASSPHRASE={{ borg_encryption_password }}
+export BORG_RSH="ssh -i //home/{{ backup_user }}/.ssh/id_rsa"
+
+
+
+# initialse backup directory
+#todo make this an different playbook function who only like, play once
+#borg init --encryption=repokey $BORG_REPO || Just enter withouth thing???
+
+# some helpers and error handling:
+info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
+trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
+
+
+
+docker exec -e PGDATABASE=smc-it -e PGHOST=/projects/postgres/data/socket -it cocalc psql -U sage smc -c "COPY (select project_id, title from projects) to STDOUT" > cocalc_db.tmp
+input="cocalc_db.tmp"
+while IFS= read -r line
+do
+  echo "$line"
+  identifier=$(echo $line | cut -d " " -f 1)
+  tmp_id=$(echo $line | cut -d " " -f2-)
+  tmp_id=${tmp_id// /_}
+  
+  echo $identifier
+  echo $tmp_id
+  
+    #giving information which backup is generated
+  info "Starting backup ${identifier} ${tmp_id} "
+  
+  # Backup the most important directories into an archive named after
+  # the machine this script is currently running on:
+  
+  borg create \
+      --verbose                                         \
+      --stats                                           \
+      --show-rc                                         \
+      --compression lz4                                 \
+      --exclude-caches                                  \
+      $BORG_REPO::project-${tmp_id}-$(date "+%Y-%m-%dT%H-%M-%S") \
+      {{ cocalc_data_dir }}/${identifier}
+  
+  backup_exit=$?
+  
+  info "Pruning repository of project-{{ project.year }}-{{ project.name }} "
+  
+  # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
+  # archives of THIS machine. The '{hostname}-' prefix is very important to
+  # limit prune's operation to this machine's archives and not apply to
+  # other machines' archives also:
+  
+  borg prune --list --prefix 'project-${tmp_id}' --show-rc --keep-last {{ backups_to_keep }} $BORG_REPO  
+  
+  prune_exit=$?
+
+done < "$input"
+
+#Find total number of Archives
+N_archives=$(borg list $BORG_REPO | wc -l)
+info "Number of Archives on {{ ansible_nodename }} \t $N_archives"
+
+#get total size archives
+size_archive=$(borg info | grep "All archives")
+info "Size archives on {{ ansible_nodename }} $size_archive"
+
+mkdir /home/{{backup_user}}/archive_mountpoint
+info "setting up sshfs connection!"
+sshfs -o  IdentityFile=/home/{{backup_user}}/.ssh/{{encrypted_ssh_private_key_archive}} {{backup_archive_usr_1}}@{{backup_archive_addres_1}}:{{back_up_archive_path_1}} /home/{{backup_user}}/archive_mountpoint
+export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
+
+
+rm cocalc_db.tmp

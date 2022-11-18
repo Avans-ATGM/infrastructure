@@ -21,3 +21,4 @@ docker_install_compose: false
 docker_users:
   - hexylena
   - telegraf
+  - Dirowa

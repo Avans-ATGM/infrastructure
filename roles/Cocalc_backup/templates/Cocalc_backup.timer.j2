@@ -1,0 +1,11 @@
+[Unit]
+Description=Cocalc_backup
+Requires=Cocalc_backup.service
+
+[Timer]
+Unit=Cocalc_backup.service
+OnCalendar=sun 12:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
