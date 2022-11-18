@@ -22,6 +22,7 @@
     - geerlingguy.docker
     - galaxyproject.cvmfs
     - influxdata.chrony
+    - Cocalc_backup
     #- dj-wasabi.telegraf
   post_tasks:
     - name: copy Dockerfile
