@@ -39,19 +39,19 @@ do
       --show-rc                                         \
       --compression lz4                                 \
       --exclude-caches                                  \
-      $BORG_REPO::project-${tmp_id}-$(date "+%Y-%m-%dT%H-%M-%S") \
+      $BORG_REPO::Cocalc_project-${tmp_id}-$(date "+%Y-%m-%dT%H-%M-%S") \
       {{ cocalc_data_dir }}/${identifier}
   
   backup_exit=$?
   
-  info "Pruning repository of project $tmp_id"
+  info "Pruning repository of Cocalc_project $tmp_id"
   
   # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
   # archives of THIS machine. The '{hostname}-' prefix is very important to
   # limit prune's operation to this machine's archives and not apply to
   # other machines' archives also:
   
-  borg prune --list --prefix project-${tmp_id} --show-rc --keep-last {{ backups_to_keep }} $BORG_REPO  
+  borg prune --list --prefix Cocalc_project-${tmp_id} --show-rc --keep-last {{ backups_to_keep }} $BORG_REPO  
   
   prune_exit=$?
 
@@ -79,7 +79,7 @@ do
 
 
         #giving information which backup is generated
-        info  "Starting backup {{ hostvars[ansible_nodename].teacher_directory }}/research/{{ project.name }} on archive"
+        info  Starting backup on $tmp_id archive
 
         # Backup the most important directories into an archive named after
         # the machine this script is currently running on:
@@ -90,19 +90,19 @@ do
             --show-rc                                         \
             --compression lz4                                 \
             --exclude-caches                                  \
-        $BORG_REPO::project-${tmp_id}-$(date "+%Y-%m-%dT%H-%M-%S") \
+        $BORG_REPO::Cocalc_project-${tmp_id}-$(date "+%Y-%m-%dT%H-%M-%S") \
         {{ cocalc_data_dir }}/${identifier}
 
         backup_exit=$?
 
-        info "Pruning repository of research project $tmp_id "
+        info "Pruning repository of research Cocalc_project $tmp_id "
 
         # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
         # archives of THIS machine. The '{hostname}-' prefix is very important to
         # limit prune's operation to this machine's archives and not apply to
         # other machines' archives also:
 
-        borg prune --list --prefix 'Research_project-${tmp_id}' --show-rc --keep-daily=1 --keep-weekly=1 --keep-monthly=3 $BORG_REPO  
+        borg prune --list --prefix Cocalc_project-${tmp_id} --show-rc --keep-daily=1 --keep-weekly=1 --keep-monthly=3 $BORG_REPO  
 
         prune_exit=$?
 
