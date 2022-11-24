@@ -422,3 +422,4 @@ rabbitmq_users:
 # Subsites
 galaxy_subsite_base_domain: galaxy.atgm.avans.nl
 galaxy_subsite_base_css: "#masthead { background-color: #c6002a;}" #Standard Galaxy colour. Override for others
+galaxy_subsite_default_welcome: "https://avans-atgm.github.io/"
