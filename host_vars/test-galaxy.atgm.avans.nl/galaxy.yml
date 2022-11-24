@@ -13,3 +13,4 @@ directories_to_monitor_size:
 - path: /data
   max_size: 8904
 
+galaxy_subsite_base_domain: test-galaxy.atgm.avans.nl
