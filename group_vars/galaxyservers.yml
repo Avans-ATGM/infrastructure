@@ -341,19 +341,17 @@ monitor_condor_split_util: true
 tiaas_dir: /srv/tiaas
 tiaas_user: tiaas
 tiaas_group: tiaas
-#tiaas_version: main
 tiaas_admin_user: admin
 tiaas_admin_pass: "{{ secret_tiaas_admin_pw }}"
 tiaas_templates_dir: tiaas/html
 tiaas_show_advertising: false
 tiaas_retain_contact_require_consent: false
 
-
 tiaas_info:
   owner: Avans
   owner_email: bioinformatics-team@bioinformatics-atgm.nl
   owner_site: "https://{{ inventory_hostname }}"
-  domain: "https://{{ inventory_hostname }}"
+  domain: "{{ inventory_hostname }}"
 
 tiaas_other_config: |
   TIAAS_EXPOSE_USERNAME = True
