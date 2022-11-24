@@ -6,7 +6,8 @@ all:
 gx:
 	./bin/clean-deps.py
 	ansible-galaxy install -p roles -r requirements.yml
-	ANSIBLE_STDOUT_CALLBACK=yaml ansible-playbook galaxy.yml --diff --extra-vars "os_env_umask='022'"
+	ansible-galaxy collection install community.general
+	ANSIBLE_STDOUT_CALLBACK=community.general.yaml ansible-playbook galaxy.yml --diff --extra-vars "os_env_umask='022'"
 
 it-test-galaxy:
 	./bin/clean-deps.py
