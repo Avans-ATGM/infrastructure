@@ -7,7 +7,7 @@ isengard.bioinformatics-atgm.nl ansible_user=atgm-user
 asgard.bioinformatics-atgm.nl ansible_user=thor
 erebor.bioinformatics-atgm.nl ansible_user=atgm-user
 
-[dif-it]
+[dif_it]
 test-galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-tstvserver01.avans.nl
 galaxy.atgm.avans.nl ansible_user=atgm-user hostname=atgm-hslod01.avans.nl
 cocalc.atgm.avans.nl ansible_user=atgm-user hostname=atgm-hslod02.avans.nl
