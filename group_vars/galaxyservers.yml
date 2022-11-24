@@ -58,7 +58,7 @@ miniconda_manage_dependencies: false
 
 galaxy_config:
   galaxy:
-    brand: "🧬ATLS🔬{{ brand_extra | default() }}"
+    brand: "🧬ATLS🔬{{ brand_extra | default('') }}"
     admin_users: es.rasche@avans.nl,bk.sanders@avans.nl,m.zhou1@avans.nl,dl.vrins@avans.nl
     database_connection: "postgresql:///galaxy?host=/var/run/postgresql"
     check_migrate_tools: false
