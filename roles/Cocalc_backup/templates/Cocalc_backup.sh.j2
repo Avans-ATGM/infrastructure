@@ -106,7 +106,7 @@ do
 
         prune_exit=$?
 
-
+done
 #Find total number of Archives
 N_archives=$(borg list $BORG_REPO | wc -l)
 info "Number of Archives on {{ backup_archive_addres_1 }} \t $N_archives"
@@ -132,7 +132,6 @@ elif [ ${global_exit} -eq 1 ]; then
 else
     info "Backup and/or Prune finished with errors"
 fi
-
+rm cocalc_db.tmp
 exit ${global_exit}
 
-rm cocalc_db.tmp
