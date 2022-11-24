@@ -346,6 +346,7 @@ tiaas_admin_pass: "{{ secret_tiaas_admin_pw }}"
 tiaas_templates_dir: tiaas/html
 tiaas_show_advertising: false
 tiaas_retain_contact_require_consent: false
+tiaas_templates_dir: files/html
 
 tiaas_info:
   owner: Avans
