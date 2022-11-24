@@ -24,13 +24,14 @@ server {
 		expires 24h;
 	}
 
+	# Removed because included in galaxy_subsite_nginx_routes
 	# In Galaxy instances started with run.sh, many config files are
 	# automatically copied around. The welcome page is one of them. In
 	# production, this step is skipped, so we will manually alias that.
-	location /static/welcome.html {
-		alias /srv/welcome.html;
-		expires 24h;
-	}
+	# location /static/welcome.html {
+	# 	alias /srv/welcome.html;
+	# 	expires 24h;
+	# }
 
 	# serve visualization and interactive environment plugin static content
 	location ~ ^/plugins/(?<plug_type>[^/]+?)/((?<vis_d>[^/_]*)_?)?(?<vis_name>[^/]*?)/static/(?<static_file>.*?)$ {
