@@ -78,6 +78,8 @@ server {
 
 	# TIaaS
 	{{ tiaas_nginx_routes }}
+	# Subsite customisation
+	{{ galaxy_subsite_nginx_routes }}
 
 	# Spider Galaxy
 	# The most important location block, by default all requests are sent to uWSGI

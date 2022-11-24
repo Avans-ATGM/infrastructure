@@ -417,3 +417,7 @@ rabbitmq_users:
   #  tags: worker
   #  vhost: /pulsar/Midgard
 
+
+# Subsites
+galaxy_subsite_base_domain: galaxy.atgm.avans.nl
+galaxy_subsite_base_css: "#masthead { background-color: #c6002a;}" #Standard Galaxy colour. Override for others
