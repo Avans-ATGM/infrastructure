@@ -7,8 +7,8 @@
   version: 0.7.0
 - src: galaxyproject.postgresql
   version: 1.1.0
-- src: natefoo.postgresql_objects
-  version: "1.1"
+- src: galaxyproject.postgresql_objects
+  version: 1.2.0
 - src: geerlingguy.pip
   version: 2.1.0
 - src: uchida.miniconda
@@ -69,3 +69,5 @@
   version: 0.0.2
 - src: galaxyproject.proftpd
   version: 0.3.1
+- src: usegalaxy_eu.galaxy_subdomains
+  version: 0.0.11
