@@ -6,7 +6,7 @@ directories_to_monitor_size:
   max_size: 3400
 - path: /mnt/backup
   max_size: 1000
-- path: /mnt/student_files
+- path: "{{ project_directory }}"
   max_size: 2500
 
 backup_host: none

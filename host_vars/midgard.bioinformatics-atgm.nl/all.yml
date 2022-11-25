@@ -10,7 +10,7 @@ backup_max_size: 1000
 
 #monitor certain directories
 directories_to_monitor_size:
-- path: /mnt/StudentFiles
+- path: "{{ project_directory }}"
   max_size: 5632
 - path: "{{ teacher_directory }}"
   max_size: 5632

@@ -6,6 +6,10 @@ machine_shortname: galaxy
 ssh_connectivity:
 - server: cocalc.atgm.avans.nl
 
+directories_to_monitor_size:
+- path: /data/cocalc_backup
+  max_size: 1000
+
 teacher_directory: none
 max_teacher_project_size: 500
 

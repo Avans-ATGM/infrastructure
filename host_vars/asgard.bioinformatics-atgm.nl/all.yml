@@ -8,10 +8,12 @@ backup_location: "{{ teacher_directory }}/project_backup"
 backup_max_size: 1000
 
 directories_to_monitor_size:
-- path: /mnt/StudentFiles
+- path: "{{ project_directory }}"
   max_size: 5632
 - path: "{{ teacher_directory }}"
   max_size: 5632
+- path: "/mnt/backup"
+  max_size: 1000
 
 #because they are our interns <3
 max_student_project_size: 500
