@@ -16,7 +16,7 @@
   roles:
     - avans
     - avans_nginx_user_index
-    - Avans_monitoring
+    - avans_monitoring
     - galaxyproject.nginx
     - geerlingguy.pip
     - geerlingguy.docker
