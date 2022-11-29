@@ -9,7 +9,7 @@
     - influxdata.chrony
     #- dj-wasabi.telegraf
     #- dev-sec.os-hardening # kinda dangerous
-    - Avans_monitoring
+    - avans_monitoring
     - avans_nginx_user_index
     #- galaxyproject.nginx
 
