@@ -1,0 +1,15 @@
+- name: Copy main config file of monitoring backups
+  template:
+    src: monitor_cocalc_backup.conf.j2
+    dest: "/etc/telegraf/telegraf.d/monitor_cocalc_backup.conf"
+    owner: "telegraf"
+    group: "telegraf"
+    mode: '0644'
+
+- name: copy main script file of monitoring backups
+  template:
+    src: monitor_cocalc_backup.sh.j2
+    dest: "//etc/telegraf/scripts/monitor_cocalc_backup.sh"
+    owner: "telegraf"
+    group: "telegraf"
+    mode: '0644'
