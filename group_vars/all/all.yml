@@ -232,3 +232,18 @@ TMP_directories:
 - path: "/srv/galaxy/var/tmp"
   host: "galaxy.atgm.avans.nl"
   time: "2d"
+
+
+#################
+# monitor MK1c  #
+#################
+
+mk1c_key: mk1c_key
+
+mk1c_available:
+- ip4: kwik.bioinformatics-atgm.nl
+  user: minit
+- ip4: kwek.bioinformatics-atgm.nl
+  user: minit
+- ip4: kwak.bioinformatics-atgm.nl
+  user: minit
