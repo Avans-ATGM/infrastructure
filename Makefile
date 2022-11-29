@@ -38,3 +38,8 @@ pulsar:
 	#./bin/clean-deps.py
 	#ansible-galaxy install -p roles -r requirements.yml
 	ansible-playbook pulsar.yml --diff --extra-vars "os_env_umask='022'"
+
+minION:
+	#./bin/clean-deps.py
+	#ansible-galaxy install -p roles -r requirements.yml
+	ansible-playbook minION.yml --diff --extra-vars "os_env_umask='022'"

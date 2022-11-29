@@ -1,0 +1,8 @@
+# initialise MK1C minit account
+
+
+- name: Generate minit_user
+  include_tasks:
+    file: minit_user.yml
+    apply:
+      tags: getting minit user ready

@@ -1,0 +1,30 @@
+#############################
+# create minit accounts #
+#############################
+- name: Create our minit user
+  user:
+    name: "{{ minit_user }}"
+    home: "/home/{{ minit_user }}"
+    shell: "/bin/bash"
+    groups: "sudo"
+    update_password: on_create
+    password: "{{ minit_password | password_hash('sha512') }}"
+    append: yes
+
+
+- name: Create a .ssh directory if it doesn't exists
+  ansible.builtin.file:
+    path: "/home/{{ minit_user }}/.ssh/"
+    state: directory
+    mode: '0755'
+    owner: "{{ minit_user }}"
+    group: "{{ minit_user }}"
+
+- name: create known_hosts file it it doesnt exists
+  copy:
+    content: ""
+    dest: "/home/{{ minit_user }}"/.ssh/known_hosts"
+    force: no
+    group: sys
+    owner: "{{ minit_user }}"
+    mode: '0755'
