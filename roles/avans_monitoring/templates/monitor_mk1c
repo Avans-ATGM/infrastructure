@@ -1,0 +1,4 @@
+data$(ssh minit@kwak.bioinformatics-atgm.nl -i .ssh/mk1c_key df -h | grep data | cut -d "%" -f 1 |rev| cut -d " " -f 1|rev)
+cpu=$($[100-$(vmstat 1 2|tail -1|awk '{print $15}')]")
+ram=$(free | grep Mem | awk '{print $3/$2 * 100.0})
+
