@@ -1,9 +1,3 @@
-- name: Giving Telegraf rights to look into journalctl
-  user:
-    name: telegraf
-    groups: adm,systemd-journal
-    append: yes
-
 - name: Copy main config file of monitoring backups
   template:
     src: monitor_backup.conf.j2
@@ -16,22 +10,6 @@
   template:
     src: monitor_backup.sh.j2
     dest: "//etc/telegraf/scripts/monitor_backup.sh"
-    owner: "telegraf"
-    group: "telegraf"
-    mode: '0644'
-
-- name: Copy main config file of monitoring backups
-  template:
-    src: monitor_backup_archive.conf.j2
-    dest: "/etc/telegraf/telegraf.d/monitor_backup_archive.conf"
-    owner: "telegraf"
-    group: "telegraf"
-    mode: '0644'
-
-- name: copy main script file of monitoring backups
-  template:
-    src: monitor_backup_archive.sh.j2
-    dest: "//etc/telegraf/scripts/monitor_backup_archive.sh"
     owner: "telegraf"
     group: "telegraf"
     mode: '0644'
