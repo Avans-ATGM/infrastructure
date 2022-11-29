@@ -23,16 +23,7 @@
     owner: telegraf
     mode: '0755'
 
-- name: Change ownership SSH key & copy update?
-  ansible.builtin.copy:
-    src: "/{{ role_path }}/files/{{encrypted_ssh_private_key }}"
-    dest: "/etc/telegraf/.ssh/{{ encrypted_ssh_private_key }}"
-    owner: "telegraf"
-    group: "telegraf"
-    mode: '0700'
-    force: yes
-
-- name: Change ownership SSH key & copy update?
+- name: Change ownership minion key & copy update?
   ansible.builtin.copy:
     src: "/{{ role_path }}/files/{{ mk1c_key }}"
     dest: "/etc/telegraf/.ssh/{{ mk1c_key }}"
