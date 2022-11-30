@@ -15,7 +15,7 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
 
 
-docker exec -e PGDATABASE=smc-it -e PGHOST=/projects/postgres/data/socket -it cocalc psql -U sage smc -c "COPY (select project_id, title from projects) to STDOUT" > /tmp/cocalc_db.tmp
+docker exec -e PGDATABASE=smc-it -e PGHOST=/projects/postgres/data/socket -i cocalc psql -U sage smc -c "COPY (select project_id, title from projects) to STDOUT" > /tmp/cocalc_db.tmp
 input="/tmp/cocalc_db.tmp"
 while IFS= read -r line
 do
