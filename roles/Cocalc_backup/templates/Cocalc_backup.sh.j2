@@ -15,8 +15,8 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
 
 
-docker exec -e PGDATABASE=smc-it -e PGHOST=/projects/postgres/data/socket -it cocalc psql -U sage smc -c "COPY (select project_id, title from projects) to STDOUT" > cocalc_db.tmp
-input="cocalc_db.tmp"
+docker exec -e PGDATABASE=smc-it -e PGHOST=/projects/postgres/data/socket -it cocalc psql -U sage smc -c "COPY (select project_id, title from projects) to STDOUT" > /tmp/cocalc_db.tmp
+input="/tmp/cocalc_db.tmp"
 while IFS= read -r line
 do
   echo "$line"
@@ -132,6 +132,6 @@ elif [ ${global_exit} -eq 1 ]; then
 else
     info "Backup and/or Prune finished with errors"
 fi
-rm cocalc_db.tmp
+rm /tmp/cocalc_db.tmp
 exit ${global_exit}
 
