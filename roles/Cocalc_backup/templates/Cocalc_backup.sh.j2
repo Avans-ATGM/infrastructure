@@ -106,7 +106,7 @@ do
 
         prune_exit=$?
 
-done
+done < "$input"
 #Find total number of Archives
 N_archives=$(borg list $BORG_REPO | wc -l)
 info "Number of Archives on {{ backup_archive_addres_1 }} \t $N_archives"
