@@ -124,7 +124,10 @@ atgm_admins:
   users_name: Donny
 - name: Miaomiao
   groups: sudo,atgm-user, teacher, students,researcher,sequencing
-  users_name: Miaomiao 
+  users_name: Miaomiao
+- name: Sander
+  groups: sudo,atgm-user, teacher, students,researcher,sequencing
+  users_name: Sander Boden  
 
 #Researcher
 researchers:
