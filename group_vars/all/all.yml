@@ -143,7 +143,7 @@ researchers:
 
 # Project Accounts
 atgm_projects:
-# interns
+# interns asgard
     - name: Mirthe
       year: "2022"
       host: asgard.bioinformatics-atgm.nl
@@ -172,7 +172,8 @@ atgm_projects:
   #    year: "2022"
   #    host: asgard.bioinformatics-atgm.nl
   #    groups: students
-# students on midgard
+
+#students on midgard
 
   #  - name: 2022MBI_01
   #    year: "2022"
@@ -225,6 +226,12 @@ projects:
   - path: //mnt/studentfiles/student_final_assignment_data
     host: isengard.bioinformatics-atgm.nl
     name_project: final_assignment_data
+  - path: //mnt/studentfiles/student_final_assignment_data
+    host: //mnt/TeacherFiles/researcher/Dirowa/Eefje
+    name_project: Donny_eefje
+  - path: //mnt/TeacherFiles/researcher/Dirowa/Miaomiao
+    host: midgard.bioinformatics-atgm.nl
+    name_project: Donny_miaomiao
 
 # Chrony
 chrony_server: null
