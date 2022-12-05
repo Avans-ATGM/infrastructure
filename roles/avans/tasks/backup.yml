@@ -74,3 +74,12 @@
     group: "{{ backup_user }}"
     mode: '0700'
     force: no
+
+##########################
+# activating the systemD #
+##########################
+
+- name: Start service httpd, if not started
+  ansible.builtin.service:
+    name: student_project_backup.timer
+    state: started
