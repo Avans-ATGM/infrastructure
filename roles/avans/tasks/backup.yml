@@ -79,7 +79,7 @@
 # activating the systemD #
 ##########################
 
-- name: Start service httpd, if not started
+- name: Start backup timer
   ansible.builtin.service:
     name: student_project_backup.timer
     state: started

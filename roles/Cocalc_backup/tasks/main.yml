@@ -74,3 +74,13 @@
     group: "{{ backup_user }}"
     mode: '0700'
     force: no
+
+
+##########################
+# activating the systemD #
+##########################
+
+- name: Start Cocalc_backup timer
+  ansible.builtin.service:
+    name: Cocalc_backup.timer
+    state: started
