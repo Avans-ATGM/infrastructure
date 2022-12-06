@@ -11,6 +11,11 @@ backup_max_size: 1000
 directories_to_monitor_size:
 - path: /data/cocalc
   max_size: 8904
+- path: /data/Teacher_files
+  max_size: 8904
+- path: /data
+  max_size: 8904
+
 
 ssh_connectivity:
 - server: galaxy.atgm.avans.nl
