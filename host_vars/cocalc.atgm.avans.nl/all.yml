@@ -22,4 +22,4 @@ ssh_connectivity:
 
 teacher_directory: /data/Teachers_Files
 
-homedirs_port: 8008
+homedirs_port: 8001
