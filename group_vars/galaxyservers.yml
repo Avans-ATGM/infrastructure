@@ -350,7 +350,7 @@ tiaas_templates_dir: files/html
 
 tiaas_info:
   owner: Avans
-  owner_email: dl.vrins@avans.nl
+  owner_email: bioinformatics-team@bioinformatics-atgm.nl
   owner_site: "https://{{ inventory_hostname }}"
   domain: "{{ inventory_hostname }}"
 
