@@ -59,7 +59,7 @@ miniconda_manage_dependencies: false
 galaxy_config:
   galaxy:
     brand: "🧬ALST🔬{{ brand_extra | default('') }}"
-    admin_users: es.rasche@avans.nl,bk.sanders@avans.nl,m.zhou1@avans.nl,dl.vrins@avans.nl
+    admin_users: es.rasche@avans.nl,bk.sanders@avans.nl,m.zhou1@avans.nl,dl.vrins@avans.nl,s.boden1@avans.nl
     database_connection: "postgresql:///galaxy?host=/var/run/postgresql"
     check_migrate_tools: false
     # due to storage room is the conde enviorments and dependencies changed from location
