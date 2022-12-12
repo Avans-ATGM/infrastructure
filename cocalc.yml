@@ -15,7 +15,6 @@
         name: ['git', 'cgroup-tools']
   roles:
     - avans
-    - avans_nginx_user_index
     - avans_monitoring
     - galaxyproject.nginx
     - geerlingguy.pip
