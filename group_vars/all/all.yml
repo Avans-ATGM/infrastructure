@@ -164,7 +164,11 @@ atgm_projects:
       host: asgard.bioinformatics-atgm.nl
       groups: students
       users_name: "Okan Fakoglu 2022, eefje"
-
+    - name: Damian
+      year: "2023"
+      host: asgard.bioinformatics-atgm.nl
+      groups: students
+      users_name: "Damian 2023, Nishant"
   #  #- name: Laura
   #  #  year: "2021"
   #  #  host: asgard.bioinformatics-atgm.nl
