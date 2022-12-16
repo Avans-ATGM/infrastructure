@@ -22,7 +22,7 @@
     - galaxyproject.cvmfs
     - influxdata.chrony
     - Cocalc_backup
-    - the-great-code-off-server_ansible
+    - the-great-code-off-server
     #- dj-wasabi.telegraf
   post_tasks:
     - name: copy Dockerfile
