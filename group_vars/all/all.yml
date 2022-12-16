@@ -169,6 +169,11 @@ atgm_projects:
       host: asgard.bioinformatics-atgm.nl
       groups: students
       users_name: "Damian 2023, Nishant"
+    - name: charlotte
+      year: "2023"
+      host: asgard.bioinformatics-atgm.nl
+      groups: students,atgm-user,researcher
+      users_name: "charlotte Bommelijn, Miaomiao"
   #  #- name: Laura
   #  #  year: "2021"
   #  #  host: asgard.bioinformatics-atgm.nl
