@@ -24,7 +24,7 @@ docker_users:
   - Dirowa
   
 #The great code off
-tgco_hosts_allowed: "Cocalc.atgm.avans.nl
+tgco_hosts_allowed: Cocalc.atgm.avans.nl
 tgco_port: 9091
 tgco_debug: True
 tgco_path: /srv/the-great-code-off
