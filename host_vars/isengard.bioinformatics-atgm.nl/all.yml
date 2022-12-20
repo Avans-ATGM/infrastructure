@@ -11,6 +11,8 @@ directories_to_monitor_size:
   max_size: 5500
 - path: "{{ teacher_directory }}"
   max_size: 3400
+- path: "/mnt/backup"
+  max_size: 1000
 
 max_student_project_size: 300
 max_teacher_project_size: 500
