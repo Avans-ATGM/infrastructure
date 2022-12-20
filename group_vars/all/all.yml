@@ -203,9 +203,10 @@ atgm_projects:
 monitor_ssh_directory:
  -  ssh_user: dlvrins1
     ssh_ip: archive.surfsara.nl
-    directory: //home/gringott/*
+    directory: //home/gringott/
     encrypted_ssh_private_key: secret_SSH_key_archive
     working_host: galaxy.atgm.avans.nl
+    max_size_tb: 50
     #jenkins_workspace: /var/lib/jenkins/workspace/all #could probably be deleted
 
 #borg backing up non student projects

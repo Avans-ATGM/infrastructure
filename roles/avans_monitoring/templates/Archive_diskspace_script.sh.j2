@@ -1,6 +1,6 @@
 
 bytes=$(ssh {{ item.ssh_user }}@{{ item.ssh_ip }} -i //etc/telegraf/.ssh/{{ item.encrypted_ssh_private_key }} 'du -cb {{ item.directory }} |tail -n 1' | cut -f 1)
-percent=$(echo "$bytes/1024/1024/1024/100" | bc -l )
+percent=$(echo "$bytes/1024/1024/1024/1000/{{ max_size_tb }}" | bc -l )
 timestamp=$(date +%s%N)
 
 
