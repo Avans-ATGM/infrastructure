@@ -1,8 +1,7 @@
 
-bytes=$(ssh {{ item.ssh_user }}@{{ item.ssh_ip }} -i //etc/telegraf/.ssh/{{ item.encrypted_ssh_private_key }} 'du -c {{ item.directory }} |tail -n 1' | cut -f 1)
+bytes=$(ssh {{ item.ssh_user }}@{{ item.ssh_ip }} -i //etc/telegraf/.ssh/{{ item.encrypted_ssh_private_key }} 'du -cb {{ item.directory }} |tail -n 1' | cut -f 1)
 percent=$(echo "$bytes/1024/1024/1024/100" | bc -l )
 timestamp=$(date +%s%N)
-
 
 
 echo "disk,device=archive,fstype=archive,host={{ item.ssh_ip }},mode=ro,path={{ item.directory }} free=0i,inodes_free=0i,inodes_total=0i,inodes_used=0i,total=0i,used=${bytes}i,used_percent=0${percent} ${timestamp}"
