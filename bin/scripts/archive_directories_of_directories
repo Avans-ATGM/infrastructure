@@ -1,0 +1,10 @@
+#perform as root and adjust to what is needed
+export directory="/mnt/TeacherFiles/Sequencing_Backup/2021-2022"
+export archive="/sequencing/2021-2022/"
+for file in ${directory}/*;
+do
+
+file1=${file##*/}
+echo $file1
+bash backup.sh -f $file1 -s $file1 -a $archive
+done
