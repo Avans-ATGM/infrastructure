@@ -32,6 +32,12 @@
     mode: '0700'
     force: yes
 
+- name: Adding user telegraf to Borg_backup  
+  user: name="telegraf"
+        group="telegraf"
+        groups=sudo,Borg_backup
+        append=yes
+
 #adding other modules
 
 #monitoring backups
