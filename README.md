@@ -24,7 +24,7 @@ make
 
 Service     | Infrastructure Provider | Notes
 ---         | ---                     | ---
-7kingdoms   | BML                     | Teachers / Overload galaxy (hopefully)
+Erebor      | BML                     | Filebrowser 
 Isengard    | BML                     | Student accounts 
 Midgard     | BML                     | Sequencing projects & fast5 will be kept with SNELLIUS basecalling / Student
 Asgard      | BML                     | Intern Machine / Teachers
