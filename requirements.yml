@@ -72,5 +72,5 @@
 - src: usegalaxy_eu.galaxy_subdomains
   version: 0.0.11
 - src: https://github.com/Dirowa/the-great-code-off-server_ansible
-  version: 14aa960662ccc622bb818ece6e3c80963b92c143
+  version: 2bb462cb8ee7764710086e38d6d7f6986c74ef8d
   name: the-great-code-off-server
