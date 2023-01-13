@@ -177,7 +177,7 @@
 
 - name: Getting archiving script ready
   template:
-    src: bin/scripts/archive_directory.sh.j2
+    src: bin/scripts/Archiving/archive_directory.sh.j2
     dest: "/usr/bin/archive_directory.sh"
     owner: "root"
     group: "root"
