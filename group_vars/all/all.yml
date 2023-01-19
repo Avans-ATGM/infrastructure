@@ -113,12 +113,12 @@ atgm_groups:
 
 #admins
 atgm_admins:
-- name: hexylena
-  groups: sudo,atgm-user, teacher, students,researcher,sequencing
-  users_name: Helena
-#- name: Bazante
+#- name: hexylena
 #  groups: sudo,atgm-user, teacher, students,researcher,sequencing
-#  users_name: Bazante
+#  users_name: Helena
+- name: Bazante
+  groups: sudo,atgm-user, teacher, students,researcher,sequencing
+  users_name: Bazante
 - name: Dirowa
   groups: sudo,atgm-user, teacher, students,researcher,sequencing
   users_name: Donny
