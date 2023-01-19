@@ -1,3 +1,4 @@
 *.retry
 .vault_password
 roles
+bin
