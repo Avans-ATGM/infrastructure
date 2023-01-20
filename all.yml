@@ -11,5 +11,5 @@
     #- dev-sec.os-hardening # kinda dangerous
     - avans_monitoring
     - avans_nginx_user_index
-    - galaxyproject.nginx
+    #- galaxyproject.nginx
 
