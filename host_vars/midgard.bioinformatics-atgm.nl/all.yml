@@ -1,5 +1,5 @@
-project_directory: /mnt/studentFiles
-teacher_directory: /mnt/teacherFiles
+project_directory: /mnt/studentfiles
+teacher_directory: /mnt/teacherfiles
 
 machine_shortname: Midgard
 
