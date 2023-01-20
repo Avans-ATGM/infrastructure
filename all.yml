@@ -7,7 +7,7 @@
     - avans
     - jnv.unattended-upgrades # Handled by DIF
     - influxdata.chrony
-    #- dj-wasabi.telegraf
+    - dj-wasabi.telegraf
     #- dev-sec.os-hardening # kinda dangerous
     - avans_monitoring
     - avans_nginx_user_index
