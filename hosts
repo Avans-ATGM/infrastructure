@@ -29,7 +29,7 @@ cocalc.atgm.avans.nl ansible_user=atgm-user
 
 [agoge]
 asgard.bioinformatics-atgm.nl ansible_user=thor
-midgard.bioinformatics-atgm.nl ansible_user=artemis
+midgard.bioinformatics-atgm.nl ansible_user=atgm-user
 erebor.bioinformatics-atgm.nl ansible_user=atgm-user
 
 [student_projects]
@@ -45,7 +45,7 @@ kwak.bioinformatics-atgm.nl ansible_use=minit
 
 #[pulsarservers]
 #asgard.bioinformatics-atgm.nl ansible_user=thor
-#midgard.bioinformatics-atgm.nl ansible_user=artemis
+#midgard.bioinformatics-atgm.nl ansible_user=atgm-user
 #isengard.bioinformatics-atgm.nl ansible_user=atgm-user
 
 
