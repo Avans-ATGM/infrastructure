@@ -243,6 +243,9 @@ projects:
   - path: //mnt/TeacherFiles/researcher/Dirowa/Miaomiao
     host: midgard.bioinformatics-atgm.nl
     name_project: Donny_miaomiao
+  - path: /mnt/studentfiles/nishant
+    host:  midgard.bioinformatics-atgm.nl
+    name_project: Nishant_data_midgard
 
 # Chrony
 chrony_server: null
