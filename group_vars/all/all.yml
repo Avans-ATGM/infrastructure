@@ -117,16 +117,16 @@ atgm_admins:
 #  groups: sudo,atgm-user, teacher, students,researcher,sequencing
 #  users_name: Helena
 - name: Bazante
-  groups: sudo,atgm-user, teacher, students,researcher,sequencing
+  groups:sudo,atgm-user, teacher, students, researcher, sequencing, adm
   users_name: Bazante
 - name: Dirowa
-  groups: sudo,atgm-user, teacher, students,researcher,sequencing
+  groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
   users_name: Donny
 - name: Miaomiao
-  groups: sudo,atgm-user, teacher, students,researcher,sequencing
+  groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
   users_name: Miaomiao
 - name: Sander
-  groups: sudo,atgm-user, teacher, students,researcher,sequencing
+  groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
   users_name: Sander Boden  
 
 #Researcher
