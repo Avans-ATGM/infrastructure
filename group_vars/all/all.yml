@@ -116,6 +116,9 @@ atgm_admins:
 #- name: hexylena
 #  groups: sudo,atgm-user, teacher, students,researcher,sequencing
 #  users_name: Helena
+- name: atgm-user:
+  groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
+  users_name: atgm-user
 - name: Bazante
   groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
   users_name: Bazante
