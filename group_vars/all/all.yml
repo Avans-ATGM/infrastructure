@@ -245,9 +245,9 @@ projects:
     host: isengard.bioinformatics-atgm.nl
     name_project: final_assignment_data
   - path: //mnt/studentfiles/student_final_assignment_data
-    host: //mnt/TeacherFiles/researcher/Dirowa/Eefje
+    host: //mnt/teacherFiles/researcher/Dirowa/Eefje
     name_project: Donny_eefje
-  - path: //mnt/TeacherFiles/researcher/Dirowa/Miaomiao
+  - path: //mnt/teacherFiles/researcher/Dirowa/Miaomiao
     host: midgard.bioinformatics-atgm.nl
     name_project: Donny_miaomiao
   - path: /mnt/studentfiles/nishant
