@@ -132,6 +132,14 @@ atgm_admins:
   groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
   users_name: Sander Boden  
 
+#Software
+software_users:
+- name: telegraf
+  groups: atgm-user, teacher, students, researcher, sequencing, adm, Borg_backup
+  users_name: telegraf
+
+
+
 #Researcher
 researchers:
 - name: Laura

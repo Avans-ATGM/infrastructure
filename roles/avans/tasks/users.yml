@@ -29,6 +29,13 @@
     append: yes
   loop: "{{ atgm_admins }}"
 
+- name: Create Software users
+  user:
+    name: "{{ item.name }}"
+    groups: "{{ item.groups | default(omit) }}"
+    append: yes
+  loop: "{{ atgm_admins }}"
+
 - name: Create our Researchers
   user:
     name: "{{ item.name }}"
