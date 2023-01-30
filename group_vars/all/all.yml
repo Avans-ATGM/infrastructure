@@ -247,10 +247,10 @@ projects:
   - path: //mnt/studentfiles/student_final_assignment_data
     host: midgard.bioinformatics-atgm.nl
     name_project: student_final_assignment_minor_bio_data
-  - path: //mnt/teacherFiles/researcher/Dirowa/Eefje
+  - path: //mnt/teacherfiles/researcher/Dirowa/Eefje
     host: midgard.bioinformatics-atgm.nl
     name_project: Donny_eefje
-  - path: //mnt/teacherFiles/researcher/Dirowa/Miaomiao
+  - path: //mnt/teacherfiles/researcher/Dirowa/Miaomiao
     host: midgard.bioinformatics-atgm.nl
     name_project: Donny_miaomiao
   - path: /mnt/studentfiles/nishant
