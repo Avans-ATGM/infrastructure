@@ -1,0 +1,44 @@
+######################################################################
+# compress all directory together and move it to archive as one file #
+# This isbecause archive doesnt want small files <1 gb		     #
+######################################################################
+
+
+############
+# Settings #
+############
+
+export grep_term="Computational-Biology-2022"
+
+############
+# variables#
+############
+
+export data_file="data_to_store"
+
+
+docker exec -e PGDATABASE=smc-it -e PGHOST=/projects/postgres/data/socket -i cocalc psql -U sage smc -c "COPY (select project_id, title from projects) to STDOUT" | grep $grep_term > $data_file
+
+#########################################
+# Reading data in, zipping and archiving#
+#########################################
+
+mkdir $name_archive
+while IFS= read -r line
+do
+
+  identifier=$(echo $line | cut -d " " -f 1)
+  tmp_id=$(echo $line | cut -d " " -f2-)
+  tmp_id=${tmp_id// /_}
+  size=$(du -sh ${identifier} )
+  echo " removing ${size} ${identifier} ${tmp_id} "
+  rm -rf ./${identifier} 
+  
+
+done < $data_file
+
+docker exec -e PGDATABASE=smc-it -e PGHOST=/projects/postgres/data/socket -i cocalc psql -U sage smc -c "DELETE FROM projects WHERE title LIKE '%${grep_term}%'"
+
+
+
+rm $name_archive
