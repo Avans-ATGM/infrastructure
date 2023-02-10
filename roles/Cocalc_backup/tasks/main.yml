@@ -68,8 +68,8 @@
 
 - name: Change ownership SSH key & copy
   ansible.builtin.copy:
-    src: "/{{ role_path }}/files/skey/{{ encrypted_ssh_private_key_archive }}"
-    dest: "/home/{{ backup_user }}/.ssh/{{ encrypted_ssh_private_key_archive }}"
+    src: "/{{ role_path }}/files/skey/{{ secret_archive_ssh_key }}"
+    dest: "/home/{{ backup_user }}/.ssh/{{ secret_archive_ssh_key }}"
     owner: "{{ backup_user }}"
     group: "{{ backup_user }}"
     mode: '0700'
