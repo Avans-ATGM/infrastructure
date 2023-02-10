@@ -80,7 +80,7 @@
 # activating the systemD #
 ##########################
 
-- name: Start Cocalc_backup timer
+- name: Start galactic database timer
   ansible.builtin.service:
     name: galaxy_database_backup
     state: started

@@ -1,9 +1,9 @@
 [Unit]
-Description=Cocalc_backup
-Requires=Cocalc_backup.service
+Description=galaxy database backup
+Requires=galaxy_database_backup..service
 
 [Timer]
-Unit=Cocalc_backup.service
+Unit=galaxy_database_backup.service
 OnCalendar=fri 12:00
 Persistent=true
 
