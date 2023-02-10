@@ -58,6 +58,7 @@
     - influxdata.chrony
     - dj-wasabi.telegraf
     - geerlingguy.docker
+    - galaxy_database_backup
     - role: usegalaxy_eu.gie_proxy
       environment:
         SUDO_USER: root

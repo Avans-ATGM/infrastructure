@@ -1,0 +1,95 @@
+
+
+su - galaxy -c "pg_dump galaxy | gzip > galaxy_database.sql.gz"
+
+export BORG_REPO={{ backup_user }}@{{ hostvars[ansible_nodename].backup_host}}:{{ hostvars[ansible_nodename].backup_location}}
+export BORG_PASSPHRASE={{ borg_encryption_password }}
+export BORG_RSH="ssh -i //home/{{ backup_user }}/.ssh/id_rsa"
+
+
+
+info "Starting galaxy database backup"
+
+# Backup the most important directories into an archive named after
+# the machine this script is currently running on:
+
+borg create \
+    --verbose                                         \
+    --stats                                           \
+    --show-rc                                         \
+    --compression lz4                                 \
+    --exclude-caches                                  \
+    $BORG_REPO::galaxy_database-$(date "+%Y-%m-%dT%H-%M-%S") \
+    galaxy_database.sql.gz
+
+backup_exit=$?
+
+info "Pruning repository of the galactic database "
+borg prune --list --prefix 'galaxy_database' --show-rc --keep-last {{ backups_to_keep }} $BORG_REPO  
+prune_exit=$?
+
+
+N_archives=$(borg list $BORG_REPO | wc -l)
+info "Number of backups on {{ ansible_nodename }} \t $N_archives"
+
+#get total size archives
+size_archive=$(borg info | grep "All archives")
+info "Size backups on {{ ansible_nodename }} $size_archive"
+
+
+mkdir /home/{{backup_user}}/archive_mountpoint
+info "setting up sshfs connection!"
+sshfs -o  IdentityFile=/home/{{backup_user}}/.ssh/{{encrypted_ssh_private_key_archive}} {{backup_archive_usr_1}}@{{backup_archive_addres_1}}:{{back_up_archive_path_1}} /home/{{backup_user}}/archive_mountpoint
+export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
+
+
+
+
+info "Starting galaxy database backup on archive"
+
+# Backup the most important directories into an archive named after
+# the machine this script is currently running on:
+
+borg create \
+    --verbose                                         \
+    --stats                                           \
+    --show-rc                                         \
+    --compression lz4                                 \
+    --exclude-caches                                  \
+    $BORG_REPO::galaxy_database-$(date "+%Y-%m-%dT%H-%M-%S") \
+    galaxy_database.sql.gz
+
+backup_exit=$?
+
+info "Pruning repository of the galactic database "
+borg prune --list --prefix 'galaxy_database' --show-rc --keep-last {{ backups_to_keep }} $BORG_REPO  
+prune_exit=$?
+
+
+#Find total number of Archives
+N_archives=$(borg list $BORG_REPO | wc -l)
+info "Number of Archives on {{ backup_archive_addres_1 }} \t $N_archives"
+
+#get total size archives
+size_archive=$(borg info | grep "All archives")
+info "Size archives on {{ backup_archive_addres_1 }} $size_archive"
+
+info "closing up sshfs connection!"
+
+fusermount -u /home/{{backup_user}}/archive_mountpoint
+rmdir /home/{{backup_user}}/archive_mountpoint
+
+
+# use highest exit code as global exit code
+
+global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
+
+if [ ${global_exit} -eq 0 ]; then
+    info "Backup and Prune finished successfully"
+elif [ ${global_exit} -eq 1 ]; then
+    info "Backup and/or Prune finished with warnings"
+else
+    info "Backup and/or Prune finished with errors"
+fi
+
+exit ${global_exit}

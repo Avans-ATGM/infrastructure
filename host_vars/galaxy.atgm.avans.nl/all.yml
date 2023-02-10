@@ -14,3 +14,7 @@ teacher_directory: none
 max_teacher_project_size: 500
 
 homedirs_port: 8008
+
+backup_host: cocalc.atgm.avans.nl
+backup_location: /data/galaxy_database_backup
+backup_max_size: 1000
