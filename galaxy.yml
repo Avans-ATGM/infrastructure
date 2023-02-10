@@ -56,7 +56,7 @@
     - galaxyproject.nginx
     - galaxyproject.cvmfs
     - influxdata.chrony
-    - dj-wasabi.telegraf
+    #- dj-wasabi.telegraf
     - geerlingguy.docker
     - galaxy_database_backup
     - role: usegalaxy_eu.gie_proxy
