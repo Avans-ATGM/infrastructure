@@ -4,7 +4,7 @@
 
 - name: Getting backup_timer ready
   template:
-    src: Cocalc_backup.timer.j2
+    src: galaxy_database_backup.timer.j2
     dest: "/etc/systemd/system/galaxy_database_backup.timer"
     owner: "root"
     group: "root"
@@ -12,16 +12,16 @@
 
 - name: Getting backup borg script ready
   template:
-    src: Cocalc_backup.sh.j2
-    dest: "/usr/bin/Cocalc_backup.sh"
+    src: galaxy_database_backup.sh.j2
+    dest: "/usr/bin/galaxy_database_backup.sh"
     owner: "root"
     group: "root"
     mode: '0644'
 
 - name: Getting backup borg initialising script ready
   template:
-    src: Cocalc_backup_init.j2
-    dest: "/usr/bin/Cocalc_backup_init.sh"
+    src: galaxy_database_backup.j2
+    dest: "/usr/bin/galaxy_database_backup.sh"
     owner: "root"
     group: "root"
     mode: '0644'
@@ -29,8 +29,8 @@
 
 - name: Getting backup service ready
   template:
-    src: Cocalc_backup.service.j2
-    dest: "/etc/systemd/system/Cocalc_backup.service"
+    src: galaxy_database_backup.service.j2
+    dest: "/etc/systemd/system/galaxy_database_backup.service"
     owner: "root"
     group: "root"
     mode: '0644'
