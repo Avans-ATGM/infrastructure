@@ -204,59 +204,59 @@ atgm_projects:
       year: "2023"
       host: midgard.bioinformatics-atgm.nl
       users_name: "Ycke Stockman & Daan Brackel"
-      groups: Students
+      groups: students
     - name: 2023MBI_02
       year: "2023"
       host: midgard.bioinformatics-atgm.nl
       users_name: "Isabelle Sewsahai & Jomi Leerssen"
-      groups: Students
+      groups: students
     - name: 2023MBI_03
       year: "2023"
       host: midgard.bioinformatics-atgm.nl
       users_name: "Lars Moret & Casper Blankenburg"
-      groups: Students
+      groups: students
     - name: 2023MBI_04
       year: "2023"
       host: midgard.bioinformatics-atgm.nl
       users_name: "Sergio Dries & Manon Cortooms"
-      groups: Students
+      groups: students
     - name: 2023MBI_05
       year: "2023"
       host: midgard.bioinformatics-atgm.nl
       users_name: "Justin Iking & Tim van der Wiel"
-      groups: Students
+      groups: students
 
 # students on isengard
     - name: 2023MBI_06
       year: "2023"
       host: isengard.bioinformatics-atgm.nl
       users_name: "Bigrit Rijvers & Jeanine Gastreich"
-      groups: Students
+      groups: students
     - name: 2023MBI_07
       year: "2023"
       host: isengard.bioinformatics-atgm.nl
       users_name: "Judith van der burg & Mirela Minkova"
-      groups: Students
+      groups: students
     - name: 2023MBI_08
       year: "2023"
       host: isengard.bioinformatics-atgm.nl
       users_name: "Gitte Lans & Dirk de laat"
-      groups: Students
+      groups: students
     - name: 2023MBI_09
       year: "2023"
       host: isengard.bioinformatics-atgm.nl
       users_name: "Luuk Janssen"
-      groups: Students
+      groups: students
     - name: 2023MBI_10
       year: "2023"
       host: isengard.bioinformatics-atgm.nl
       users_name: "Linneke Willems & Liuwei Su"
-      groups: Students
+      groups: students
     - name: 2023MBI_11
       year: "2023"
       host: isengard.bioinformatics-atgm.nl
       users_name: "Mathijs Schouten & Sven Klomp"
-      groups: Students
+      groups: students
 #telegraf_archive
 monitor_ssh_directory:
  -  ssh_user: dlvrins1
