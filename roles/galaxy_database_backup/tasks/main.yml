@@ -1,11 +1,11 @@
 #monitoring backups
-- name: Include settingup backup system
+- name: Setting up monitoring system
   include_tasks:
-    file: monitor_student_projects.yml
+    file: monitor_backup_galactic_database.yml
     apply:
       tags: initialise / update backup system monitoring
 
-- name: Include monitoring backup
+- name: Setting up backup system
   include_tasks:
     file: setup_galactic_backup.yml
     apply:
