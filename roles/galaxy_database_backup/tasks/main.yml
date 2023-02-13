@@ -35,13 +35,6 @@
     group: "root"
     mode: '0644'
 
-- name: copy database command
-  template:
-    src: copy_galactic_database.sh
-    dest: "/etc/systemd/system/copy_galactic_database.sh"
-    owner: "root"
-    group: "root"
-    mode: '0644'
 
 #############################
 # create Borg_user accounts #
