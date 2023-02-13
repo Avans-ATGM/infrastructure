@@ -4,9 +4,9 @@ Wants=galaxy_database_backup.timer
 
 [Service]
 Type=oneshot
-User=galaxy
-ExecStartPre=/bin/bash /usr/bin/copy_galactic_database.sh
-User=root
+
+ExecStartPre=/bin/bash rm {{ postgresql_backup_dir }}/.galaxy_database.sql.gz
+ExecStartPre=/bin/bash su - galaxy -c 'pg_dump galaxy | gzip > {{ postgresql_backup_dir }}/.galaxy_database.sql.gz'
 ExecStart=/bin/bash /usr/bin/galaxy_database_backup.sh
 
 [Install]

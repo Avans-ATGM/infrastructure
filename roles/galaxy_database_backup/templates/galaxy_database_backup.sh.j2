@@ -17,7 +17,7 @@ borg create \
     --compression lz4                                 \
     --exclude-caches                                  \
     $BORG_REPO::galaxy_database-$(date "+%Y-%m-%dT%H-%M-%S") \
-    /data/database/.galaxy_database.sql.gz
+    {{ postgresql_backup_dir }}/.galaxy_database.sql.gz
 
 backup_exit=$?
 
@@ -54,7 +54,7 @@ borg create \
     --compression lz4                                 \
     --exclude-caches                                  \
     $BORG_REPO::galaxy_database-$(date "+%Y-%m-%dT%H-%M-%S") \
-    /data/database/.galaxy_database.sql.gz
+    {{ postgresql_backup_dir }}.galaxy_database.sql.gz
 
 backup_exit=$?
 
@@ -89,5 +89,4 @@ else
     info "Backup and/or Prune finished with errors"
 fi
 
-rm galaxy_database.sql.gz
 exit ${global_exit}
