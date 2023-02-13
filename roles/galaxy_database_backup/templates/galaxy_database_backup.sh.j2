@@ -1,3 +1,5 @@
+sudo -u galaxy pg_dump galaxy > {{ manual_database_backup }}/galaxy_database.sql
+
 
 export BORG_REPO={{ backup_user }}@{{ hostvars[ansible_nodename].backup_host}}:{{ hostvars[ansible_nodename].backup_location}}
 export BORG_PASSPHRASE={{ borg_encryption_password }}
@@ -17,7 +19,7 @@ borg create \
     --compression lz4                                 \
     --exclude-caches                                  \
     $BORG_REPO::galaxy_database-$(date "+%Y-%m-%dT%H-%M-%S") \
-    {{ manual_database_backup }}/.galaxy_database.sql.gz
+    {{ manual_database_backup }}/galaxy_database.sql
 
 backup_exit=$?
 
@@ -54,7 +56,7 @@ borg create \
     --compression lz4                                 \
     --exclude-caches                                  \
     $BORG_REPO::galaxy_database-$(date "+%Y-%m-%dT%H-%M-%S") \
-    {{ manual_database_backup }}.galaxy_database.sql.gz
+    {{ manual_database_backup }}/galaxy_database.sql
 
 backup_exit=$?
 

@@ -1,6 +1,6 @@
 #perform as root and adjust to what is needed
-export directory="/mnt/TeacherFiles/Sequencing_Backup/2022-23"
-export archive="/sequencing/2022-2023/"
+export directory="//mnt/studentfiles"
+export archive="/Student_files/2021"
 for file in ${directory}/*;
 do
 

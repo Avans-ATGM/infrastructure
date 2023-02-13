@@ -28,16 +28,18 @@ while IFS= read -r line
 do
 
   identifier=$(echo $line | cut -d " " -f 1)
+
+  docker exec -e PGDATABASE=smc-it -e PGHOST=/projects/postgres/data/socket -i cocalc psql -U sage smc -c "COPY (select deleted from projects WHERE project_id = identifier) to STDOUT"
+
   tmp_id=$(echo $line | cut -d " " -f2-)
   tmp_id=${tmp_id// /_}
   size=$(du -sh ${identifier} )
   echo " removing ${size} ${identifier} ${tmp_id} "
-  rm -rf ./${identifier} 
   
 
 done < $data_file
 
-docker exec -e PGDATABASE=smc-it -e PGHOST=/projects/postgres/data/socket -i cocalc psql -U sage smc -c "DELETE FROM projects WHERE title LIKE '%${grep_term}%'"
+#docker exec -e PGDATABASE=smc-it -e PGHOST=/projects/postgres/data/socket -i cocalc psql -U sage smc -c "DELETE FROM projects WHERE title LIKE '%${grep_term}%'"
 
 
 
