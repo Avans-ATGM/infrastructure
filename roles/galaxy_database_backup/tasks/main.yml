@@ -1,83 +1,12 @@
-########################################
-# initialising student project bacckup#
-########################################
+#monitoring backups
+- name: Include settingup backup system
+  include_tasks:
+    file: monitor_student_projects.yml
+    apply:
+      tags: initialise / update backup system monitoring
 
-
-- name: Getting backup borg script ready
-  template:
-    src: galaxy_database_backup.sh.j2
-    dest: "/usr/bin/galaxy_database_backup.sh"
-    owner: "root"
-    group: "root"
-    mode: '0644'
-
-- name: Getting backup borg initialising script ready
-  template:
-    src: galaxy_database_backup_init.j2
-    dest: "/usr/bin/galaxy_database_backup_init.sh"
-    owner: "root"
-    group: "root"
-    mode: '0644'
-
-
-- name: Getting backup service ready
-  template:
-    src: galaxy_database_backup.service.j2
-    dest: "/etc/systemd/system/galaxy_database_backup.service"
-    owner: "root"
-    group: "root"
-    mode: '0644'
-
-
-- name: update systemD
-  template:
-    src: galaxy_database_backup.timer.j2
-    dest: "/etc/systemd/system/galaxy_database_backup.timer"
-    owner: "root"
-    group: "root"
-    mode: '0644'
-  notify:
-    - SystemD daemon reload
-    - start the galaxy database backup
-    - restart galaxy_database_backup.timer
-#############################
-# create Borg_user accounts #
-#############################
-- name: Create our backup user
-  user:
-    name: "{{ backup_user }}"
-    home: "/home/{{ backup_user }}"
-    shell: "/bin/bash"
-    groups: "sudo,atgm-user,root"
-    update_password: on_create
-    password: "{{ Borg_user_pass | password_hash('sha512') }}"
-    append: yes
-
-
-- name: Create a .ssh directory if it doesn't exists
-  ansible.builtin.file:
-    path: "/home/{{ backup_user }}/.ssh/"
-    state: directory
-    mode: '0755'
-    owner: "{{ backup_user }}"
-    group: "{{ backup_user }}"
-
-- name: create known_hosts file it it doesnt exists
-  copy:
-    content: ""
-    dest: "/home/{{ backup_user }}/.ssh/known_hosts"
-    force: no
-    group: sys
-    owner: "{{ backup_user }}"
-    mode: '0755'
-
-- name: Change ownership SSH key & copy
-  ansible.builtin.copy:
-    src: "/{{ role_path }}/files/secret_archive_ssh_key"
-    dest: "/home/{{ backup_user }}/.ssh/secret_archive_ssh_key"
-    owner: "{{ backup_user }}"
-    group: "{{ backup_user }}"
-    mode: '0700'
-    force: no
-
-
+- name: Include monitoring backup
+  include_tasks:
+    file: setup_galactic_backup.yml
+    apply:
+      tags: initialise / update backup system monitoring
