@@ -2,13 +2,6 @@
 # initialising student project bacckup#
 ########################################
 
-- name: Getting backup_timer ready
-  template:
-    src: galaxy_database_backup.timer.j2
-    dest: "/etc/systemd/system/galaxy_database_backup.timer"
-    owner: "root"
-    group: "root"
-    mode: '0644'
 
 - name: Getting backup borg script ready
   template:
@@ -36,6 +29,17 @@
     mode: '0644'
 
 
+- name: update systemD
+  template:
+    src: galaxy_database_backup.timer.j2
+    dest: "/etc/systemd/system/galaxy_database_backup.timer"
+    owner: "root"
+    group: "root"
+    mode: '0644'
+  notify:
+    - SystemD daemon reload
+    - start the galaxy database backup
+    - restart galaxy_database_backup.timer
 #############################
 # create Borg_user accounts #
 #############################
@@ -77,12 +81,3 @@
     force: no
 
 
-##########################
-# activating the systemD #
-##########################
-
-- name: update systemD
-  notify:
-    - SystemD daemon reload
-    - start the galaxy database backup
-    - restart galaxy_database_backup.timer
