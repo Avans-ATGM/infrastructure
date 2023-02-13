@@ -1,7 +1,3 @@
-backup_host: none
-backup_location: none
-backup_max_size: none
-
 
 backup_host: galaxy.atgm.avans.nl
 backup_location: /data/cocalc_backup
