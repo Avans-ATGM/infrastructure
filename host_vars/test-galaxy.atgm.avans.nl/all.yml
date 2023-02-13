@@ -1,5 +1,8 @@
-backup_host: none
-backup_location: none
+backup_host: cocalc.atgm.avans.nl
+backup_location: /data/galaxy_database_backup
+backup_max_size: 1000
+backups_to_keep: 10
+
 machine_shortname: test-galaxy
 
 
