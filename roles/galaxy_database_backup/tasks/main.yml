@@ -81,7 +81,8 @@
 # activating the systemD #
 ##########################
 
-- name: Start galactic database timer
-  ansible.builtin.service:
-    name: galaxy_database_backup
-    state: started
+- name: update systemD
+  notify:
+    - SystemD daemon reload
+    - start the galaxy database backup
+    - restart galaxy_database_backup.timer

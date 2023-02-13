@@ -1,5 +1,17 @@
-  - name: restart service systemd timer issue daemon-reload to pick up config changes
-    systemd:
-      state: started
-      daemon_reload: yes
-      name: galaxy_database_backup.timer
+
+- name: systemd daemon reload
+  systemd:
+    daemon_reload: yes
+  listen: "SystemD daemon reload"
+
+- name: start galaxy_database_backup.timer
+  service:
+     name: galaxy_database_backup.timer
+     state: started
+  listen: "start the galaxy database backup"
+
+- name: restart galaxy_database_backup.timer
+  service:
+     name: galaxy_database_backup.timer
+     state: restarted
+  listen: "restart galaxy_database_backup.timer"
