@@ -5,7 +5,7 @@
 
 - name: Getting backup borg script ready
   template:
-    src: systemD/Cocalc_backup.sh.j2
+    src: backup/Cocalc_backup.sh.j2
     dest: "/usr/bin/Cocalc_backup.sh"
     owner: "root"
     group: "root"
@@ -13,7 +13,7 @@
 
 - name: Getting backup borg initialising script ready
   template:
-    src: systemD/Cocalc_backup_init.j2
+    src: backup/Cocalc_backup_init.sh.j2
     dest: "/usr/bin/Cocalc_backup_init.sh"
     owner: "root"
     group: "root"
