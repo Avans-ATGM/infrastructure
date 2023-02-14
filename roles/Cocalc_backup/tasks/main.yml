@@ -1,6 +1,6 @@
 - name: Setting up monitoring system
   include_tasks:
-    file: setup_cocalc_database.yml
+    file: setup_cocalc_backup.yml
     apply:
       tags: initialise / update backup system monitoring
 
