@@ -35,30 +35,30 @@
         mode: '0644'
   roles:
     - avans
-    #- htcondor-github
-    #- geerlingguy.nfs
-    #- galaxyproject.postgresql
-    #- role: natefoo.postgresql_objects
-    #  become: true
-    #  become_user: postgres
-    #- geerlingguy.pip
-    #- gantsign.golang
-    #- galaxyproject.galaxy
-    #- role: uchida.miniconda
-    #  become: true
-    #  become_user: "{{ galaxy_user.name }}"
-    #- galaxyproject.galaxy_systemd
-    #- galaxyproject.gxadmin
-    #- hxr.monitor-cluster
+    - htcondor-github
+    - geerlingguy.nfs
+    - galaxyproject.postgresql
+    - role: natefoo.postgresql_objects
+      become: true
+      become_user: postgres
+    - geerlingguy.pip
+    - gantsign.golang
+    - galaxyproject.galaxy
+    - role: uchida.miniconda
+      become: true
+      become_user: "{{ galaxy_user.name }}"
+    - galaxyproject.galaxy_systemd
+    - galaxyproject.gxadmin
+    - hxr.monitor-cluster
     #- usegalaxy_eu.rabbitmq
-    #- galaxyproject.tiaas2
-    #- usegalaxy_eu.galaxy_subdomains
-    #- galaxyproject.nginx
-    #- galaxyproject.cvmfs
-    #- influxdata.chrony
+    - galaxyproject.tiaas2
+    - usegalaxy_eu.galaxy_subdomains
+    - galaxyproject.nginx
+    - galaxyproject.cvmfs
+    - influxdata.chrony
     #- dj-wasabi.telegraf
-    #- geerlingguy.docker
+    - geerlingguy.docker
     - galaxy_database_backup
-    #- role: usegalaxy_eu.gie_proxy
-    #  environment:
-    #    SUDO_USER: root
+    - role: usegalaxy_eu.gie_proxy
+      environment:
+        SUDO_USER: root
