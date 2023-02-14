@@ -13,9 +13,10 @@ to install add role and run the galaxy_database_backup_init.sh script underroot
 
 example:
 backup_host: cocalc.atgm.avans.nl
-backup_location: /data/galaxy_database_backup
+manual_database_backup: /data/galaxy_database_backup
 backup_max_size: 1000
 backups_to_keep: 10
+
 
 which telles. at which machine the directorie and where is.
 

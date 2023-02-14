@@ -1,79 +1,8 @@
-########################################
-# initialising student project bacckup#
-########################################
-
-- name: Getting backup_timer ready
-  template:
-    src: Cocalc_backup.timer.j2
-    dest: "/etc/systemd/system/Cocalc_backup.timer"
-    owner: "root"
-    group: "root"
-    mode: '0644'
-
-- name: Getting backup borg script ready
-  template:
-    src: Cocalc_backup.sh.j2
-    dest: "/usr/bin/Cocalc_backup.sh"
-    owner: "root"
-    group: "root"
-    mode: '0644'
-
-- name: Getting backup borg initialising script ready
-  template:
-    src: Cocalc_backup_init.j2
-    dest: "/usr/bin/Cocalc_backup_init.sh"
-    owner: "root"
-    group: "root"
-    mode: '0644'
-
-
-- name: Getting backup service ready
-  template:
-    src: Cocalc_backup.service.j2
-    dest: "/etc/systemd/system/Cocalc_backup.service"
-    owner: "root"
-    group: "root"
-    mode: '0644'
-
-#############################
-# create Borg_user accounts #
-#############################
-- name: Create our backup user
-  user:
-    name: "{{ backup_user }}"
-    home: "/home/{{ backup_user }}"
-    shell: "/bin/bash"
-    groups: "sudo,atgm-user,root"
-    update_password: on_create
-    password: "{{ Borg_user_pass | password_hash('sha512') }}"
-    append: yes
-
-
-- name: Create a .ssh directory if it doesn't exists
-  ansible.builtin.file:
-    path: "/home/{{ backup_user }}/.ssh/"
-    state: directory
-    mode: '0755'
-    owner: "{{ backup_user }}"
-    group: "{{ backup_user }}"
-
-- name: create known_hosts file it it doesnt exists
-  copy:
-    content: ""
-    dest: "/home/{{ backup_user }}/.ssh/known_hosts"
-    force: no
-    group: sys
-    owner: "{{ backup_user }}"
-    mode: '0755'
-
-- name: Change ownership SSH key & copy
-  ansible.builtin.copy:
-    src: "/{{ role_path }}/files/secret_archive_ssh_key"
-    dest: "/home/{{ backup_user }}/.ssh/secret_archive_ssh_key"
-    owner: "{{ backup_user }}"
-    group: "{{ backup_user }}"
-    mode: '0700'
-    force: no
+- name: Setting up monitoring system
+  include_tasks:
+    file: setup_cocalc_database.yml
+    apply:
+      tags: initialise / update backup system monitoring
 
 
 ##########################

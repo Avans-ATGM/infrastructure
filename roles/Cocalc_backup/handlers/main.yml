@@ -1,5 +1,23 @@
-  - name: restart service systemd timer issue daemon-reload to pick up config changes
-    systemd:
-      state: started
-      daemon_reload: yes
-      name: student_project_backup.timer
+- name: restart service systemd timer issue daemon-reload to pick up config changes
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: Cocalc_backup.timer
+
+
+- name: systemd daemon reload
+  systemd:
+    daemon_reload: yes
+  listen: "SystemD daemon reload"
+
+- name: start galaxy_database_backup.timer
+  service:
+     name: Cocalc_backup.timer
+     state: started
+  listen: "start the cocalc database backup"
+
+- name: restart galaxy_database_backup.timer
+  service:
+     name: Cocalc_backup.timer
+     state: restarted
+  listen: "restart Cocalc_backup.timer"
