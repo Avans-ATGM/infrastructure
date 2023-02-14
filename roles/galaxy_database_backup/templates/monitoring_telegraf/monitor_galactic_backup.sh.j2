@@ -1,15 +1,11 @@
 # get date of latest entree
 
-# search parameters
-date_month=$(journalctl -u galaxy_database_backup.service |tail -1 | cut -d " " -f 1)
-date_day=$(journalctl -u galaxy_database_backup.service |tail -1 | cut -d " " -f 2)
-date_day=$(echo "$date_day-7" | bc -l)
 
-date=$(date --date="$(printf "01 %s"$mydate)" +"%Y-%m"-$date_day )
+date=$(date --date="7 day ago" +%y-%m-%d)
 date1=$(date --date="next day" +%y-%m-%d)
 timestamp=$(date +%s%N)
 
-T_archives=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep "Number of backups on {{ ansible_nodename }}" | tail -1 | rev | cut -d " " -f 1 | rev)
+T_archives=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep "Number of backups on {{ ansible_nodename }}" | tail -1 |  cut -d "'" -f 2 | rev | cut -d " " -f 1 | rev)
 
 N_success=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep success | wc -l)
 exit_status=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep successfully | wc -l)
