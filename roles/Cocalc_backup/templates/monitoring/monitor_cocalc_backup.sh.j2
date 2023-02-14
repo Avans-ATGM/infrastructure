@@ -6,7 +6,7 @@ date=$(date --date="7 day ago" +%y-%m-%d)
 date1=$(date --date="next day" +%y-%m-%d)
 timestamp=$(date +%s%N)
 
-T_archives=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Number of backups on {{ ansible_nodename }}" | tail -1 |  cut -d "'" -f 2 | rev | cut -d " " -f 1 | rev)
+T_archives=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Number of Archives on {{ ansible_nodename }}" | tail -1 |  cut -d "'" -f 2 | rev | cut -d " " -f 1 | rev)
 
 N_success=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep success | wc -l)
 exit_status=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep successfully | wc -l)
@@ -14,7 +14,7 @@ N_pruning=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | 
 N_databases_created=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Archive name:" |wc -l)
 N_fail_error=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep error |wc -l)
 
-sizes=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Size backups on galaxy.atgm.avans.nl"| tail -n 1 | cut -d ":" -f 6 | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
+sizes=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Size Archives on galaxy.atgm.avans.nl"| tail -n 1 | cut -d ":" -f 6 | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
 
 Original_size=$(echo $sizes | cut -d " " -f 1)
 Original_size_unit=$(echo $sizes | cut -d " " -f 2)
