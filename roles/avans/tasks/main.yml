@@ -44,6 +44,7 @@
       - mlocate
       - nmap
       - sl
+      - units
 
 - name: Ensure services are enabled + started
   systemd:
