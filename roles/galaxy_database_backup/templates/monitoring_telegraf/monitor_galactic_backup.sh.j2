@@ -9,7 +9,7 @@ date=$(date --date="$(printf "01 %s"$mydate)" +"%Y-%m"-$date_day )
 date1=$(date --date="next day" +%y-%m-%d)
 timestamp=$(date +%s%N)
 
-T_archives=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep "Number of Archives on {{ ansible_nodename }}" | tail -1 | rev | cut -d " " -f 1 | rev)
+T_archives=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep "Number of backups on {{ ansible_nodename }}" | tail -1 | rev | cut -d " " -f 1 | rev)
 
 N_success=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep success | wc -l)
 exit_status=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep successfully | wc -l)
@@ -17,7 +17,7 @@ N_pruning=$(journalctl -u galaxy_database_backup.service --since=$date  --until=
 N_databases_created=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep "Archive name:" |wc -l)
 N_fail_error=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep error |wc -l)
 
-sizes=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date | grep "Size backups on galaxy.atgm.avans.nl"| tail -n 1 | cut -d ":" -f 6 | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
+sizes=$(journalctl -u galaxy_database_backup.service --since=$date  --until=$date1 | grep "Size backups on galaxy.atgm.avans.nl"| tail -n 1 | cut -d ":" -f 6 | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
 
 Original_size=$(echo $sizes | cut -d " " -f 1)
 Original_size_unit=$(echo $sizes | cut -d " " -f 2)
@@ -27,7 +27,7 @@ Deduplicated_size=$(echo $sizes | cut -d " " -f 5)
 Deduplicated_size_unit=$(echo $sizes | cut -d " " -f 6)
 
 Original_size_GB=$(units -o "%0.f" -t "${Original_size} ${Original_size_unit}" "GB")
-Compressed_size_GB=$(units -o "%0.f" -t "${Compressed_size} ${Compressed_size_unt}" "GB")
+Compressed_size_GB=$(units -o "%0.f" -t "${Compressed_size} ${Compressed_size_unit}" "GB")
 Deduplicated_size_GB=$(units -o "%0.f" -t "${Deduplicated_size} ${Deduplicated_size_unit}" "GB")
 
 Perc_compressed_size=$(echo "$Compressed_size_GB/{{ max_size_local }}" | bc -l | awk '{printf "%f", $0}')
