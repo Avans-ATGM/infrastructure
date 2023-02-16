@@ -14,6 +14,8 @@ export BORG_RSH="ssh -i //home/{{ backup_user }}/.ssh/id_rsa"
 info() { printf "\n%s %s\n\n" "$( date )" "$*" >&2; }
 trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
+
+
 {% for project in atgm_projects %}
     {% if project.host == ansible_nodename %}
 
@@ -128,7 +130,7 @@ info "Size archives on {{ ansible_nodename }} $size_archive"
 
 mkdir /home/{{backup_user}}/archive_mountpoint
 info "setting up sshfs connection!"
-sshfs -o  IdentityFile=/home/{{backup_user}}/.ssh/{{encrypted_ssh_private_key_archive}} {{backup_archive_usr_1}}@{{backup_archive_addres_1}}:{{back_up_archive_path_1}} /home/{{backup_user}}/archive_mountpoint
+sshfs -o  IdentityFile=/home/{{backup_user}}/.ssh/{{encrypted_ssh_private_key_archive}} {{backup_archive_usr_1}}@{{backup_archive_addres_1}}:{{back_up_archive_path_1}}/{{ ansible_nodename }} /home/{{backup_user}}/archive_mountpoint
 export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
 
 
