@@ -14,7 +14,7 @@ N_pruning=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | 
 N_databases_created=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Archive name:" |wc -l)
 N_fail_error=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep error |wc -l)
 
-sizes=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Size Archives on galaxy.atgm.avans.nl"| tail -n 1 | cut -d ":" -f 6 | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
+sizes=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Size Archives on {{ ansible_nodename }}"| tail -n 1 | cut -d ":" -f 6 | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
 
 Original_size=$(echo $sizes | cut -d " " -f 1)
 Original_size_unit=$(echo $sizes | cut -d " " -f 2)
