@@ -12,7 +12,7 @@ N_pruning=$(journalctl -u student_project_backup.service --since=$date  --until=
 N_databases_created=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Archive name:" |wc -l)
 N_fail_error=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep error |wc -l)
 
-sizes=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Size backups on {{ ansible_nodename }}"| tail -n 1 | cut -d ":" -f 6 | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
+sizes=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Size archives on {{ ansible_nodename }}"| tail -n 1 | cut -d ":" -f 6 | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
 
 Original_size=$(echo $sizes | cut -d " " -f 1)
 Original_size_unit=$(echo $sizes | cut -d " " -f 2)
