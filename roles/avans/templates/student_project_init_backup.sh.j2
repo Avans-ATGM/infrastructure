@@ -23,10 +23,7 @@ sudo su {{backup_user}}
 mkdir archive_mountpoint
 
 export BORG_PASSPHRASE={{ borg_encryption_password }}
-export BORG_REPO={{ backup_archive_usr_1 }}@{{ backup_archive_addres_1}}:{{  back_up_archive_path_1}}
-
-
-export BORG_REPO={{ backup_archive_usr_1 }}@{{ backup_archive_addres_1}}:{{ back_up_archive_path_1}}/{{ ansible_nodename }}
+export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
 
 ssh {{ backup_archive_usr_1 }}@{{ backup_archive_addres_1 }} -i {{encrypted_ssh_private_key_archive}} 'mkdir {{  back_up_archive_path_1}}/{{ ansible_nodename }}'
 sshfs -o IdentityFile={{encrypted_ssh_private_key_archive}} {{ backup_archive_usr_1 }}@{{ backup_archive_addres_1}}:{{  back_up_archive_path_1}}/{{ ansible_nodename }} archive_mountpoint
