@@ -4,7 +4,7 @@ date=$(date --date="7 day ago" +%y-%m-%d)
 date1=$(date --date="next day" +%y-%m-%d)
 timestamp=$(date +%s%N)
 
-T_archives=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Number of backups on {{ ansible_nodename }}" | tail -1 |  cut -d "'" -f 2 | rev | cut -d " " -f 1 | rev)
+T_archives=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Number of Archives on {{ ansible_nodename }}" | tail -1 |  cut -d "'" -f 2 | rev | cut -d " " -f 1 | rev)
 
 N_success=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep success | wc -l)
 exit_status=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep successfully | wc -l)
@@ -12,7 +12,7 @@ N_pruning=$(journalctl -u student_project_backup.service --since=$date  --until=
 N_databases_created=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Archive name:" |wc -l)
 N_fail_error=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep error |wc -l)
 
-sizes=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Size archives on {{ ansible_nodename }}"| tail -n 1 | cut -d ":" -f 6 | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
+sizes=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Size archives on {{ ansible_nodename }}"| tail -n 1 | rev |cut -d ":" -f 1 | rev | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
 
 Original_size=$(echo $sizes | cut -d " " -f 1)
 Original_size_unit=$(echo $sizes | cut -d " " -f 2)
@@ -27,3 +27,22 @@ Deduplicated_size_GB=$(units -o "%0.f" -t "${Deduplicated_size} ${Deduplicated_s
 
 Perc_compressed_size=$(echo "$Compressed_size_GB/{{ max_size_local }}" | bc -l | awk '{printf "%f", $0}')
 echo "borg_backup,Host={{ ansible_nodename }} Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,succesfull_jobs=${N_success}i,errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i,Perc_compressed_size_gb=${Perc_compressed_size} $timestamp"
+
+
+T_archives=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Number of Archives on {{ backup_archive_addres_1 }}" | tail -1 | cut -d "'" -f 2 | rev | cut -d " " -f 1 | rev)
+sizes=$(journalctl -u student_project_backup.service --since=$date  --until=$date1 | grep "Size archives on {{ backup_ }}"| tail -n 1 | rev| cut -d ":" -f 1 | rev | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
+
+Original_size=$(echo $sizes | cut -d " " -f 1)
+Original_size_unit=$(echo $sizes | cut -d " " -f 2)
+Compressed_size=$(echo $sizes | cut -d " " -f 3)
+Compressed_size_unit=$(echo $sizes | cut -d " " -f 4)
+Deduplicated_size=$(echo $sizes | cut -d " " -f 5)
+Deduplicated_size_unit=$(echo $sizes | cut -d " " -f 6)
+
+Original_size_GB=$(units -o "%0.f" -t "${Original_size} ${Original_size_unit}" "GB")
+Compressed_size_GB=$(units -o "%0.f" -t "${Compressed_size} ${Compressed_size_unit}" "GB")
+Deduplicated_size_GB=$(units -o "%0.f" -t "${Deduplicated_size} ${Deduplicated_size_unit}" "GB")
+
+Perc_compressed_size=$(echo "$Compressed_size_GB/{{ max_size_local }}" | bc -l | awk '{printf "%f", $0}')
+
+echo "borg_backup,Host={{ Archives }} Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,succesfull_jobs=${N_success}i,errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i,Perc_compressed_size_gb=${Perc_compressed_size} $timestamp"
