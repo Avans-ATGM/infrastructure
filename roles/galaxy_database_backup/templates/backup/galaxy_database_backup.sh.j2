@@ -29,11 +29,11 @@ prune_exit=$?
 
 
 N_archives=$(borg list $BORG_REPO | wc -l)
-info "Number of backups on {{ hostvars[ansible_nodename].backup_host}} \t $N_archives"
+info "Number of archives on {{ hostvars[ansible_nodename].backup_host}} \t $N_archives"
 
 #get total size archives
 size_archive=$(borg info | grep "All archives")
-info "Size backups on {{ hostvars[ansible_nodename].backup_host}} $size_archive"
+info "Size archives on {{ hostvars[ansible_nodename].backup_host}} $size_archive"
 
 
 mkdir /home/{{backup_user}}/archive_mountpoint
@@ -67,7 +67,7 @@ prune_exit=$?
 
 #Find total number of Archives
 N_archives=$(borg list $BORG_REPO | wc -l)
-info "Number of Archives on {{ backup_archive_addres_1 }} \t $N_archives"
+info "Number of archives on {{ backup_archive_addres_1 }} \t $N_archives"
 
 #get total size archives
 size_archive=$(borg info | grep "All archives")
