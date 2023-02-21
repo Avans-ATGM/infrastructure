@@ -6,7 +6,7 @@ date=$(date --date="7 day ago" +%y-%m-%d)
 date1=$(date --date="next day" +%y-%m-%d)
 timestamp=$(date +%s%N)
 
-T_archives=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Number of Archives on {{ ansible_nodename }}" | tail -1 |  cut -d "'" -f 2 | rev | cut -d " " -f 1 | rev)
+T_archives=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Number of Archives on {{ hostvars[ansible_nodename].backup_host}}" | tail -1 |  cut -d "'" -f 2 | rev | cut -d " " -f 1 | rev)
 
 N_success=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep success | wc -l)
 exit_status=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep successfully | wc -l)
@@ -14,7 +14,7 @@ N_pruning=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | 
 N_databases_created=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Archive name:" |wc -l)
 N_fail_error=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep error |wc -l)
 
-sizes=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Size archives on {{ backup_archive_addres_1 }}"| tail -n 1 | rev| cut -d ":" -f 1 | rev | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
+sizes=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Size archives on {{ hostvars[ansible_nodename].backup_host}}"| tail -n 1 | rev| cut -d ":" -f 1 | rev | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
 
 Original_size=$(echo $sizes | cut -d " " -f 1)
 Original_size_unit=$(echo $sizes | cut -d " " -f 2)
@@ -28,7 +28,7 @@ Compressed_size_GB=$(units -o "%0.f" -t "${Compressed_size} ${Compressed_size_un
 Deduplicated_size_GB=$(units -o "%0.f" -t "${Deduplicated_size} ${Deduplicated_size_unit}" "GB")
 
 Perc_compressed_size=$(echo "$Compressed_size_GB/{{ max_size_local }}" | bc -l | awk '{printf "%f", $0}')
-echo "borg_backup,Host={{ ansible_nodename }} Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,succesfull_jobs=${N_success}i,errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i,Perc_compressed_size_gb=${Perc_compressed_size} $timestamp"
+echo "borg_backup,Host={{ ansible_nodename }},backup_client={{ hostvars[ansible_nodename].backup_host}} Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,succesfull_jobs=${N_success}i,errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i,Perc_compressed_size_gb=${Perc_compressed_size} $timestamp"
 
 T_archives=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Number of Archives on {{ backup_archive_addres_1 }}" | tail -1 |  cut -d "'" -f 2 | rev | cut -d " " -f 1 | rev)
 sizes=$(journalctl -u Cocalc_backup.service --since=$date  --until=$date1 | grep "Size archives on {{ backup_archive_addres_1 }}"| tail -n 1 | rev| cut -d ":" -f 1 | rev | sed -r  's/[ ]+/ /g' | cut -d "'" -f 1)
@@ -46,4 +46,4 @@ Deduplicated_size_GB=$(units -o "%0.f" -t "${Deduplicated_size} ${Deduplicated_s
 
 Perc_compressed_size=$(echo "$Compressed_size_GB/{{ max_size_local }}" | bc -l | awk '{printf "%f", $0}')
 
-echo "borg_backup,Host={{ backup_archive_addres_1 }}_{{ ansible_nodename }} Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,succesfull_jobs=${N_success}i,errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i,Perc_compressed_size_gb=${Perc_compressed_size} $timestamp"
+echo "borg_backup,Host={{ ansible_nodename }},backup_client={{ backup_archive_addres_1 }} Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,succesfull_jobs=${N_success}i,errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i,Perc_compressed_size_gb=${Perc_compressed_size} $timestamp"

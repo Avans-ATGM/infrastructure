@@ -117,11 +117,11 @@ trap 'echo $( date ) Backup interrupted >&2; exit 2' INT TERM
 
 #Find total number of Archives
 N_archives=$(borg list $BORG_REPO | wc -l)
-info "Number of Archives on {{ ansible_nodename }} \t $N_archives"
+info "Number of Archives on {{ hostvars[ansible_nodename].backup_host}} \t $N_archives"
 
 #get total size archives
 size_archive=$(borg info | grep "All archives")
-info "Size archives on {{ ansible_nodename }} $size_archive"
+info "Size archives on {{ hostvars[ansible_nodename].backup_host}} $size_archive"
 
 ##################################
 # archive surfsara backup system #
