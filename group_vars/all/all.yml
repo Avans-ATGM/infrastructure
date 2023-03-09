@@ -61,7 +61,7 @@ unattended_only_on_ac_power: true
 
 # HTCondor
 condor_host: "galaxy.atgm.avans.nl"
-condor_allow_write: "galaxy.atgm.avans.nl,test-galaxy.atgm.avans.nl,cocalc.atgm.avans.nl"
+condor_allow_write: "galaxy.atgm.avans.nl,test-galaxy.atgm.avans.nl"
 condor_allow_negotiator: '$(ALLOW_WRITE)'
 condor_allow_administrator: "$(ALLOW_WRITE)"
 condor_network_interface: "{{ ansible_default_ipv4.interface }}"

@@ -91,7 +91,7 @@ galaxy_config:
     nginx_x_accel_redirect_base: /_x_accel_redirect
     sanitize_all_html: false
     serve_xss_vulnerable_mimetypes: true
-    error_email_to: galaxy@galaxy.bioinformatics-atgm.nl
+    error_email_to: bioinformatics-team@bioinformatics-atgm.nl
     library_import_dir: /data/library
     show_welcome_with_login: true
     #expose_user_name: true
