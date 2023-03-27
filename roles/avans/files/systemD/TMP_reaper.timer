@@ -1,0 +1,11 @@
+[Unit]
+Description=TMP_reaper
+Requires=TMP_reaper.service
+
+[Timer]
+Unit=TMP_reaper.service
+OnCalendar=daily
+Persistent=true
+
+[Install]
+WantedBy=timers.target
