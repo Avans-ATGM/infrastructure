@@ -1,0 +1,11 @@
+[Unit]
+Description=TMP_reaper
+Wants=TMP_reaper.timer
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash usr/bin/TMP_reaper.sh
+
+[Install]
+WantedBy=multi-user.target
+
