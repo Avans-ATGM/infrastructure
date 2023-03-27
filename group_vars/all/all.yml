@@ -314,7 +314,9 @@ TMP_directories:
 - path: "/srv/galaxy/var/tmp"
   host: "galaxy.atgm.avans.nl"
   time: "2d"
-
+- path: "/var/tmp"
+  host: "galaxy.atgm.avans.nl"
+  time: "10d"
 
 #################
 # monitor MK1c  #
