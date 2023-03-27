@@ -1,0 +1,27 @@
+- name: Getting TMP_reaper script ready
+  template:
+    src: TMP_reaper.sh.j2
+    dest: "/usr/bin/TMP_reaper.sh"
+    owner: "root"
+    group: "root"
+    mode: '0644'
+
+- name: update systemD with tmp_reaper service
+  ansible.builtin.copy:
+    src: systemD/TMP_reaper.timer
+    dest: "/etc/systemd/system/TMP_reaper.service"
+    owner: "root"
+    group: "root"
+    mode: '0644'
+
+- name: update systemD with tmp_reaper timer
+  ansible.builtin.copy:
+    src: systemD/TMP_reaper.timer
+    dest: "/etc/systemd/system/TMP_reaper.timer"
+    owner: "root"
+    group: "root"
+    mode: '0644'
+  notify:
+    - SystemD daemon reload
+    - start tmp_watcher timer
+    - restart tmpwatcher timer
