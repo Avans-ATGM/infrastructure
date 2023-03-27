@@ -1,9 +1,9 @@
-  - name: restart service systemd timer issue daemon-reload to pick up config changes
-    systemd:
-      state: started
-      daemon_reload: yes
-      name: student_project_backup.timer
-      
+- name: restart service systemd timer issue daemon-reload to pick up config changes
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: student_project_backup.timer
+    
 - name: systemd daemon reload
   systemd:
     daemon_reload: yes
