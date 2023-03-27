@@ -11,12 +11,12 @@
 
 - name: start tmp_watcher.timer
   service:
-     name: tmpwatcher.timer
+     name: TMP_reaper.timer
      state: started
   listen: "start tmp_watcher timer"
 
 - name: restart tmp_watcher.timer
   service:
-     name: tmpwatcher.timer
+     name: TMP_reaper.timer
      state: restarted
   listen: "restart tmpwatcher timer"
