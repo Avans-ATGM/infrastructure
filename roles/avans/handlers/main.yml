@@ -3,3 +3,20 @@
       state: started
       daemon_reload: yes
       name: student_project_backup.timer
+      
+- name: systemd daemon reload
+  systemd:
+    daemon_reload: yes
+  listen: "SystemD daemon reload"
+
+- name: start tmp_watcher.timer
+  service:
+     name: tmpwatcher.timer
+     state: started
+  listen: "start tmp_watcher timer"
+
+- name: restart tmp_watcher.timer
+  service:
+     name: tmpwatcher.timer
+     state: restarted
+  listen: "restart tmpwatcher timer"
