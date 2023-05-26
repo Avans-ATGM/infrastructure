@@ -9,3 +9,5 @@
 
 
 {%endfor%}
+
+echo "telegraf_status,Host={{ ansible_nodename }},script=monitor_directories exit_status=$? ${timestamp}
