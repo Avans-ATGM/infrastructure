@@ -23,3 +23,5 @@
 
     {% endif%}
 {%endfor%}
+
+echo "telegraf_status,Host={{ ansible_nodename }},script=monitor_project_diskspace exit_status=$? ${timestamp}"

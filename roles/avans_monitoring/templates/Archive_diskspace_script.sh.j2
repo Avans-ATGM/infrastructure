@@ -5,3 +5,4 @@ timestamp=$(date +%s%N)
 
 
 echo "disk,device=archive,fstype=archive,host={{ item.ssh_ip }},mode=ro,path={{ item.directory }} free=0i,inodes_free=0i,inodes_total=0i,inodes_used=0i,total=0i,used=${bytes}i,used_percent=0${percent} ${timestamp}"
+echo "telegraf_status,Host={{ ansible_nodename }},script=archive_diskspace exit_status=$? ${timestamp}"

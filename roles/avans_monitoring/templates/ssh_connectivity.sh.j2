@@ -17,3 +17,5 @@ fi
 echo "systems_online,system=ssh,host=${target} online_status=$succes ${timestamp}"
 
 {%endfor%}
+
+echo "telegraf_status,Host={{ ansible_nodename }},script=ssh_connectivity exit_status=$? ${timestamp}"
