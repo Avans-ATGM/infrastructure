@@ -46,4 +46,4 @@ Deduplicated_size_GB=$(units -o "%0.f" -t "${Deduplicated_size} ${Deduplicated_s
 Perc_compressed_size=$(echo "$Compressed_size_GB/{{ max_size_local }}" | bc -l | awk '{printf "%f", $0}')
 
 echo "borg_backup,Host={{ ansible_nodename }},backup_client={{ backup_archive_addres_1 }} Pruned_archives=${N_pruning}i,Number_of_databases_created=${N_databases_created}i,succesfull_jobs=${N_success}i,errors=${N_fail_error}i,total_archives=${T_archives}i,exit_status=${exit_status}i,original_size=${Original_size_GB}i,compressed_size=${Compressed_size_GB}i,de_duplicated_size=${Deduplicated_size_GB}i,Perc_compressed_size_gb=${Perc_compressed_size} $timestamp"
-echo "telegraf_status,Host={{ ansible_nodename }},script=monitor_backup exit_status=$? ${timestamp}
+echo "telegraf_status,Host={{ ansible_nodename }},script=monitor_backup exit_status=$? ${timestamp}"
