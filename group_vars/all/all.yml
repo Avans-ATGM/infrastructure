@@ -225,6 +225,11 @@ atgm_projects:
       host: midgard.bioinformatics-atgm.nl
       users_name: "Justin Iking & Tim van der Wiel"
       groups: students
+    - name: 2023MBI_11
+      year: "2023"
+      host: midgard.bioinformatics-atgm.nl
+      users_name: "Mathijs Schouten & Sven Klomp"
+      groups: students
 
 # students on isengard
     - name: 2023MBI_06
