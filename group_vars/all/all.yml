@@ -150,10 +150,6 @@ researchers:
   groups: atgm-user,students,researcher,sudo,sequencing
   users_name: Laura Smolders
   host: isengard.bioinformatics-atgm.nl
-- name: Jasper
-  groups: atgm-user,students,researcher,sudo,sequencing
-  users_name: Jasper
-  host: midgard.bioinformatics-atgm.nl
 - name: Nishant
   groups: atgm-user,students,researcher
   users_name: Nishant Sewgobind
