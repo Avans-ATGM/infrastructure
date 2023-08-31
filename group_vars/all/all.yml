@@ -130,7 +130,7 @@ atgm_admins:
   users_name: Sander Boden
 - name: Maureen
   groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
-  users_name: Maureen Hummel   
+  users_name: Maureen Hummel     
 
 #Software
 software_users:
@@ -264,7 +264,7 @@ atgm_projects:
       groups: students
 #telegraf_archive
 monitor_ssh_directory:
- -  ssh_user: dlvrins1
+ -  ssh_user: bsanders1
     ssh_ip: archive.surfsara.nl
     directory: //home/gringott/
     encrypted_ssh_private_key: secret_SSH_key_archive
@@ -282,13 +282,13 @@ max_size_local: 1000 # in gb
 #backup system with non student prjects (backup locally and on surfsara archive)
 #also used as archiving
 backup_archive_addres_1: archive.surfsara.nl
-backup_archive_usr_1: dlvrins1
+backup_archive_usr_1: bsanders1
 back_up_archive_path_1: //home/gringott/backup
 max_size_archive: 10000 #in gb
 
 #archiving
 host_tree_server: isengard.bioinformatics-atgm.nl
-host_user: Dirowa
+host_user: Bazante
 mirror_key: secret_archive_mirror_key
 archive_key: secret_archive_ssh_key
 tree_location_on_host: //mnt/teacherfiles/Archive
