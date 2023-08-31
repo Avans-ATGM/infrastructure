@@ -142,14 +142,6 @@ software_users:
 
 #Researcher
 researchers:
-- name: Laura
-  groups: atgm-user,students,researcher,sudo,sequencing
-  users_name: Laura Smolders
-  host: asgard.bioinformatics-atgm.nl
-- name: Laura
-  groups: atgm-user,students,researcher,sudo,sequencing
-  users_name: Laura Smolders
-  host: isengard.bioinformatics-atgm.nl
 - name: Nishant
   groups: atgm-user,students,researcher
   users_name: Nishant Sewgobind
@@ -160,108 +152,11 @@ researchers:
 # Project Accounts
 atgm_projects:
 # interns asgard
-    - name: Mirthe
-      year: "2022"
-      host: asgard.bioinformatics-atgm.nl
-      groups: students,atgm-user
-      users_name: "Mirthe Raats 2022,Miaomiao"
-    - name: Rubiela
-      year: "2022"
-      host: asgard.bioinformatics-atgm.nl
-      groups: students,atgm-user
-      users_name: "Rubiela Rosalia 2022, Miaomiao"
-    - name: Gijs
-      year: "2022"
-      host: asgard.bioinformatics-atgm.nl
-      groups: students,atgm-user
-      users_name: "Gijs Van den Berg 2022,Nishant"
-    - name: Okan
-      year: "2022"
-      host: asgard.bioinformatics-atgm.nl
-      groups: students
-      users_name: "Okan Fakoglu 2022, eefje"
-    - name: Damian
-      year: "2023"
-      host: asgard.bioinformatics-atgm.nl
-      groups: students
-      users_name: "Damian 2023, Nishant"
-    - name: charlotte
-      year: "2023"
-      host: asgard.bioinformatics-atgm.nl
-      groups: students,atgm-user,researcher
-      users_name: "charlotte Bommelijn, Miaomiao"
-  #  #- name: Laura
-  #  #  year: "2021"
-  #  #  host: asgard.bioinformatics-atgm.nl
-  #  - name: Tim
-  #    year: "2022"
-  #    host: asgard.bioinformatics-atgm.nl
-  #    groups: students
 
 #students on midgard
 
-    - name: 2023MBI_01
-      year: "2023"
-      host: midgard.bioinformatics-atgm.nl
-      users_name: "Ycke Stockman & Daan Brackel"
-      groups: students
-    - name: 2023MBI_02
-      year: "2023"
-      host: midgard.bioinformatics-atgm.nl
-      users_name: "Isabelle Sewsahai & Jomi Leerssen"
-      groups: students
-    - name: 2023MBI_03
-      year: "2023"
-      host: midgard.bioinformatics-atgm.nl
-      users_name: "Lars Moret & Casper Blankenburg"
-      groups: students
-    - name: 2023MBI_04
-      year: "2023"
-      host: midgard.bioinformatics-atgm.nl
-      users_name: "Sergio Dries & Manon Cortooms"
-      groups: students
-    - name: 2023MBI_05
-      year: "2023"
-      host: midgard.bioinformatics-atgm.nl
-      users_name: "Justin Iking & Tim van der Wiel"
-      groups: students
-    - name: 2023MBI_11
-      year: "2023"
-      host: midgard.bioinformatics-atgm.nl
-      users_name: "Mathijs Schouten & Sven Klomp"
-      groups: students
-
 # students on isengard
-    - name: 2023MBI_06
-      year: "2023"
-      host: isengard.bioinformatics-atgm.nl
-      users_name: "Bigrit Rijvers & Jeanine Gastreich"
-      groups: students
-    - name: 2023MBI_07
-      year: "2023"
-      host: isengard.bioinformatics-atgm.nl
-      users_name: "Judith van der burg & Mirela Minkova"
-      groups: students
-    - name: 2023MBI_08
-      year: "2023"
-      host: isengard.bioinformatics-atgm.nl
-      users_name: "Gitte Lans & Dirk de laat"
-      groups: students
-    - name: 2023MBI_09
-      year: "2023"
-      host: isengard.bioinformatics-atgm.nl
-      users_name: "Luuk Janssen"
-      groups: students
-    - name: 2023MBI_10
-      year: "2023"
-      host: isengard.bioinformatics-atgm.nl
-      users_name: "Linneke Willems & Liuwei Su"
-      groups: students
-    - name: 2023MBI_11
-      year: "2023"
-      host: isengard.bioinformatics-atgm.nl
-      users_name: "Mathijs Schouten & Sven Klomp"
-      groups: students
+
 #telegraf_archive
 monitor_ssh_directory:
  -  ssh_user: bsanders1
@@ -302,12 +197,7 @@ projects:
   - path: //mnt/studentfiles/student_final_assignment_data
     host: midgard.bioinformatics-atgm.nl
     name_project: student_final_assignment_minor_bio_data
-  - path: //mnt/teacherfiles/researcher/Dirowa/Eefje
-    host: midgard.bioinformatics-atgm.nl
-    name_project: Donny_eefje
-  - path: //mnt/teacherfiles/researcher/Dirowa/Miaomiao
-    host: midgard.bioinformatics-atgm.nl
-    name_project: Donny_miaomiao
+
 
 
 # Chrony
