@@ -128,103 +128,103 @@ info "Size archives on {{ hostvars[ansible_nodename].backup_host}} $size_archive
 ##################################
 
 
-mkdir /home/{{backup_user}}/archive_mountpoint
-info "setting up sshfs connection!"
-sshfs -o  IdentityFile=/home/{{backup_user}}/.ssh/{{encrypted_ssh_private_key_archive}} {{backup_archive_usr_1}}@{{backup_archive_addres_1}}:{{back_up_archive_path_1}}/{{ ansible_nodename }} /home/{{backup_user}}/archive_mountpoint
-export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
+#mkdir /home/{{backup_user}}/archive_mountpoint
+#info "setting up sshfs connection!"
+#sshfs -o  IdentityFile=/home/{{backup_user}}/.ssh/{{encrypted_ssh_private_key_archive}} {{backup_archive_usr_1}}@{{backup_archive_addres_1}}:{{back_up_archive_path_1}}/{{ ansible_nodename }} /home/{{backup_user}}/archive_mountpoint
+#export BORG_REPO=/home/{{backup_user}}/archive_mountpoint
 
 
 # our non student project backing up method
-{% for project in projects %}
-    {% if project.host == ansible_nodename %}
+#{% for project in projects %}
+#    {% if project.host == ansible_nodename %}
+#
+#        #giving information which backup is generated
+#        info "Starting backup {{ project.path }} on archive"
+#
+#        # Backup the most important directories into an archive named after
+#        # the machine this script is currently running on:
+#
+#        borg create \
+#            --verbose                                         \
+#            --stats                                           \
+#            --show-rc                                         \
+#            --compression lz4                                 \
+#            --exclude-caches                                  \
+#            $BORG_REPO::project-{{ project.name_project }}-$(date "+%Y-%m-%dT%H-%M-%S") \
+#            {{ project.path }}
+#
+#        backup_exit=$?
+#
+#        info "Pruning repository of project-{{ project.name_project }} "
+#
+#        # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
+#        # archives of THIS machine. The '{hostname}-' prefix is very important to
+#        # limit prune's operation to this machine's archives and not apply to
+#        # other machines' archives also:
 
-        #giving information which backup is generated
-        info "Starting backup {{ project.path }} on archive"
+#       borg prune --list --prefix 'project-{{ project.name_project }}' --show-rc --keep-daily=1 --keep-weekly=1 --keep-monthly=3 $BORG_REPO  
 
-        # Backup the most important directories into an archive named after
-        # the machine this script is currently running on:
+#        prune_exit=$?
+#    {% endif %}
+#{% endfor %}    
 
-        borg create \
-            --verbose                                         \
-            --stats                                           \
-            --show-rc                                         \
-            --compression lz4                                 \
-            --exclude-caches                                  \
-            $BORG_REPO::project-{{ project.name_project }}-$(date "+%Y-%m-%dT%H-%M-%S") \
-            {{ project.path }}
+#{% for project in researchers %}
+ #   {% if project.host == ansible_nodename %}
+#
+#        #giving information which backup is generated
+#        info  "Starting backup {{ hostvars[ansible_nodename].teacher_directory }}/research/{{ project.name }} on archive"
 
-        backup_exit=$?
+#        # Backup the most important directories into an archive named after
+#        # the machine this script is currently running on:
 
-        info "Pruning repository of project-{{ project.name_project }} "
+#        borg create \
+#            --verbose                                         \
+#            --stats                                           \
+#            --show-rc                                         \
+#            --compression lz4                                 \
+#            --exclude-caches                                  \
+#            $BORG_REPO::Research_project-{{ project.name }}-$(date "+%Y-%m-%dT%H-%M-%S") \
+#            {{ hostvars[ansible_nodename].teacher_directory }}/research/{{ project.name }}/data_storage
 
-        # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
-        # archives of THIS machine. The '{hostname}-' prefix is very important to
-        # limit prune's operation to this machine's archives and not apply to
-        # other machines' archives also:
+#        backup_exit=$?
 
-        borg prune --list --prefix 'project-{{ project.name_project }}' --show-rc --keep-daily=1 --keep-weekly=1 --keep-monthly=3 $BORG_REPO  
+#        info "Pruning repository of research project-{{ project.name }} "
 
-        prune_exit=$?
-    {% endif %}
-{% endfor %}    
+#        # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
+#        # archives of THIS machine. The '{hostname}-' prefix is very important to
+#        # limit prune's operation to this machine's archives and not apply to
+#        # other machines' archives also:
 
-{% for project in researchers %}
-    {% if project.host == ansible_nodename %}
+#        borg prune --list --prefix 'Research_project-{{ project.name }}' --show-rc --keep-daily=1 --keep-weekly=1 --keep-monthly=3 $BORG_REPO  
 
-        #giving information which backup is generated
-        info  "Starting backup {{ hostvars[ansible_nodename].teacher_directory }}/research/{{ project.name }} on archive"
-
-        # Backup the most important directories into an archive named after
-        # the machine this script is currently running on:
-
-        borg create \
-            --verbose                                         \
-            --stats                                           \
-            --show-rc                                         \
-            --compression lz4                                 \
-            --exclude-caches                                  \
-            $BORG_REPO::Research_project-{{ project.name }}-$(date "+%Y-%m-%dT%H-%M-%S") \
-            {{ hostvars[ansible_nodename].teacher_directory }}/research/{{ project.name }}/data_storage
-
-        backup_exit=$?
-
-        info "Pruning repository of research project-{{ project.name }} "
-
-        # Use the `prune` subcommand to maintain 7 daily, 4 weekly and 6 monthly
-        # archives of THIS machine. The '{hostname}-' prefix is very important to
-        # limit prune's operation to this machine's archives and not apply to
-        # other machines' archives also:
-
-        borg prune --list --prefix 'Research_project-{{ project.name }}' --show-rc --keep-daily=1 --keep-weekly=1 --keep-monthly=3 $BORG_REPO  
-
-        prune_exit=$?
-    {% endif %}
-{% endfor %}    
+#        prune_exit=$?
+#    {% endif %}
+#{% endfor %}    
 
 #Find total number of Archives
-N_archives=$(borg list $BORG_REPO | wc -l)
-info "Number of Archives on {{ backup_archive_addres_1 }} \t $N_archives"
+#N_archives=$(borg list $BORG_REPO | wc -l)
+#info "Number of Archives on {{ backup_archive_addres_1 }} \t $N_archives"
 
 #get total size archives
-size_archive=$(borg info | grep "All archives")
-info "Size archives on {{ backup_archive_addres_1 }} $size_archive"
+#size_archive=$(borg info | grep "All archives")
+#info "Size archives on {{ backup_archive_addres_1 }} $size_archive"
 
-info "closing up sshfs connection!"
+#info "closing up sshfs connection!"
 
-fusermount -u /home/{{backup_user}}/archive_mountpoint
-rmdir /home/{{backup_user}}/archive_mountpoint
+#fusermount -u /home/{{backup_user}}/archive_mountpoint
+#rmdir /home/{{backup_user}}/archive_mountpoint
 
 
 # use highest exit code as global exit code
 
-global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
+#global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
 
-if [ ${global_exit} -eq 0 ]; then
-    info "Backup and Prune finished successfully"
-elif [ ${global_exit} -eq 1 ]; then
-    info "Backup and/or Prune finished with warnings"
-else
-    info "Backup and/or Prune finished with errors"
-fi
+#if [ ${global_exit} -eq 0 ]; then
+#    info "Backup and Prune finished successfully"
+#elif [ ${global_exit} -eq 1 ]; then
+#    info "Backup and/or Prune finished with warnings"
+#else
+#    info "Backup and/or Prune finished with errors"
+#fi
 
-exit ${global_exit}
+#exit ${global_exit}
