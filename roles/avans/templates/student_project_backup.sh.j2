@@ -217,14 +217,14 @@ info "Size archives on {{ hostvars[ansible_nodename].backup_host}} $size_archive
 
 # use highest exit code as global exit code
 
-#global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
+global_exit=$(( backup_exit > prune_exit ? backup_exit : prune_exit ))
 
-#if [ ${global_exit} -eq 0 ]; then
-#    info "Backup and Prune finished successfully"
-#elif [ ${global_exit} -eq 1 ]; then
-#    info "Backup and/or Prune finished with warnings"
-#else
-#    info "Backup and/or Prune finished with errors"
-#fi
+if [ ${global_exit} -eq 0 ]; then
+    info "Backup and Prune finished successfully"
+elif [ ${global_exit} -eq 1 ]; then
+    info "Backup and/or Prune finished with warnings"
+else
+    info "Backup and/or Prune finished with errors"
+fi
 
-#exit ${global_exit}
+exit ${global_exit}
