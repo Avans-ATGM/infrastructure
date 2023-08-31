@@ -130,7 +130,7 @@ atgm_admins:
   users_name: Sander Boden
 - name: Maureen
   groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
-  users_name: Maureen Hummel    
+  users_name: Maureen Hummel     
 
 #Software
 software_users:
