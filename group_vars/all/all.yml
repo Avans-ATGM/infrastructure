@@ -147,7 +147,7 @@ researchers:
   users_name: Nishant Sewgobind
   host: midgard.bioinformatics-atgm.nl
 - name: Birgit
-  groups: students, researcher, sudo
+  groups: students, researcher, sudo, atgm-user
   users_name: Birgit Rijvers
   host: asgard.bioinformatics-atgm.nl
 
