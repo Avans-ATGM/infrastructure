@@ -149,7 +149,7 @@ researchers:
 - name: Birgit
   groups: students, researcher, sudo
   users_name: Birgit Rijvers
-  host: erebor.bioinformatics-atgm.nl
+  host: asgard.bioinformatics-atgm.nl
 
 
 # Project Accounts
