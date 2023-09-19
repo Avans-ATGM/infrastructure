@@ -155,7 +155,10 @@ researchers:
 # Project Accounts
 atgm_projects:
 # interns asgard
-
+- name: Daan
+  groups: students
+  users_name: Daan van Nassauw
+  host: asgard.bioinformatics-atgm.nl
 #students on midgard
 
 # students on isengard
