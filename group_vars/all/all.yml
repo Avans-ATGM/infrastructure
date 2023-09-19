@@ -158,21 +158,25 @@ atgm_projects:
 - name: Daan
   groups: students
   users_name: Daan van Nassauw
+  year: 2023
   host: asgard.bioinformatics-atgm.nl
 #students on midgard
 - name: tmp
   groups: students
   users_name: placeholder
+  year: 2023
   host: midgard.bioinformatics-atgm.nl
 # students on isengard
 - name: tmp
   groups: students
   users_name: placeholder
+  year: 2023
   host: isengard.bioinformatics-atgm.nl
 # students on erebor
 - name: tmp
   groups: students
   users_name: placeholder
+  year: 2023
   host: erebor.bioinformatics-atgm.nl
 
 #telegraf_archive
