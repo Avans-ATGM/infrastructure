@@ -160,6 +160,11 @@ atgm_projects:
   users_name: Daan van Nassauw
   year: 2023
   host: asgard.bioinformatics-atgm.nl
+- name: Justin
+  groups: students
+  users_name: Justin Iking
+  year: 2023
+  host: asgard.bioinformatics-atgm.nl
 #students on midgard
 - name: tmp
   groups: students
