@@ -165,6 +165,16 @@ atgm_projects:
   users_name: Justin Iking
   year: 2023
   host: asgard.bioinformatics-atgm.nl
+- name: Yke
+  groups: students
+  users_name: Yke Stockman
+  year: 2023
+  host: asgard.bioinformatics-atgm.nl
+- name: Bart
+  groups: students
+  users_name: Bart van den Hout
+  year: 2023
+  host: asgard.bioinformatics-atgm.nl
 #students on midgard
 - name: tmp
   groups: students
