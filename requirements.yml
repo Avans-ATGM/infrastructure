@@ -33,7 +33,7 @@
 - src: geerlingguy.java
   version: 1.10.0
 - src: geerlingguy.jenkins
-  version: 4.3.0
+  version: 5.0.1
 - src: dj-wasabi.telegraf
   version: 0.13.1
 - src: influxdata.chrony
