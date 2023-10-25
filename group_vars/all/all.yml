@@ -91,7 +91,7 @@ nginx_servers:
 
 openssl_domains:
 - "{{ hostname | default(inventory_hostname) }}"
-openssl_email_address: "es.rasche@avans.nl"
+openssl_email_address: "s.boden1@avans.nl"
 openssl_country_name: "NL"
 openssl_locality_name: "Tilburg"
 openssl_organization_name: "Avans hogeschool"
@@ -113,9 +113,6 @@ atgm_groups:
 
 #admins
 atgm_admins:
-#- name: hexylena
-#  groups: sudo,atgm-user, teacher, students,researcher,sequencing
-#  users_name: Helena
 - name: atgm-user
   groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
   users_name: atgm-user

@@ -19,9 +19,9 @@ openssl_self_sign: false
 
 docker_install_compose: false
 docker_users:
-  - hexylena
+  - Bazante
   - telegraf
-  - Dirowa
+  - Sander
   
 #The great code off
 tgco_hosts_allowed: ["Cocalc.atgm.avans.nl"]

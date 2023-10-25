@@ -367,7 +367,8 @@ nfs_exports:
 docker_install_compose: false
 docker_users:
   - "{{ galaxy_user.name }}"
-  - hexylena
+  - Sander
+  - Bazante
   - telegraf
 
 
