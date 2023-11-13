@@ -129,7 +129,7 @@ atgm_admins:
   groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
   users_name: Maureen Hummel
 - name: Mirthe
-  groups: teacher, students, researcher, sequencing
+  groups: teacher, students, researcher, sequencing, atgm-user
   users_name: Mirthe Raats
 
 # Software
