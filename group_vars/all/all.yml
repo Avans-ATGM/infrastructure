@@ -140,13 +140,17 @@ software_users:
 #Researcher
 researchers:
 - name: Nishant
-  groups: atgm-user,students,researcher
+  groups: students,researcher
   users_name: Nishant Sewgobind
   host: midgard.bioinformatics-atgm.nl
 - name: Birgit
-  groups: students, researcher, sudo, atgm-user
+  groups: students, researcher, sudo
   users_name: Birgit Rijvers
   host: asgard.bioinformatics-atgm.nl
+- name: Mirthe
+  groups: researcher, sudo, sequencing
+  users_name: Mirthe Raats
+  host: isengard.bioinformatics-atgm.nl, erebor.bioinformatics-atgm.nl, midgard.bioinformatics-atgm.nl
 
 
 # Project Accounts
