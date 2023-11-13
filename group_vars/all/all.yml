@@ -111,7 +111,7 @@ atgm_groups:
 - name: sequencing
 - name: researcher
 
-#admins
+# admins
 atgm_admins:
 - name: atgm-user
   groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
@@ -127,9 +127,12 @@ atgm_admins:
   users_name: Sander Boden
 - name: Maureen
   groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
-  users_name: Maureen Hummel     
+  users_name: Maureen Hummel
+- name: Mirthe
+  groups: teacher, students, researcher, sequencing
+  users_name: Mirthe Raats
 
-#Software
+# Software
 software_users:
 - name: telegraf
   groups: atgm-user, teacher, students, researcher, sequencing, adm, Borg_backup
@@ -137,7 +140,7 @@ software_users:
 
 
 
-#Researcher
+# Researcher
 researchers:
 - name: Nishant
   groups: students,researcher
@@ -147,10 +150,6 @@ researchers:
   groups: students, researcher, sudo
   users_name: Birgit Rijvers
   host: asgard.bioinformatics-atgm.nl
-- name: Mirthe
-  groups: researcher, sudo, sequencing
-  users_name: Mirthe Raats
-  host: isengard.bioinformatics-atgm.nl, erebor.bioinformatics-atgm.nl, midgard.bioinformatics-atgm.nl
 
 
 # Project Accounts
