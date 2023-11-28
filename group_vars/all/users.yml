@@ -1,0 +1,90 @@
+# Groups & Users
+atgm_groups:
+- name: students
+- name: atgm-user
+- name: teacher
+- name: sequencing
+- name: researcher
+
+# admins
+atgm_admins:
+- name: atgm-user
+  groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
+  users_name: atgm-user
+- name: Bazante
+  groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
+  users_name: Bazante
+- name: Miaomiao
+  groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
+  users_name: Miaomiao
+- name: Sander
+  groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
+  users_name: Sander Boden
+- name: Maureen
+  groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
+  users_name: Maureen Hummel
+- name: Mirthe
+  groups: teacher, students, researcher, sequencing, atgm-user
+  users_name: Mirthe Raats
+
+# Software
+software_users:
+- name: telegraf
+  groups: atgm-user, teacher, students, researcher, sequencing, adm, Borg_backup
+  users_name: telegraf
+
+
+
+# Researcher
+researchers:
+- name: Nishant
+  groups: students,researcher
+  users_name: Nishant Sewgobind
+  host: midgard.bioinformatics-atgm.nl
+- name: Birgit
+  groups: students, researcher, sudo
+  users_name: Birgit Rijvers
+  host: asgard.bioinformatics-atgm.nl
+
+
+# Project Accounts
+atgm_projects:
+# interns asgard
+- name: Daan
+  groups: students
+  users_name: Daan van Nassauw
+  year: 2023
+  host: asgard.bioinformatics-atgm.nl
+- name: Justin
+  groups: students
+  users_name: Justin Iking
+  year: 2023
+  host: asgard.bioinformatics-atgm.nl
+- name: Yke
+  groups: students
+  users_name: Yke Stockman
+  year: 2023
+  host: asgard.bioinformatics-atgm.nl
+- name: Bart
+  groups: students
+  users_name: Bart van den Hout
+  year: 2023
+  host: asgard.bioinformatics-atgm.nl
+#students on midgard
+- name: tmp
+  groups: students
+  users_name: placeholder
+  year: 2023
+  host: midgard.bioinformatics-atgm.nl
+# students on isengard
+- name: tmp
+  groups: students
+  users_name: placeholder
+  year: 2023
+  host: isengard.bioinformatics-atgm.nl
+# students on erebor
+- name: tmp
+  groups: students
+  users_name: placeholder
+  year: 2023
+  host: erebor.bioinformatics-atgm.nl
