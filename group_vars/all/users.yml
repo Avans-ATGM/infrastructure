@@ -34,7 +34,6 @@ software_users:
   users_name: telegraf
 
 
-
 # Researcher
 researchers:
 - name: Nishant
@@ -68,6 +67,11 @@ atgm_projects:
 - name: Bart
   groups: students
   users_name: Bart van den Hout
+  year: 2023
+  host: asgard.bioinformatics-atgm.nl
+- name: testuser
+  groups: students
+  users_name: test student
   year: 2023
   host: asgard.bioinformatics-atgm.nl
 #students on midgard
