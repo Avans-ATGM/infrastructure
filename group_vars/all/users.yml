@@ -87,8 +87,8 @@ atgm_projects:
   year: 2023
   host: isengard.bioinformatics-atgm.nl
 # students on erebor
-- name: tmp
-  groups: students
-  users_name: placeholder
+- name: Katrin
+  groups: students, docker
+  users_name: Katrin Amtmann
   year: 2023
   host: erebor.bioinformatics-atgm.nl
