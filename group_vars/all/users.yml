@@ -59,6 +59,11 @@ atgm_projects:
   users_name: Justin Iking
   year: 2023
   host: asgard.bioinformatics-atgm.nl
+- name: Joycelle
+  groups: students, docker
+  users_name: Joycelle belg
+  year: 2023
+  host: asgard.bioinformatics-atgm.nl
 - name: Yke
   groups: students
   users_name: Yke Stockman
