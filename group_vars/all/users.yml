@@ -97,3 +97,7 @@ atgm_projects:
   users_name: Katrin Amtmann
   year: 2023
   host: erebor.bioinformatics-atgm.nl
+- name: Chenay
+  groups: students, docker
+  users_name: Chenay Waldekker
+  host: erebor.bioinformatics-atgm.nl
