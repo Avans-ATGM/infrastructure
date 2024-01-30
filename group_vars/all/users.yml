@@ -101,3 +101,4 @@ atgm_projects:
   groups: students, docker
   users_name: Chenay Waldekker
   host: erebor.bioinformatics-atgm.nl
+  year: 2023
