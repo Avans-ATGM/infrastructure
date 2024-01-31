@@ -40,10 +40,6 @@ researchers:
   groups: students,researcher
   users_name: Nishant Sewgobind
   host: midgard.bioinformatics-atgm.nl
-- name: Birgit
-  groups: students, researcher, sudo
-  users_name: Birgit Rijvers
-  host: asgard.bioinformatics-atgm.nl
 
 
 # Project Accounts
@@ -54,16 +50,6 @@ atgm_projects:
   users_name: Daan van Nassauw
   year: 2023
   host: asgard.bioinformatics-atgm.nl
-- name: Justin
-  groups: students
-  users_name: Justin Iking
-  year: 2023
-  host: asgard.bioinformatics-atgm.nl
-- name: Joycelle
-  groups: students, docker
-  users_name: Joycelle belg
-  year: 2023
-  host: asgard.bioinformatics-atgm.nl
 - name: Yke
   groups: students
   users_name: Yke Stockman
@@ -72,11 +58,6 @@ atgm_projects:
 - name: Bart
   groups: students
   users_name: Bart van den Hout
-  year: 2023
-  host: asgard.bioinformatics-atgm.nl
-- name: testuser
-  groups: students
-  users_name: test student
   year: 2023
   host: asgard.bioinformatics-atgm.nl
 #students on midgard
