@@ -45,19 +45,9 @@ researchers:
 # Project Accounts
 atgm_projects:
 # interns asgard
-- name: Daan
-  groups: students
-  users_name: Daan van Nassauw
-  year: 2023
-  host: asgard.bioinformatics-atgm.nl
 - name: Yke
   groups: students
   users_name: Yke Stockman
-  year: 2023
-  host: asgard.bioinformatics-atgm.nl
-- name: Bart
-  groups: students
-  users_name: Bart van den Hout
   year: 2023
   host: asgard.bioinformatics-atgm.nl
 - name: Jeanine
@@ -127,6 +117,7 @@ atgm_projects:
   users_name: Brandon & Sineka
   year: 2024
   host: isengard.bioinformatics-atgm.nl
+
 # students on erebor
 - name: Katrin
   groups: students, docker
@@ -138,3 +129,8 @@ atgm_projects:
   users_name: Chenay Waldekker
   host: erebor.bioinformatics-atgm.nl
   year: 2023
+- name: Daan
+  groups: students, docker
+  users_name: Daan Brackel
+  year: 2024
+  host: erebor.bioinformatics-atgm.nl
