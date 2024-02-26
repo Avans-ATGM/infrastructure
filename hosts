@@ -34,6 +34,7 @@ erebor.bioinformatics-atgm.nl ansible_user=atgm-user
 
 [student_projects]
 isengard.bioinformatics-atgm.nl ansible_user=atgm-user
+midgard.bioinformatics-atgm.nl ansible_user=atgm-user
 
 [automation]
 galaxy.atgm.avans.nl ansible_user=atgm-user
