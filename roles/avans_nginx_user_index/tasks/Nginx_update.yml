@@ -25,13 +25,10 @@
     groups: shadow
     append: yes
 
-- name: add conf to nginx
-  copy:
-    force: no
-    group: "root"
-    owner: "root"
-    mode: '0644'
-    dest: "/etc/pam.d/nginx"
-    content: |
-auth       include      common-auth
-account    include      common-account
+- name: copy nginx conf
+  ansible.builtin.copy:
+      group: "root"
+      owner: "root"
+      mode: "0644"
+      dest: "/etc/pam.d/nginx"
+      src: "nginx"
