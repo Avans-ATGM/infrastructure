@@ -91,6 +91,11 @@ atgm_projects:
   users_name: Sacha & Ahmet
   year: 2024
   host: midgard.bioinformatics-atgm.nl
+- name: Luuk
+  groups: students
+  users_name: Luuk janssen
+  year: 2024
+  host: midgard.bioinformatics-atgm.nl
 # students on isengard
 - name: 2024MBI07
   groups: students
