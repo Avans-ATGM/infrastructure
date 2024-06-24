@@ -124,10 +124,10 @@ atgm_projects:
   host: isengard.bioinformatics-atgm.nl
 
 # students on erebor
-- name: Katrin
+- name: Max
   groups: students, docker
-  users_name: Katrin Amtmann
-  year: 2023
+  users_name: Max van Gils
+  year: 2024
   host: erebor.bioinformatics-atgm.nl
 - name: Chenay
   groups: students, docker
