@@ -26,6 +26,10 @@ atgm_admins:
 - name: Mirthe
   groups: teacher, students, researcher, sequencing, atgm-user
   users_name: Mirthe Raats
+- name: Tim
+  groups: sudo,atgm-user, teacher, students, researcher, sequencing, adm
+  users_name: Tim Verschuren
+
 
 # Software
 software_users:
