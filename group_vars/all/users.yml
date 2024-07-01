@@ -49,82 +49,23 @@ researchers:
 # Project Accounts
 atgm_projects:
 # interns asgard
-- name: Yke
-  groups: students
-  users_name: Yke Stockman
-  year: 2023
-  host: asgard.bioinformatics-atgm.nl
-- name: Jeanine
-  groups: students
-  users_name: Jeanine Gastreich
-  year: 2024
-  host: asgard.bioinformatics-atgm.nl
 - name: Lonneke
   groups: students
   users_name: Lonneke Willems
   year: 2024
   host: asgard.bioinformatics-atgm.nl
 #students on midgard
-- name: 2024MBI01
+- name: tmp
   groups: students
-  users_name: Maria Elena & Kaya
-  year: 2024
+  users_name: tmp
+  year: 2025
   host: midgard.bioinformatics-atgm.nl
-- name: 2024MBI02
-  groups: students
-  users_name: Yuri & Elif
-  year: 2024
-  host: midgard.bioinformatics-atgm.nl
-- name: 2024MBI03
-  groups: students
-  users_name: Milan & Michel
-  year: 2024
-  host: midgard.bioinformatics-atgm.nl
-- name: 2024MBI04
-  groups: students
-  users_name: Julia & Jens
-  year: 2024
-  host: midgard.bioinformatics-atgm.nl
-- name: 2024MBI05
-  groups: students
-  users_name: Max & Finn
-  year: 2024
-  host: midgard.bioinformatics-atgm.nl
-- name: 2024MBI06
-  groups: students
-  users_name: Sacha & Ahmet
-  year: 2024
-  host: midgard.bioinformatics-atgm.nl
-- name: Luuk
-  groups: students
-  users_name: Luuk janssen
-  year: 2024
-  host: midgard.bioinformatics-atgm.nl
+
 # students on isengard
-- name: 2024MBI07
+- name: tmp
   groups: students
-  users_name: Esmee & Cas
-  year: 2024
-  host: isengard.bioinformatics-atgm.nl
-- name: 2024MBI08
-  groups: students
-  users_name: Aron & Chris
-  year: 2024
-  host: isengard.bioinformatics-atgm.nl
-- name: 2024MBI10
-  groups: students
-  users_name: Tijn & Wesley
-  year: 2024
-  host: isengard.bioinformatics-atgm.nl
-- name: 2024MBI11
-  groups: students
-  users_name: Max & Eefje
-  year: 2024
-  host: isengard.bioinformatics-atgm.nl
-- name: 2024MBI12
-  groups: students
-  users_name: Brandon & Sineka
-  year: 2024
+  users_name: tmp
+  year: 2025
   host: isengard.bioinformatics-atgm.nl
 
 # students on erebor
@@ -138,8 +79,3 @@ atgm_projects:
   users_name: Chenay Waldekker
   host: erebor.bioinformatics-atgm.nl
   year: 2023
-- name: Daan
-  groups: students, docker
-  users_name: Daan Brackel
-  year: 2024
-  host: erebor.bioinformatics-atgm.nl
