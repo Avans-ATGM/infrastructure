@@ -54,6 +54,16 @@ atgm_projects:
   users_name: Lonneke Willems
   year: 2024
   host: asgard.bioinformatics-atgm.nl
+- name: Wesley
+  groups: students
+  users_name: Wesley Meijer
+  year: 2025
+  host: asgard.bioinformatics-atgm.nl
+- name: Martijn
+  groups: students
+  users_name: Martijn Prevoo
+  year: 2025
+  host: asgard.bioinformatics-atgm.nl
 #students on midgard
 - name: tmp
   groups: students
